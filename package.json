@@ -3,7 +3,7 @@
   "displayName": "CrudOnArray",
   "publisher": "KeshavSoft",
   "description": "KeshavSoft Extension to enhance the development of web applications",
-  "version": "0.1.1",
+  "version": "0.2.2",
   "engines": {
     "vscode": "^1.96.0"
   },
@@ -27,8 +27,8 @@
         "title": "KS Append OnlyBackEnd"
       },
       {
-        "command": "KS.Append.FrontAndBack",
-        "title": "KS Append FrontAndBack"
+        "command": "Generate.FrontAndBack",
+        "title": "Generate FrontAndBack"
       }
     ],
     "menus": {

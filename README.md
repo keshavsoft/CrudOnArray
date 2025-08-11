@@ -42,6 +42,10 @@ write end points in nodejs
 
 - Initial release of the Sample Extension.
 
+### 0.1.2
+
+- Generate.FrontAndBack working good.
+
 ## License
 
 MIT
