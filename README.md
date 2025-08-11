@@ -46,6 +46,10 @@ write end points in nodejs
 
 - Generate.FrontAndBack working good.
 
+### 0.2.3
+
+- package.json altered no errors to package
+
 ## License
 
 MIT
