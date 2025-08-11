@@ -1,0 +1,119 @@
+{
+  "name": "KEBackNodeJs",
+  "displayName": "KEBackNodeJs",
+  "publisher": "KeshavSoft",
+  "description": "KeshavSoft Extension to enhance the development of web applications",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.96.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.Path",
+        "title": "Get the current Extension Path"
+      },
+      {
+        "command": "NodeJs.EndPoints.NewEndPoint.Create",
+        "title": "NodeJs EndPoints NewEndPoint Create"
+      },
+      {
+        "command": "NodeJs.EndPoints.NewEndPoint.Check",
+        "title": "NodeJs EndPoints NewEndPoint Check"
+      },
+      {
+        "command": "NodeJs.Task.NewTask.Create",
+        "title": "NodeJs Task NewTask Create"
+      },
+      {
+        "command": "NodeJs.Task.GroupByColumn",
+        "title": "NodeJs Task GroupByColumn"
+      },
+      {
+        "command": "NodeJs.Task.NewTask.ShowGet.AsArray",
+        "title": "NodeJs Task NewTask ShowGet AsArray"
+      },
+      {
+        "command": "NodeJs.Task.NewTask.ShowGet.AsArrayAndRest",
+        "title": "NodeJs Task NewTask ShowGet AsArrayAndRest"
+      },
+      {
+        "command": "NodeJs.NewTask.AlterPut",
+        "title": "NodeJs Task NewTask AlterPut"
+      },
+      {
+        "command": "NodeJs.Task.NewTask.AggrFuncsGet",
+        "title": "NodeJs Task NewTask AggrFuncsGet"
+      },
+      {
+        "command": "NodeJs.EndPoints.NewEndPoint.CreateNoSync",
+        "title": "NodeJs EndPoints NewEndPoint CreateNoSync"
+      },
+      {
+        "command": "NodeJs.EndPoints.NewEndPoint.Post.CreateNoSync",
+        "title": "NodeJs EndPoints NewEndPoint Post CreateNoSync"
+      },
+      {
+        "command": "NodeJs.EndPoints.NewEndPoint.Get.CreateNoSync",
+        "title": "NodeJs EndPoints NewEndPoint Get CreateNoSync"
+      },
+      {
+        "command": "NodeJs.EndPoints.NewEndPoint.Get.CreateAsync",
+        "title": "NodeJs EndPoints NewEndPoint Get CreateAsync"
+      },
+      {
+        "command": "NodeJs.Task.NewTask.SelectedColumns",
+        "title": "NodeJs Task NewTask SelectedColumns"
+      },
+      {
+        "command": "NodeJs.Task.NewTask.BulkPost.WithChecking",
+        "title": "NodeJs Task NewTask BulkPost WithChecking"
+      },
+      {
+        "command": "NodeJs.Task.NewTask.BulkPost.AsIs",
+        "title": "NodeJs Task NewTask BulkPost AsIs"
+      },
+      {
+        "command": "NodeJs.SubRoute.CreateNew",
+        "title": "NodeJs SubRoute CreateNew"
+      },
+      {
+        "command": "NodeJs.Task.NewTask.Upload.ImageAndMail",
+        "title": "NodeJs Task NewTask Upload ImageAndMail"
+      },
+      {
+        "command": "KChakri",
+        "title": "KChakri"
+      },
+      {
+        "command": "KCharan",
+        "title": "KCharan"
+      }
+    ],
+    "menus": {
+      "explorer/context": []
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.96.0",
+    "@vscode/test-cli": "^0.0.4",
+    "@vscode/test-electron": "^2.3.8",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "fs-extra": "^11.3.0"
+  }
+}
