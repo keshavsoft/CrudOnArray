@@ -43,6 +43,10 @@ write end points in nodejs
 
 - package.json altered no errors to package
 
+### 0.2.4
+
+- data being posted good
+
 ## License
 
 MIT

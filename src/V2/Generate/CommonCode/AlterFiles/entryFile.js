@@ -25,7 +25,7 @@ const StartFunc = async ({ inEditorPath, inTableName, inDataPath, inPortNumber, 
         inColumnsAsArray
     });
 
-    await StartFuncFromCreateDataFile({ inTableName, inData });
+    // await StartFuncFromCreateDataFile({ inTableName, inData });
 
     await StartFuncFromForGetColumnsAsArray({ inEditorPath, inTableName, inPortNumber, inVersion });
 
