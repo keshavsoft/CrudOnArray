@@ -7,7 +7,7 @@ write end points in nodejs
 
 ## Usage
 
-- ArrayFrontEndBackEnd
+- Array (FrontEndBackEnd)
 
 1. Open an Empty Folder.
 2. Open the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`).
@@ -16,6 +16,33 @@ write end points in nodejs
 5. All the Folders and Files are copied to your empty Folder.
 6. .env file the place where you define ( Data Path and Port Number ).
 7. app.js is entry file.
+
+- Array (OnlyBackEnd)
+
+1. Open an Empty Folder.
+2. Open the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`).
+3. Search for and run (`Generate OnlyBackEnd`).
+4. Find the available options there ( like `Generate`).
+5. All the Folders and Files are copied to your empty Folder.
+6. .env file the place where you define ( Data Path and Port Number ).
+7. app.js is entry file.
+
+
+## project-root/ 
+
+├── app.js 
+├── .env 
+├── V1/ 
+│ └── yourRoutes.js 
+├──SV1/
+│ └── yoursecureRoutes.js 
+├── Token/ 
+├── Schemas/ 
+│ └── yourSchmea.json
+├── Data/ 
+| └── db.json
+├──schema.json
+└── public
 
 ## Requirements
 

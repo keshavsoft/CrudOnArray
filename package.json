@@ -28,8 +28,8 @@
         "title": "KS Append WithSubTable"
       },
       {
-        "command": "KS.Append.OnlyBackEnd",
-        "title": "KS Append OnlyBackEnd"
+        "command": "Generate.OnlyBackEnd",
+        "title": "Generate OnlyBackEnd"
       },
       {
         "command": "Generate.FrontAndBack",

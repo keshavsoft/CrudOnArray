@@ -1,6 +1,6 @@
 const vscode = require('vscode');
 
-const CommonRegisterCommand = "KS.Append.OnlyBackEnd";
+const CommonRegisterCommand = "Generate.OnlyBackEnd";
 
 const { StartFunc: StartFuncFromForMaxVersion } = require("./ForMaxVersion/entryFile");
 
