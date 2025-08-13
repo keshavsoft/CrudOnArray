@@ -13,7 +13,8 @@ const { StartFunc: StartFuncFromFirstCopy } = require("./FirstCopy/entryFile");
 const { StartFunc: StartFuncFromGetMaxVersion } = require("./getMaxVersion");
 const { StartFunc: StartFuncrunNodeApp } = require("./ServerRun");
 
-const { updateServerFile: updateServerFileFromAppFile } = require("./AppFile/entryFile");
+// const { updateServerFile: updateServerFileFromAppFile } = require("./AppFile/entryFile");
+const { updateServerFile: updateServerFileFromAppFile } = require("../CommonCode/AppFile/entryFile");
 
 // pull the columns schema from the json file referred from schema.json
 
