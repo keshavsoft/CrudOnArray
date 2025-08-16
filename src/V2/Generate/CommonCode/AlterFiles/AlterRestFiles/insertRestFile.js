@@ -48,6 +48,10 @@ async function StartFunc({ inFolderPath, inPortNumber, inColumnsAsArray }) {
                     LocalLines.push('');
                     LocalLines.push(JSON.stringify(["sample1", "sample2"], null, 2));
                     break;
+                case "OnlyDefault":
+                    LocalLines.push(`POST ${fullUrl}`);
+                    LocalLines.push(`Content-Type: application/json`);
+                    break;
                 default:
                     LocalLines.push(`POST ${fullUrl}`);
                     LocalLines.push("Content-Type: application/json");
