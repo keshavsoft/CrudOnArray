@@ -42,6 +42,12 @@ async function StartFunc({ inFolderPath, inPortNumber, inColumnsAsArray }) {
                     let LocalArray = [resultObject];
                     LocalLines.push(JSON.stringify(LocalArray, null, 2));
                     break;
+                case "Default":
+                    LocalLines.push(`POST ${fullUrl}`);
+                    LocalLines.push(`Content-Type: application/json`);
+                    LocalLines.push('');
+                    LocalLines.push(JSON.stringify(["sample1", "sample2"], null, 2));
+                    break;
                 default:
                     LocalLines.push(`POST ${fullUrl}`);
                     LocalLines.push("Content-Type: application/json");
