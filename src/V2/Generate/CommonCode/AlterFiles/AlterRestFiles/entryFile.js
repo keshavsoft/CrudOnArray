@@ -10,6 +10,7 @@ const { StartFunc: StartFuncFromSubAlterRestFile } = require("./SubAlterRestFile
 const { StartFunc: StartFuncFromSubDeleteRestFile } = require("./SubDeleteRestFile");
 const { StartFunc: StartFuncFromGroupByRestFile } = require("./GroupByRestFile");
 const { StartFunc: StartFuncFromFilterRestClient } = require("./FilterRestClient");
+const { StartFunc: StartFuncFromAddWithDefaultRestClient } = require("./AddWithDefault.js");
 
 const CommonReadSchemaFolderName = "ReadSchema";
 const CommonSubTableFunctions = "SubTable";
@@ -91,6 +92,12 @@ async function StartFunc({ inEditorPath, inTableName, inPortNumber, inVersion, i
 
     await StartFuncFromFilterRestClient({
         inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/Filter`,
+        inTableName, inPortNumber,
+        inColumnsAsArray
+    });
+    
+    await StartFuncFromAddWithDefaultRestClient({
+        inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/AddWithDefault`,
         inTableName, inPortNumber,
         inColumnsAsArray
     });
