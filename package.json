@@ -3,7 +3,7 @@
   "displayName": "CrudOnArray",
   "publisher": "KeshavSoft",
   "description": "KeshavSoft Extension to enhance the development of web applications",
-  "version": "0.2.4",
+  "version": "0.3.2",
   "engines": {
     "vscode": "^1.96.0"
   },
@@ -34,6 +34,14 @@
       {
         "command": "Generate.FrontAndBack",
         "title": "Generate FrontAndBack"
+      },
+      {
+        "command": "Generate.FrontAndBackWithGulp",
+        "title": "Generate FrontAndBackWithGulp"
+      },
+      {
+        "command": "Generate.OnlyFrontEnd",
+        "title": "Generate OnlyFrontEnd"
       }
     ],
     "menus": {

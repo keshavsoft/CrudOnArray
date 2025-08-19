@@ -74,6 +74,10 @@ write end points in nodejs
 
 - data being posted good
 
+### 0.3.2
+
+- OnlyFrontEnd working good
+
 ## License
 
 MIT
