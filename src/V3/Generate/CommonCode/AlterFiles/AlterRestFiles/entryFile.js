@@ -96,7 +96,7 @@ async function StartFunc({ inEditorPath, inTableName, inPortNumber, inVersion, i
         inColumnsAsArray
     });
     
-    await StartFuncFromAddWithDefaultRestClient({
+     await StartFuncFromAddWithDefaultRestClient({
         inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/AddWithDefault`,
         inTableName, inPortNumber,
         inColumnsAsArray
