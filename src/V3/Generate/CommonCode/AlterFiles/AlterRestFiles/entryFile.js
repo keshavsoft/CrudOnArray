@@ -10,10 +10,16 @@ const { StartFunc: StartFuncFromSubAlterRestFile } = require("./SubAlterRestFile
 const { StartFunc: StartFuncFromSubDeleteRestFile } = require("./SubDeleteRestFile");
 const { StartFunc: StartFuncFromGroupByRestFile } = require("./GroupByRestFile");
 const { StartFunc: StartFuncFromFilterRestClient } = require("./FilterRestClient");
-const { StartFunc: StartFuncFromAddWithDefaultRestClient } = require("./AddWithDefault.js");
+const { StartFunc: StartFuncFromAddWithDefaultRestClient } = require("./AddWithDefault");
+const { StartFunc: StartFuncFromSubOnArrayReadRestFileRestClient } = require("./SubOnArrayReadRestFile");
+const { StartFunc: StartFuncFromSubOnArrayInsertRestFileRestClient } = require("./SubOnArrayInsertRestFile");
+const { StartFunc: StartFuncFromSubOnArrayAlterRestFileRestClient } = require("./SubOnArrayAlterRestFile");
+const { StartFunc: StartFuncFromSubOnArrayDeleteRestFileRestClient } = require("./SubOnArrayDeleteRestFile");
+
 
 const CommonReadSchemaFolderName = "ReadSchema";
 const CommonSubTableFunctions = "SubTable";
+const CommonSubTableOnArrayFunctions = "SubTableOnArray";
 const CommonValidateFunctions = "Validate";
 
 async function StartFunc({ inEditorPath, inTableName, inPortNumber, inVersion, inColumnsAsArray }) {
@@ -95,12 +101,37 @@ async function StartFunc({ inEditorPath, inTableName, inPortNumber, inVersion, i
         inTableName, inPortNumber,
         inColumnsAsArray
     });
-    
-     await StartFuncFromAddWithDefaultRestClient({
+
+    await StartFuncFromAddWithDefaultRestClient({
         inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/AddWithDefault`,
         inTableName, inPortNumber,
         inColumnsAsArray
     });
+
+    await StartFuncFromSubOnArrayReadRestFileRestClient({
+        inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonSubTableOnArrayFunctions}/Read`,
+        inTableName, inPortNumber,
+        inColumnsAsArray
+    });
+
+    await StartFuncFromSubOnArrayInsertRestFileRestClient({
+        inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonSubTableOnArrayFunctions}/Insert`,
+        inTableName, inPortNumber,
+        inColumnsAsArray
+    });
+
+    await StartFuncFromSubOnArrayAlterRestFileRestClient({
+        inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonSubTableOnArrayFunctions}/Alter`,
+        inTableName, inPortNumber,
+        inColumnsAsArray
+    });
+
+    await StartFuncFromSubOnArrayDeleteRestFileRestClient({
+        inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonSubTableOnArrayFunctions}/Delete`,
+        inTableName, inPortNumber,
+        inColumnsAsArray
+    });
+
 
 };
 
