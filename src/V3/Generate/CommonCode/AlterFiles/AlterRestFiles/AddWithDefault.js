@@ -47,6 +47,13 @@ async function StartFunc({ inFolderPath, inPortNumber, inColumnsAsArray }) {
                     LocalLines.push(`{ "ColumnName": "Value" }`);
                     break;
 
+                case "InsertFromBody":
+                    LocalLines.push(`POST ${fullUrl}`);
+                    LocalLines.push(`Content-Type: application/json`);
+                    LocalLines.push('');
+                    LocalLines.push(`{ "Key": "","Value":"" }`);
+                    break;
+
                 default:
                     LocalLines.push(`POST ${fullUrl}`);
                     LocalLines.push("Content-Type: application/json");
