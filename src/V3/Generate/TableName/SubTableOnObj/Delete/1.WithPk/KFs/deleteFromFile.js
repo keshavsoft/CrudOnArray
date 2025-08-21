@@ -22,20 +22,17 @@ const StartFunc = ({ inKey, inRowPk, inKeyName }) => {
       return LocalReturnObject;
     };
 
-    if (!Array.isArray(LocalData[indexToFind][inKeyName])) {
-      LocalReturnObject.KReason = `${inKeyName} Key Not SubTable`;
+    if (Array.isArray(LocalData[indexToFind][inKeyName])) {
+      LocalReturnObject.KReason = `${inKeyName} Key Not Obj SubTable`;
       return LocalReturnObject;
     };
 
-    const LocalFindIndex = LocalData[indexToFind][inKeyName].findIndex((e) => e.pk === Number(inKey));
+    if (!(inKey in LocalData[indexToFind][inKeyName])) {
+      LocalReturnObject.KReason = `${inKey} Key Not found !`;
+      return LocalReturnObject;
+    };
 
-    LocalData[indexToFind][inKeyName].splice(LocalFindIndex, 1);
-
-    LocalData[indexToFind][inKeyName] = LocalData[indexToFind][inKeyName].map(item =>
-      Object.fromEntries(
-        Object.entries(item).filter(([key, value]) => value !== null)
-      )
-    );
+    delete LocalData[indexToFind][inKeyName][inKey];
 
     let LocalUpdate = StartFuncfileWrite({ inData: LocalData });
 

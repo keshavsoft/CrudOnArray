@@ -18,17 +18,17 @@ const StartFunc = ({ inRowIndex, inKeyName, inRequestBody }) => {
     if (fs.existsSync(filePath)) {
       const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
       let LocalRow = data.find(element => element.pk == LocalRowIndex);
-     
+
       if (!LocalRow) {
         LocalReturnObject.KReason = `No Row Data ${LocalRowIndex}.`
         return LocalReturnObject;
       };
-      
-      if (!Array.isArray(LocalRow[LocalKeyName])) {
-        LocalReturnObject.KReason = `${LocalKeyName} Key Not SubTable`;
+
+      if (Array.isArray(LocalRow[LocalKeyName])) {
+        LocalReturnObject.KReason = `${LocalKeyName} Key Not Obj SubTable`;
         return LocalReturnObject;
       };
-      let LocalArrayPk = LocalRow[LocalKeyName].map(element => element.pk);
+      let LocalArrayPk = Object.keys(LocalRow[LocalKeyName]);
 
       let LocalRemoveUndefined = LocalArrayPk.filter(function (element) {
         return element !== undefined;
@@ -38,7 +38,7 @@ const StartFunc = ({ inRowIndex, inKeyName, inRequestBody }) => {
       let MaxPk = Math.max(...numberArray, 0) + 1;
 
       let LocalInsertData = { ...LocalinDataToInsert, pk: MaxPk, Fk: LocalRowIndex };
-      LocalRow[LocalKeyName].push(LocalInsertData)
+      LocalRow[LocalKeyName][MaxPk] = (LocalInsertData)
 
       fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf8');
 

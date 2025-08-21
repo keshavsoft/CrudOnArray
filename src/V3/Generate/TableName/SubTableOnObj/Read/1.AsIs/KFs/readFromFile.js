@@ -17,8 +17,8 @@ let StartFunc = ({ inRowIndex, inKeyName }) => {
             return LocalReturnData;
         }
 
-        if (!Array.isArray(LoalRowData[inKeyName])) {
-            LocalReturnData.KReason = `${inKeyName} Key Not SubTable`;
+        if (Array.isArray(LoalRowData[inKeyName])) {
+            LocalReturnData.KReason = `${inKeyName} Key Not obj SubTable`;
             return LocalReturnData;
         }
 
