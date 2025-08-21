@@ -21,6 +21,8 @@ const CommonReadSchemaFolderName = "ReadSchema";
 const CommonSubTableFunctions = "SubTable";
 const CommonSubTableOnArrayFunctions = "SubTableOnArray";
 const CommonValidateFunctions = "Validate";
+const CommonSubTableOnObj = "SubTableOnObj";
+
 
 async function StartFunc({ inEditorPath, inTableName, inPortNumber, inVersion, inColumnsAsArray }) {
     const LocalVersion = inVersion;
@@ -128,6 +130,30 @@ async function StartFunc({ inEditorPath, inTableName, inPortNumber, inVersion, i
 
     await StartFuncFromSubOnArrayDeleteRestFileRestClient({
         inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonSubTableOnArrayFunctions}/Delete`,
+        inTableName, inPortNumber,
+        inColumnsAsArray
+    });
+
+    await StartFuncFromSubOnArrayReadRestFileRestClient({
+        inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonSubTableOnObj}/Read`,
+        inTableName, inPortNumber,
+        inColumnsAsArray
+    });
+
+    await StartFuncFromSubOnArrayInsertRestFileRestClient({
+        inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonSubTableOnObj}/Insert`,
+        inTableName, inPortNumber,
+        inColumnsAsArray
+    });
+
+    await StartFuncFromSubOnArrayAlterRestFileRestClient({
+        inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonSubTableOnObj}/Alter`,
+        inTableName, inPortNumber,
+        inColumnsAsArray
+    });
+
+    await StartFuncFromSubOnArrayDeleteRestFileRestClient({
+        inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonSubTableOnObj}/Delete`,
         inTableName, inPortNumber,
         inColumnsAsArray
     });

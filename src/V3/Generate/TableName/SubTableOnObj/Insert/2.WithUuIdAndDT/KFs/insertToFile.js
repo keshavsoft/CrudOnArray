@@ -24,11 +24,11 @@ const StartFunc = ({ inRowIndex, inKeyName, inRequestBody }) => {
         return LocalReturnObject;
       };
 
-      if (!Array.isArray(LocalRow[LocalKeyName])) {
-        LocalReturnObject.KReason = `${LocalKeyName} Key Not SubTable`;
+      if (Array.isArray(LocalRow[LocalKeyName])) {
+        LocalReturnObject.KReason = `${LocalKeyName} Key Not Obj SubTable`;
         return LocalReturnObject;
       };
-      let LocalArrayPk = LocalRow[LocalKeyName].map(element => element.pk);
+      let LocalArrayPk = Object.keys(LocalRow[LocalKeyName]);
 
       let LocalRemoveUndefined = LocalArrayPk.filter(function (element) {
         return element !== undefined;
@@ -40,7 +40,7 @@ const StartFunc = ({ inRowIndex, inKeyName, inRequestBody }) => {
       let LocalInsertData = {
         ...LocalinDataToInsert, pk: MaxPk, Fk: LocalRowIndex, UuId: uuidv4(), DateTime: new Date().toISOString()
       };
-      LocalRow[LocalKeyName].push(LocalInsertData)
+      LocalRow[LocalKeyName][MaxPk] = LocalInsertData
 
       fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf8');
 
