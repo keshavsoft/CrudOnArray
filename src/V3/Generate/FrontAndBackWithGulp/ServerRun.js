@@ -12,14 +12,8 @@ const StartFunc = (dirPath) => {
     LocalFuncShowTerminal({ inTerminal: terminal });
     LocalFuncForNPM({ inDirPath: dirPath, inTerminal: terminal });
 
-    // terminal.sendText('cd ..');
-    // terminal.sendText('git clone https://github.com/keshavsoft/GulpAsUi');
-    // terminal.sendText('cd GulpAsUi');
-    // terminal.sendText('npm i');
-    // terminal.sendText(`cd ../${rootFolderName}`);
-    terminal.sendText(`./BatchFiles/generateApiVersion.bat`);
-    // terminal.sendText(`./generateFrontEnd.bat`);
-    terminal.sendText(`./GulPHBSFrontEnd.bat`);
+    terminal.sendText(`.\\BatchFiles\\generateApiVersion.bat`);
+    terminal.sendText(`.\\GulPHBSFrontEnd.bat`);
 
     terminal.sendText(CommonTermName);
 };
