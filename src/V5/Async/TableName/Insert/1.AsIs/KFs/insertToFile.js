@@ -2,7 +2,7 @@ import fs from "fs";
 
 import ParamsJson from '../../../CommonFuncs/params.json' with {type: 'json'};
 
-const StartFunc = ({ inRequestBody }) => {
+const StartFunc = async ({ inRequestBody }) => {
   const LocalFileName = ParamsJson.TableName;
   const LocalDataPath = ParamsJson.DataPath;
 
@@ -43,7 +43,7 @@ const StartFunc = ({ inRequestBody }) => {
     console.error('Error:', err);
   };
 
-  return LocalReturnObject;
+  return await LocalReturnObject;
 };
 
 export { StartFunc };
