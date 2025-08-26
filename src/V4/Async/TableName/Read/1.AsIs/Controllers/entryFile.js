@@ -2,8 +2,8 @@ import {
     GetFunc as GetFuncRepo
 } from '../Repos/entryFile.js';
 
-let GetFunc = (req, res) => {
-    let LocalFromRepo = GetFuncRepo();
+let GetFunc = async (req, res) => {
+    let LocalFromRepo = await GetFuncRepo();
 
     if (LocalFromRepo.KTF === false) {
         res.status(404).send(LocalFromRepo.KReason);
