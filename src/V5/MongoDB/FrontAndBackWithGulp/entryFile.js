@@ -1,6 +1,6 @@
 const vscode = require('vscode');
 
-const CommonRegisterCommand = "Async.FrontAndBackWithGulp";
+const CommonRegisterCommand = "MongoDB.FrontAndBackWithGulp";
 
 const { StartFunc: StartFuncFromForMaxVersion } = require("./ForMaxVersion/entryFile");
 
