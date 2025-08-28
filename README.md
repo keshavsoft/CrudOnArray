@@ -90,6 +90,10 @@ write end points in nodejs
 
 - TokenTable good with secret...
 
+### 0.6.2
+
+- token delte working good
+
 ## License
 
 MIT
