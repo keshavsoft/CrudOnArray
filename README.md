@@ -98,6 +98,10 @@ write end points in nodejs
 
 - Generate.FrontAndBackWithGulp .env moved to common
 
+### 0.6.4
+
+- Generate.FrontAndBackWithGulp UsersTable working good
+
 ## License
 
 MIT

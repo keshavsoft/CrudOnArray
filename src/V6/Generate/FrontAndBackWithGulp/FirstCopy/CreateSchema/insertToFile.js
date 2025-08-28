@@ -9,21 +9,23 @@ const StartFunc = ({ inToPath }) => {
         fs.writeFileSync(
             `${LocalToPath}/schema.json`,
             JSON.stringify({
-                Tables: ["TasksTable", "TokenTable"]
+                Tables: ["TasksTable", "TokenTable", "UsersTable"]
             })
         );
 
         fs.mkdirSync(`${LocalToPath}/${CommonFolderName}`);
 
-        fs.copyFileSync(
-            path.join(__dirname, "TasksTable.json"),
-            `${LocalToPath}/${CommonFolderName}/TasksTable.json`
-        );
+        // fs.copyFileSync(
+        //     path.join(__dirname, "TasksTable.json"),
+        //     `${LocalToPath}/${CommonFolderName}/TasksTable.json`
+        // );
 
-        fs.copyFileSync(
-            path.join(__dirname, "TokenTable.json"),
-            `${LocalToPath}/${CommonFolderName}/TokenTable.json`
-        );
+        // fs.copyFileSync(
+        //     path.join(__dirname, "TokenTable.json"),
+        //     `${LocalToPath}/${CommonFolderName}/TokenTable.json`
+        // );
+
+        LocalFuncForTables({ inToPath: LocalToPath });
 
         fs.copyFileSync(
             path.join(__dirname, ".env"),
@@ -32,6 +34,25 @@ const StartFunc = ({ inToPath }) => {
     } catch (err) {
         console.error('Error creating directory:', err.message);
     };
+};
+
+const LocalFuncForTables = ({ inToPath }) => {
+    const LocalToPath = inToPath;
+
+    fs.copyFileSync(
+        path.join(__dirname, "TasksTable.json"),
+        `${LocalToPath}/${CommonFolderName}/TasksTable.json`
+    );
+
+    fs.copyFileSync(
+        path.join(__dirname, "TokenTable.json"),
+        `${LocalToPath}/${CommonFolderName}/TokenTable.json`
+    );
+
+    fs.copyFileSync(
+        path.join(__dirname, "UsersTable.json"),
+        `${LocalToPath}/${CommonFolderName}/UsersTable.json`
+    );
 };
 
 module.exports = { StartFunc };
