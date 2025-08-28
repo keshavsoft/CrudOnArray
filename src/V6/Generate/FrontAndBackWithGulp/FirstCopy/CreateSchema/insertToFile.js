@@ -24,6 +24,11 @@ const StartFunc = ({ inToPath }) => {
             path.join(__dirname, "TokenTable.json"),
             `${LocalToPath}/${CommonFolderName}/TokenTable.json`
         );
+
+        fs.copyFileSync(
+            path.join(__dirname, ".env"),
+            `${LocalToPath}/.env`
+        );
     } catch (err) {
         console.error('Error creating directory:', err.message);
     };

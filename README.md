@@ -94,6 +94,10 @@ write end points in nodejs
 
 - token delte working good
 
+### 0.6.3
+
+- Generate.FrontAndBackWithGulp .env moved to common
+
 ## License
 
 MIT

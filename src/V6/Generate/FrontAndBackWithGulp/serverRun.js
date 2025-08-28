@@ -7,7 +7,6 @@ const StartFunc = (dirPath) => {
     LocalFuncDispose();
 
     const terminal = vscode.window.createTerminal({ name: CommonTermName, cwd: dirPath });
-    const rootFolderName = LocalFuncGetWorkSpaceFolder();
 
     LocalFuncShowTerminal({ inTerminal: terminal });
     LocalFuncForNPM({ inDirPath: dirPath, inTerminal: terminal });
