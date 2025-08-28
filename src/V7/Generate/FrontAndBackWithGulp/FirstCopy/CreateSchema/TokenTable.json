@@ -1,0 +1,31 @@
+{
+    "tableName": "TokenTable",
+    "columns": [
+        {
+            "field": "Secret",
+            "title": "Secret",
+            "unique": true,
+            "type": "text",
+            "isInput": true
+        }
+    ],
+    "data": [
+        {
+            "Secret": 9848163021
+        }
+    ],
+    "Vertical": [
+        {
+            "field": "Secret",
+            "title": "Secret",
+            "unique": true,
+            "type": "text",
+            "isInput": true
+        }
+    ],
+    "DataTableOptions": {
+        "Header": {
+            "autoFocus": "title"
+        }
+    }
+}

@@ -102,6 +102,10 @@ write end points in nodejs
 
 - Generate.FrontAndBackWithGulp UsersTable working good
 
+### 0.7.1
+
+- Generate.FrontAndBackWithGulp Secret and token in seperate folders
+
 ## License
 
 MIT
