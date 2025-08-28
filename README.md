@@ -86,6 +86,10 @@ write end points in nodejs
 
 - MongoDB. started...
 
+### 0.6.1
+
+- TokenTable good with secret...
+
 ## License
 
 MIT
