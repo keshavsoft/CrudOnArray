@@ -110,6 +110,10 @@ write end points in nodejs
 
 - Generate.FrontAndBackWithGulp User working good
 
+### 0.8.2
+
+- Generate.FrontAndBackWithGulp   "isAutoFocus": true working good
+
 ## License
 
 MIT

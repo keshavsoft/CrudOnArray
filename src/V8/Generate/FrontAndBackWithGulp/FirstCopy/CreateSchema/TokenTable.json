@@ -6,7 +6,8 @@
             "title": "Secret",
             "unique": true,
             "type": "text",
-            "isInput": true
+            "isInput": true,
+            "isAutoFocus": true
         }
     ],
     "data": [

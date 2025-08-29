@@ -6,14 +6,15 @@
             "title": "Title",
             "unique": true,
             "type": "text",
-            "isInput": true
+            "isInput": true,
+            "isAutoFocus": true
         },
         {
             "field": "start",
             "title": "Start Date",
             "unique": false,
             "type": "date",
-            "isDate":true
+            "isDate": true
         },
         {
             "field": "className",
