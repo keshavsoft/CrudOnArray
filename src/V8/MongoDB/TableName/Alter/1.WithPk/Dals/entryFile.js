@@ -1,4 +1,4 @@
-import { StartFunc as StartFuncFromInsertToFile } from '../KFs/insertToFile.js';
+import { StartFunc as StartFuncFromInsertToFile } from '../FromMongoDB/insertToFile.js';
 
 let postDefaultFunc = ({ inBody, inPk }) => {
     let LocalFromLowDb = StartFuncFromInsertToFile({ inBody, inPk });
