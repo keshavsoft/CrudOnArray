@@ -13,7 +13,9 @@ const { StartFunc: StartFuncFromFirstCopy } = require("./FirstCopy/entryFile");
 const { StartFunc: StartFuncFromGetMaxVersion } = require("./getMaxVersion");
 const { StartFunc: StartFuncrunNodeApp } = require("./serverRun");
 
-const { updateServerFile: updateServerFileFromAppFile } = require("../CommonCode/AppFile/entryFile");
+// const { updateServerFile: updateServerFileFromAppFile } = require("../CommonCode/AppFile/entryFile");
+
+const { StartFunc: StartFuncFromLastRun } = require("../CommonCode/LastRun/entryFile");
 
 // pull the columns schema from the json file referred from schema.json
 
@@ -50,7 +52,14 @@ const LocalFuncToActivate = async () => {
         inVersion: LocalVersionSecured
     });
 
-    updateServerFileFromAppFile({
+    // updateServerFileFromAppFile({
+    //     filePath: `${LocalToPath}/app.js`,
+    //     newVersion: LocalVersion,
+    //     inNewVersionProtected: LocalVersionSecured,
+    //     inToPath: LocalToPath
+    // });
+
+    StartFuncFromLastRun({
         filePath: `${LocalToPath}/app.js`,
         newVersion: LocalVersion,
         inNewVersionProtected: LocalVersionSecured,
