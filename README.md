@@ -118,6 +118,10 @@ write end points in nodejs
 
 - LastRun folder started
 
+### 0.8.4
+
+- still working on group by...
+
 ## License
 
 MIT

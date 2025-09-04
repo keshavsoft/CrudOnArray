@@ -5,6 +5,7 @@ import ParamsJson from '../../../CommonFuncs/params.json' with {type: 'json'};
 let StartFunc = ({ inRequestBody }) => {
     const LocalFileName = ParamsJson.TableName;
     const LocalDataPath = ParamsJson.DataPath;
+    console.log("aaaaaaaaaaaaaaa : ", inRequestBody);
 
     let LocalReturnData = { KTF: false };
     let filePath = `${LocalDataPath}/${LocalFileName}.json`;

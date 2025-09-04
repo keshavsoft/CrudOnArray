@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const vscode = require('vscode');
 
-async function StartFunc({ inFolderPath, inPortNumber }) {
+async function StartFunc({ inFolderPath, inPortNumber, inColumnsAsArray }) {
     try {
         const LocalRootPath = LocalFuncGetWorkSpaceFolder();
         const activeFileFolderPath = path.dirname(inFolderPath);
@@ -27,7 +27,12 @@ async function StartFunc({ inFolderPath, inPortNumber }) {
             const fullUrl = `http://localhost:${inPortNumber}${apiPath}`;
             let LocalLines = [];
 
-            LocalLines.push(`GET ${fullUrl}/{ColumnName}`);
+            LocalLines.push(`POST ${fullUrl}`);
+            LocalLines.push("Content-Type: application/json");
+            LocalLines.push("");
+            LocalLines.push("[");
+            LocalLines.push("\t{ColumnsName}");
+            LocalLines.push("]");
 
             LocalFuncWriteFile({ inLinesArray: LocalLines, inEditorPath: filePath });
         }
@@ -56,6 +61,15 @@ const LocalFuncGetWorkSpaceFolder = () => {
 const LocalFuncWriteFile = ({ inLinesArray, inEditorPath }) => {
     const content = inLinesArray.join('\n');
     fs.writeFileSync(inEditorPath, content, 'utf-8');
+};
+
+const LocalFuncForColumns = ({ inColumnsAsArray }) => {
+    const resultObject = inColumnsAsArray.reduce((acc, key) => {
+        acc[key] = "";
+        return acc;
+    }, {});
+
+    const jsonString = JSON.stringify(resultObject, null, 2);
 };
 
 module.exports = { StartFunc };
