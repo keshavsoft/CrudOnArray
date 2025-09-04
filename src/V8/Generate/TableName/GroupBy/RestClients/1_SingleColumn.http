@@ -1,1 +1,1 @@
-GET http://localhost:{PORT}{SubRoute}/GroupBy/SingleColumn/AccountName
+GET http://localhost:{PORT}{SubRoute}/GroupBy/SingleColumn/{GroupByColumnName}

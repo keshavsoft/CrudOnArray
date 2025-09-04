@@ -126,6 +126,10 @@ write end points in nodejs
 
 - Group By working on rest files...
 
+### 0.8.6
+
+- Group By perfect
+
 ## License
 
 MIT
