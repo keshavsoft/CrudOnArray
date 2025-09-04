@@ -26,6 +26,7 @@ const CommonSubTableOnObj = "SubTableOnObj";
 
 async function StartFunc({ inEditorPath, inTableName, inPortNumber, inVersion, inColumnsAsArray }) {
     const LocalVersion = inVersion;
+    const LocalBasePath = `${inEditorPath}/${LocalVersion}/${inTableName}`;
 
     await StartFuncFromInsertRestFile({
         inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/Insert`,
@@ -58,9 +59,8 @@ async function StartFunc({ inEditorPath, inTableName, inPortNumber, inVersion, i
     });
 
     await StartFuncFromGroupByRestFile({
-        inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/GroupBy`,
-        inTableName, inPortNumber,
-        inColumnsAsArray
+        inFolderPath: `${LocalBasePath}/GroupBy`,
+        inTableName, inPortNumber
     });
 
     await StartFuncFromReadFolder({

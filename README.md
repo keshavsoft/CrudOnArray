@@ -122,6 +122,10 @@ write end points in nodejs
 
 - still working on group by...
 
+### 0.8.5
+
+- Group By working on rest files...
+
 ## License
 
 MIT

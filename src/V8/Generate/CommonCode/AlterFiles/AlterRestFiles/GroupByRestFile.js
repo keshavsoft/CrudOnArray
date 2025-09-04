@@ -1,8 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 const vscode = require('vscode');
+const readline = require('readline');
 
-async function StartFunc({ inFolderPath, inPortNumber, inColumnsAsArray }) {
+async function StartFunc({ inFolderPath, inPortNumber }) {
     try {
         const LocalRootPath = LocalFuncGetWorkSpaceFolder();
         const activeFileFolderPath = path.dirname(inFolderPath);
@@ -16,13 +17,26 @@ async function StartFunc({ inFolderPath, inPortNumber, inColumnsAsArray }) {
         for (const file of files) {
             if (file === "routes.js" || file === "RestClients") {
                 continue;
-            }
+            };
 
             const fileParts = file.split(".");
             if (fileParts.length < 2) continue;
 
             const tableName = fileParts[1];
             const filePath = path.join(inFolderPath, "RestClients", `${file.replace(".", "_")}.http`);
+
+            // const stats = await fs.lstatSync(filePath);
+// fs.existsSync()
+            if (fs.existsSync(filePath)) {
+                let LocalLines = await processLineByLine({ inFileName: filePath });
+                LocalLines[0] = LocalLines[0].replace("{PORT}", inPortNumber);
+                LocalLines[0] = LocalLines[0].replace("{SubRoute}", LocalRelativePath.replaceAll(`\\`, "/"));
+
+                LocalFuncWriteFile({ inLinesArray: LocalLines, inEditorPath: filePath });
+
+                continue;
+            };
+
             const apiPath = `${relativeApiPath}/GroupBy/${tableName}`;
             const fullUrl = `http://localhost:${inPortNumber}${apiPath}`;
             let LocalLines = [];
@@ -39,13 +53,38 @@ async function StartFunc({ inFolderPath, inPortNumber, inColumnsAsArray }) {
     } catch (err) {
         console.error('Error reading directory:', err);
     }
-}
+};
+
+const processLineByLine = async ({ inFileName }) => {
+    try {
+        const fileStream = fs.createReadStream(inFileName);
+        let LocalLines = [];
+
+        fileStream.on('error', (err) => {
+            console.error(`Error reading file: ${err.message}`);
+        });
+
+        const rl = readline.createInterface({
+            input: fileStream,
+            crlfDelay: Infinity
+        });
+
+        for await (const line of rl) {
+            LocalLines.push(line);
+        };
+
+        return LocalLines;
+    } catch (err) {
+        console.error(`Error processing file: ${err.message}`);
+    }
+};
 
 const LocalFuncCreateFolder = ({ inFolderPath }) => {
     const restClientsPath = path.join(inFolderPath, "RestClients");
+
     if (!fs.existsSync(restClientsPath)) {
         fs.mkdirSync(restClientsPath);
-        console.log('Directory created successfully!');
+        // console.log('Directory created successfully!');
     }
 };
 
