@@ -23,31 +23,25 @@ async function StartFunc({ inFolderPath, inPortNumber }) {
 
             const tableName = fileParts[1];
             const filePath = path.join(inFolderPath, "RestClients", `${file.replace(".", "_")}.http`);
-            const apiPath = `${relativeApiPath}/Filter/${tableName}/{inKey}/{inValue}`;
-            const fullUrl = `http://localhost:${inPortNumber}${apiPath}`;
+            let apiPath = `${relativeApiPath}/Filter/${tableName}/{inKey}/{inValue}`;
+            let fullUrl = `http://localhost:${inPortNumber}${apiPath}`;
             let LocalLines = [];
-            LocalLines.push(`GET ${fullUrl}`);
 
-            // switch (tableName) {
-            //     case "SelColumns":
-            //     case "SelColsAsArray":
-            //         LocalLines.push(`POST ${fullUrl}`);
-            //         LocalLines.push(`Content-Type: application/json`);
-            //         LocalLines.push('');
-            //         LocalLines.push(`[ "exampleKey"]`);
-            //         break;
-            //     case "SingleColumn":
-            //     case "SetSingleColumn":
-            //     case "KeyCount":
-            //         LocalLines.push(`GET ${fullUrl}/{Column name}`);
-            //         break;
-            //     case "RowDataWithPk":
-            //         LocalLines.push(`GET ${fullUrl}/{pk}`);
-            //         break;
-            //     default:
-            //         LocalLines.push(`GET ${fullUrl}`);
-            //         break;
-            // }
+            switch (tableName) {
+                case "ByBody":
+                    apiPath = `${relativeApiPath}/Filter/${tableName}`;
+                    fullUrl = `http://localhost:${inPortNumber}${apiPath}`;
+                    LocalLines.push(`POST ${fullUrl}`);
+                    LocalLines.push(`Content-Type: application/json`);
+                    LocalLines.push('');
+                    LocalLines.push(`{"inKey":"","inValue":""}`);
+                    break;
+                default:
+                    apiPath = `${relativeApiPath}/Filter/${tableName}/{inKey}/{inValue}`;
+                    fullUrl = `http://localhost:${inPortNumber}${apiPath}`;
+                    LocalLines.push(`GET ${fullUrl}`);
+                    break;
+            }
 
             LocalFuncWriteFile({ inLinesArray: LocalLines, inEditorPath: filePath });
             // console.log(`Generated: ${filePath}`);

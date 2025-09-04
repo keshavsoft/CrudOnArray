@@ -1,12 +1,12 @@
 import {
-    GetFunc as GetFuncRepo
+    PostFunc as PostFuncRepo
 } from '../Repos/entryFile.js';
 
-let GetFunc = (req, res) => {
-    const LocalKey = req.params.inKey;
-    const LocalValue = req.params.inValue;
+let PostFunc = (req, res) => {
+    const LocalKey = req.body.inKey;
+    const LocalValue = req.body.inValue;
 
-    let LocalFromRepo = GetFuncRepo({ inKey: LocalKey, inValue: LocalValue });
+    let LocalFromRepo = PostFuncRepo({ inKey: LocalKey, inValue: LocalValue });
 
     if (LocalFromRepo.KTF === false) {
         res.status(404).send(LocalFromRepo.KReason);
@@ -19,5 +19,5 @@ let GetFunc = (req, res) => {
 };
 
 export {
-    GetFunc
+    PostFunc
 };
