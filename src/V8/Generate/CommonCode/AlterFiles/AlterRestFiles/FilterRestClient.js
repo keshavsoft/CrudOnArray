@@ -34,7 +34,7 @@ async function StartFunc({ inFolderPath, inPortNumber }) {
                     LocalLines.push(`POST ${fullUrl}`);
                     LocalLines.push(`Content-Type: application/json`);
                     LocalLines.push('');
-                    LocalLines.push(`{"inKey":"","inValue":""}`);
+                    LocalLines.push(`{"inKey":"element.","inValue":""}`);
                     break;
                 default:
                     apiPath = `${relativeApiPath}/Filter/${tableName}/{inKey}/{inValue}`;

@@ -11,8 +11,14 @@ let StartFunc = ({ inKey, inValue }) => {
         const data = fs.readFileSync(`${LocalDataPath}/${LocalFileName}.json`, 'utf8');
         const parsedData = JSON.parse(data);
 
-        const filteredData = parsedData.filter(item => item[inKey] == inValue);
-
+        const filteredData = parsedData.filter(element => {
+            let LocalKey = eval(inKey);
+            let LocalValue = eval(inValue);
+            if (LocalKey == LocalValue) {
+                return element;
+            };
+        });
+        
         if (filteredData.length === 0) {
             LocalReturnData.KReason = `No data found with ${inKey}: ${inValue}`;
             return LocalReturnData;
