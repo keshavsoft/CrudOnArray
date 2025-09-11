@@ -130,6 +130,10 @@ write end points in nodejs
 
 - Group By perfect
 
+### 1.9.1
+
+- mail perfect for registration
+
 ## License
 
 MIT
