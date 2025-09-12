@@ -142,6 +142,10 @@ write end points in nodejs
 
 - GenerateWMail.FrontAndBackWithGulp working perfect
 
+### 1.9.5
+
+- image also added
+
 ## License
 
 MIT
