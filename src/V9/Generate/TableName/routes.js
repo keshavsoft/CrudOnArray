@@ -14,7 +14,6 @@ import { router as routerFromFilter } from "./Filter/routes.js";
 import { router as routerFromAddWithDefault } from "./AddWithDefault/routes.js";
 import { router as routerFromSubTableOnArray } from "./SubTableOnArray/routes.js";
 import { router as routerFromSubTableOnObj } from "./SubTableOnObj/routes.js";
-import { router as routerFromMail } from "./Mail/routes.js";
 
 router.use("/Read", routerFromRead);
 router.use("/Insert", routerFromInsert);
@@ -29,6 +28,5 @@ router.use("/Filter", routerFromFilter);
 router.use("/AddWithDefault", routerFromAddWithDefault);
 router.use("/SubTableOnArray", routerFromSubTableOnArray);
 router.use("/SubTableOnObj", routerFromSubTableOnObj);
-router.use("/Mail", routerFromMail);
 
 export { router };

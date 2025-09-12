@@ -134,6 +134,10 @@ write end points in nodejs
 
 - mail perfect for registration
 
+### 1.9.3
+
+- GenerateWMail started...
+
 ## License
 
 MIT
