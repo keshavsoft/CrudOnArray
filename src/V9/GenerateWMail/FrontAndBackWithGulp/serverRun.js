@@ -33,13 +33,4 @@ const LocalFuncForNPM = ({ inDirPath, inTerminal }) => {
     };
 };
 
-const LocalFuncGetWorkSpaceFolder = () => {
-    if (vscode.workspace.workspaceFolders) {
-        const rootFolderName = vscode.workspace.workspaceFolders[0].name;
-        return rootFolderName;
-    } else {
-        console.log("No workspace folders found.");
-    };
-};
-
 module.exports = { StartFunc };

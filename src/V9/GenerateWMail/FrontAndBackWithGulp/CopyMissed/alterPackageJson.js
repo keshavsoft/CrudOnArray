@@ -11,8 +11,11 @@ const StartFunc = ({ inToPath }) => {
         if (LocalIfExists) {
             const LocalJsonData = fse.readFileSync(LocalToPath);
             let LocalParsedJson = JSON.parse(LocalJsonData);
+            LocalParsedJson.dependencies["multer"] = "^2.0.2";
+            LocalParsedJson.dependencies["nodemailer"] = "^7.0.6";
 
-            console.log("aaaaaaaaaaaa : ", LocalParsedJson);
+            fse.writeFileSync(LocalToPath, JSON.stringify(LocalParsedJson));
+            // console.log("aaaaaaaaaaaa : ", LocalParsedJson);
         };
 
         return true;
