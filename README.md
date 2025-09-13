@@ -146,6 +146,10 @@ write end points in nodejs
 
 - image also added
 
+### 1.9.6
+
+- folder added
+
 ## License
 
 MIT

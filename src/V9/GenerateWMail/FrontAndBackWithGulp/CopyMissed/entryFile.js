@@ -4,7 +4,7 @@ const { StartFunc: StartFuncFromCopyFolders } = require('./copyFolders');
 const { StartFunc: StartFuncFromAlterPackageJson } = require('./alterPackageJson');
 
 const StartFunc = async ({ inToPath }) => {
-    await StartFuncFromCopyFolders({ inToPath });
+    StartFuncFromCopyFolders({ inToPath });
     StartFuncFromAlterPackageJson({ inToPath });
 
     const terminal = vscode.window.createTerminal({ name: "npm i", cwd: inToPath });

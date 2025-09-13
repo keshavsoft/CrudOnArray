@@ -27,7 +27,7 @@ const LocalFuncToActivate = async () => {
     if (LocalVersion === false) {
         return false;
     } else {
-        await StartFuncFromCopyMissed({ inToPath: LocalToPath });
+        StartFuncFromCopyMissed({ inToPath: LocalToPath });
     };
 
     const LocalEnvFileAsJson = StartFuncFromReadEnvFile({ inRootPath: LocalToPath });
