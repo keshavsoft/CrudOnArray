@@ -34,7 +34,9 @@ for %%f in (Schemas\*.json) do (
 
     REM Create target folder and copy built files
     mkdir "Public\%NEXT_VERSION%\%%~nf"
-    xcopy "..\GulpHbs\dist" "Public\%NEXT_VERSION%\%%~nf" /h /i /c /k /e /r /y >nul
+    xcopy "..\GulpHbs\dist" "Public\%NEXT_VERSION%\%%~nf\UnProtected" /h /i /c /k /e /r /y >nul
+    xcopy "..\GulpHbs\distForProtected" "Public\%NEXT_VERSION%\%%~nf\Protected" /h /i /c /k /e /r /y >nul
+    copy "..\GulpHbs\index.html" "Public\%NEXT_VERSION%\%%~nf"
 
     echo Done with %%~nxf
 )

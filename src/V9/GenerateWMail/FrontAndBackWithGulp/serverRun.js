@@ -1,7 +1,7 @@
 const vscode = require('vscode');
 const fs = require('fs');
 const path = require('path');
-const CommonTermName = 'node app';
+const CommonTermName = 'npm run start';
 
 const StartFunc = (dirPath) => {
     LocalFuncDispose();
