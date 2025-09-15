@@ -3,7 +3,7 @@ const vscode = require('vscode');
 const { StartFunc: StartFuncFromCopyFolders } = require('./copyFolders');
 const { StartFunc: StartFuncFromAlterPackageJson } = require('./alterPackageJson');
 
-const StartFunc = async ({ inToPath }) => {
+const StartFunc = ({ inToPath }) => {
     StartFuncFromCopyFolders({ inToPath });
     StartFuncFromAlterPackageJson({ inToPath });
 

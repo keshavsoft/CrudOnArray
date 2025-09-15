@@ -26,9 +26,11 @@ const LocalFuncToActivate = async () => {
 
     if (LocalVersion === false) {
         return false;
-    } else {
-        StartFuncFromCopyMissed({ inToPath: LocalToPath });
-    };
+    }; 
+    // else {
+    //     //StartFuncFromCopyMissed({ inToPath: LocalToPath });
+    //     LocalVersion = "V1";
+    // };
 
     const LocalEnvFileAsJson = StartFuncFromReadEnvFile({ inRootPath: LocalToPath });
 
@@ -87,7 +89,7 @@ const LocalFuncForMaxVersion = async ({ inVersionStart }) => {
     if (LocalFromMaxVersion === 0) {
         const LocalFromCopy = await StartFuncFromFirstCopy({ inToPath: LocalToPath });
 
-        // return LocalFromCopy;
+        //  return LocalFromCopy;
 
         if (LocalFromCopy === false) {
             // console.log("already present");
