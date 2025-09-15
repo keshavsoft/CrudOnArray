@@ -154,6 +154,10 @@ write end points in nodejs
 
 - menu added for ui
 
+### 1.9.8
+
+- batch file changed
+
 ## License
 
 MIT

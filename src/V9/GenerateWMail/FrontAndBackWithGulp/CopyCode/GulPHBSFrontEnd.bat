@@ -36,7 +36,7 @@ for %%f in (Schemas\*.json) do (
     mkdir "Public\%NEXT_VERSION%\%%~nf"
     xcopy "..\GulpHbs\dist" "Public\%NEXT_VERSION%\%%~nf\UnProtected" /h /i /c /k /e /r /y >nul
     xcopy "..\GulpHbs\distForProtected" "Public\%NEXT_VERSION%\%%~nf\Protected" /h /i /c /k /e /r /y >nul
-    copy "..\GulpHbs\index.html" "Public\%NEXT_VERSION%\%%~nf"
+    copy "..\GulpHbs\Menu\index.html" "Public\%NEXT_VERSION%\%%~nf"
 
     echo Done with %%~nxf
 )
