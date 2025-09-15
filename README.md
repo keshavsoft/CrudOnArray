@@ -166,6 +166,10 @@ write end points in nodejs
 
 - .env changed
 
+### 1.9.11
+
+- register perfect with unique
+
 ## License
 
 MIT

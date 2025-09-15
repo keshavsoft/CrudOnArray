@@ -26,7 +26,7 @@ const LocalFuncToActivate = async () => {
 
     if (LocalVersion === false) {
         return false;
-    }; 
+    };
     // else {
     //     //StartFuncFromCopyMissed({ inToPath: LocalToPath });
     //     LocalVersion = "V1";
@@ -35,6 +35,8 @@ const LocalFuncToActivate = async () => {
     const LocalEnvFileAsJson = StartFuncFromReadEnvFile({ inRootPath: LocalToPath });
 
     if (LocalEnvFileAsJson == null) {
+        vscode.window.showInformationMessage(`.env file not present...`);
+
         return false;
     };
 
