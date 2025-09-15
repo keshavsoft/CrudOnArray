@@ -162,6 +162,10 @@ write end points in nodejs
 
 - for unique started
 
+### 1.9.10
+
+- .env changed
+
 ## License
 
 MIT
