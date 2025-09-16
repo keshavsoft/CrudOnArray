@@ -16,6 +16,7 @@ const { StartFunc: StartFuncFromSubOnArrayInsertRestFileRestClient } = require("
 const { StartFunc: StartFuncFromSubOnArrayAlterRestFileRestClient } = require("./SubOnArrayAlterRestFile");
 const { StartFunc: StartFuncFromSubOnArrayDeleteRestFileRestClient } = require("./SubOnArrayDeleteRestFile");
 const { StartFunc: StartFuncFrommailRestFile } = require("./mailRestFile");
+const { StartFunc: StartFuncFromInsertWithChecksRestFile } = require("./InsertWithChecks");
 
 
 const CommonReadSchemaFolderName = "ReadSchema";
@@ -161,6 +162,12 @@ async function StartFunc({ inEditorPath, inTableName, inPortNumber, inVersion, i
 
     await StartFuncFrommailRestFile({
         inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/Mail`,
+        inTableName, inPortNumber,
+        inColumnsAsArray
+    });
+
+    await StartFuncFromInsertWithChecksRestFile({
+        inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/InsertWithChecks`,
         inTableName, inPortNumber,
         inColumnsAsArray
     });
