@@ -182,6 +182,10 @@ write end points in nodejs
 
 - schemas in folder
 
+### 1.10.4
+
+- schema defaultvalue added to tasks
+
 ## License
 
 MIT

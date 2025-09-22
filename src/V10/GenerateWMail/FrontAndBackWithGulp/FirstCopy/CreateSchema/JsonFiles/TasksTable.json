@@ -7,7 +7,8 @@
             "unique": true,
             "type": "text",
             "isInput": true,
-            "isAutoFocus": true
+            "isAutoFocus": true,
+            "defaultvalue": "2nd"
         },
         {
             "field": "start",
@@ -15,7 +16,6 @@
             "unique": false,
             "type": "date",
             "isDate": true,
-            "isWidthTF": true,
             "WidthOptions": {
                 "inPx": 200
             }
@@ -38,7 +38,6 @@
                     "text": "bg-success"
                 }
             ],
-            "isWidthTF": true,
             "WidthOptions": {
                 "inPx": 250
             }
