@@ -15,16 +15,6 @@ const StartFunc = ({ inToPath }) => {
 
         fs.mkdirSync(`${LocalToPath}/${CommonFolderName}`);
 
-        // fs.copyFileSync(
-        //     path.join(__dirname, "TasksTable.json"),
-        //     `${LocalToPath}/${CommonFolderName}/TasksTable.json`
-        // );
-
-        // fs.copyFileSync(
-        //     path.join(__dirname, "TokenTable.json"),
-        //     `${LocalToPath}/${CommonFolderName}/TokenTable.json`
-        // );
-
         LocalFuncForTables({ inToPath: LocalToPath });
 
         fs.copyFileSync(
@@ -38,19 +28,20 @@ const StartFunc = ({ inToPath }) => {
 
 const LocalFuncForTables = ({ inToPath }) => {
     const LocalToPath = inToPath;
+    const LocalJsonFilesPath = "JsonFiles";
 
     fs.copyFileSync(
-        path.join(__dirname, "TasksTable.json"),
+        path.join(__dirname, LocalJsonFilesPath, "TasksTable.json"),
         `${LocalToPath}/${CommonFolderName}/TasksTable.json`
     );
 
     fs.copyFileSync(
-        path.join(__dirname, "TokenTable.json"),
+        path.join(__dirname, LocalJsonFilesPath, "TokenTable.json"),
         `${LocalToPath}/${CommonFolderName}/TokenTable.json`
     );
 
     fs.copyFileSync(
-        path.join(__dirname, "UsersTable.json"),
+        path.join(__dirname, LocalJsonFilesPath, "UsersTable.json"),
         `${LocalToPath}/${CommonFolderName}/UsersTable.json`
     );
 };

@@ -14,7 +14,11 @@
             "title": "Start Date",
             "unique": false,
             "type": "date",
-            "isDate": true
+            "isDate": true,
+            "isWidthTF": true,
+            "WidthOptions": {
+                "inPx": 200
+            }
         },
         {
             "field": "className",
@@ -22,8 +26,8 @@
             "unique": false,
             "type": "text",
             "isInput": false,
-            "isSelect": false,
-            "isDataList": true,
+            "isSelect": true,
+            "isDataList": false,
             "selectOptions": [
                 {
                     "value": "bg-primary",
@@ -33,7 +37,11 @@
                     "value": "bg-success",
                     "text": "bg-success"
                 }
-            ]
+            ],
+            "isWidthTF": true,
+            "WidthOptions": {
+                "inPx": 250
+            }
         }
     ],
     "data": [],
