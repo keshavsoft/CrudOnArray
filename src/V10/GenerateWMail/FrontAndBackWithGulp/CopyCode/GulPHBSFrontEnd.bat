@@ -5,38 +5,39 @@ REM --- STEP 1: Get next version folder ---
 call :getNextVersion NEXT_VERSION
 echo Next Version: %NEXT_VERSION%
 mkdir Public\%NEXT_VERSION%
+SET CommonRepoName=FrontEndGulpHbsOnArray
 
-if not exist "..\GulpHbs\" (
-    echo GulpHbs folder not found. Cloning...
-    git clone https://github.com/keshavsoft/GulpHbs ..\GulpHbs
+if not exist "..\%CommonRepoName%\" (
+    echo %CommonRepoName% folder not found. Cloning...
+    git clone https://github.com/keshavsoft/%CommonRepoName% ..\%CommonRepoName%
 )
 
-if not exist "..\GulpHbs\node_modules" (
+if not exist "..\%CommonRepoName%\node_modules" (
     echo node_modules folder not found. Running npm install...
-    pushd ..\GulpHbs
+    pushd ..\%CommonRepoName%
     call npm i
     popd
 )
 
-xcopy ".env" "..\GulpHbs\.env" /h /i /c /k /e /r /y >nul
+xcopy ".env" "..\%CommonRepoName%\.env" /h /i /c /k /e /r /y >nul
 
 REM --- STEP 2: Iterate over JSON files in Schemas folder ---
 for %%f in (Schemas\*.json) do (
     echo Processing %%~nxf
 
-    REM Copy schema to GulpHbs
-    xcopy "Schemas\%%~nxf" "..\GulpHbs\schema.json" /h /i /c /k /e /r /y >nul
+    REM Copy schema to %CommonRepoName%
+    xcopy "Schemas\%%~nxf" "..\%CommonRepoName%\schema.json" /h /i /c /k /e /r /y >nul
 
-    REM Go to GulpHbs and build
-    pushd ..\GulpHbs
+    REM Go to %CommonRepoName% and build
+    pushd ..\%CommonRepoName%
     call npm run dist
     popd
 
     REM Create target folder and copy built files
     mkdir "Public\%NEXT_VERSION%\%%~nf"
-    xcopy "..\GulpHbs\dist" "Public\%NEXT_VERSION%\%%~nf\UnProtected" /h /i /c /k /e /r /y >nul
-    xcopy "..\GulpHbs\distForProtected" "Public\%NEXT_VERSION%\%%~nf\Protected" /h /i /c /k /e /r /y >nul
-    copy "..\GulpHbs\Menu\index.html" "Public\%NEXT_VERSION%\%%~nf"
+    xcopy "..\%CommonRepoName%\dist" "Public\%NEXT_VERSION%\%%~nf\UnProtected" /h /i /c /k /e /r /y >nul
+    xcopy "..\%CommonRepoName%\distForProtected" "Public\%NEXT_VERSION%\%%~nf\Protected" /h /i /c /k /e /r /y >nul
+    copy "..\%CommonRepoName%\Menu\index.html" "Public\%NEXT_VERSION%\%%~nf"
 
     echo Done with %%~nxf
 )

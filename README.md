@@ -174,6 +174,10 @@ write end points in nodejs
 
 - front end changed
 
+### 1.10.2
+
+- batch file hooked to new front repo
+
 ## License
 
 MIT
