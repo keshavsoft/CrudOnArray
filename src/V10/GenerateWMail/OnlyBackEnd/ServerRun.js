@@ -1,23 +1,18 @@
 const vscode = require('vscode');
 const fs = require('fs');
 const path = require('path');
-const CommonTermName = 'node app';
+const CommonTermName = 'npm run start';
 
 const StartFunc = (dirPath) => {
     LocalFuncDispose();
 
     const terminal = vscode.window.createTerminal({ name: CommonTermName, cwd: dirPath });
-    const rootFolderName = LocalFuncGetWorkSpaceFolder();
 
     LocalFuncShowTerminal({ inTerminal: terminal });
     LocalFuncForNPM({ inDirPath: dirPath, inTerminal: terminal });
 
-    // terminal.sendText('cd ..');
-    // terminal.sendText('git clone https://github.com/keshavsoft/GulpAsUi');
-    // terminal.sendText('cd GulpAsUi');
-    // terminal.sendText('npm i');
-    // terminal.sendText(`cd ../${rootFolderName}`);
-    // terminal.sendText(`./generateFrontEnd.bat`);
+    // terminal.sendText(`.\\BatchFiles\\generateApiVersion.bat`);
+    // terminal.sendText(`.\\GulPHBSFrontEnd.bat`);
 
     terminal.sendText(CommonTermName);
 };
@@ -35,15 +30,6 @@ const LocalFuncShowTerminal = ({ inTerminal }) => {
 const LocalFuncForNPM = ({ inDirPath, inTerminal }) => {
     if (!fs.existsSync(path.join(inDirPath, 'node_modules'))) {
         inTerminal.sendText('npm i');
-    };
-};
-
-const LocalFuncGetWorkSpaceFolder = () => {
-    if (vscode.workspace.workspaceFolders) {
-        const rootFolderName = vscode.workspace.workspaceFolders[0].name;
-        return rootFolderName;
-    } else {
-        console.log("No workspace folders found.");
     };
 };
 

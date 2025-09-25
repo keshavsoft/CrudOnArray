@@ -1,5 +1,5 @@
 const fse = require('fs-extra');
-const path = require('path');
+// const path = require('path');
 
 const StartFunc = async ({ inToPath, inVersionStart }) => {
     const folders = await getFoldersInDirectory({ inToPath, inVersionStart });
@@ -7,8 +7,12 @@ const StartFunc = async ({ inToPath, inVersionStart }) => {
     if (folders.length === 0) {
         return 0
     } else {
-        return folders.length + 1;
+        //  return folders.length + 1;
+        const LocalMaxersion = folders[folders.length - 1] + 1;
+        // return `${inVersionStart}${LocalMaxersion}`;
+        return LocalMaxersion;
     };
+
 };
 
 const getFoldersInDirectory = async ({ inToPath, inVersionStart }) => {
@@ -19,7 +23,8 @@ const getFoldersInDirectory = async ({ inToPath, inVersionStart }) => {
         for (const entry of entries) {
             if (entry.isDirectory()) {
                 if (entry.name.startsWith(inVersionStart)) {
-                    folders.push(path.join(inToPath, entry.name));
+                    //folders.push(path.join(inToPath, entry.name));
+                    folders.push(parseInt(entry.name.replace(inVersionStart, "")));
                 };
             };
         };

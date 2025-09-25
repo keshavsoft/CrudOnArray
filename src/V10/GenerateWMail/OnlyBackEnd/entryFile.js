@@ -11,12 +11,9 @@ const { StartFunc: StartFuncFromReadEnvFile } = require("./readEnvFile");
 const { StartFunc: StartFuncFromFirstCopy } = require("./FirstCopy/entryFile");
 
 const { StartFunc: StartFuncFromGetMaxVersion } = require("./getMaxVersion");
-const { StartFunc: StartFuncrunNodeApp } = require("./ServerRun");
+const { StartFunc: StartFuncrunNodeApp } = require("./serverRun");
 
-// const { updateServerFile: updateServerFileFromAppFile } = require("./AppFile/entryFile");
-const { updateServerFile: updateServerFileFromAppFile } = require("../CommonCode/AppFile/entryFile");
-
-// pull the columns schema from the json file referred from schema.json
+const { StartFunc: StartFuncFromLastRun } = require("../CommonCode/LastRun/entryFile");
 
 const StartFunc = () => {
     vscode.commands.registerCommand(CommonRegisterCommand, LocalFuncToActivate);
@@ -26,10 +23,20 @@ const LocalFuncToActivate = async () => {
     const LocalToPath = LocalFuncGetWorkSpaceFolder();
     let LocalVersion = await LocalFuncForMaxVersion({ inVersionStart: "V" });
 
+    if (LocalVersion === false) {
+        return false;
+    };
+    // else {
+    //     //StartFuncFromCopyMissed({ inToPath: LocalToPath });
+    //     LocalVersion = "V1";
+    // };
+
     const LocalEnvFileAsJson = StartFuncFromReadEnvFile({ inRootPath: LocalToPath });
 
     if (LocalEnvFileAsJson == null) {
-        return false
+        vscode.window.showInformationMessage(`.env file not present...`);
+
+        return false;
     };
 
     const LocalDataPath = LocalEnvFileAsJson.DataPath ? LocalEnvFileAsJson.DataPath : "";
@@ -51,7 +58,7 @@ const LocalFuncToActivate = async () => {
         inVersion: LocalVersionSecured
     });
 
-    updateServerFileFromAppFile({
+    StartFuncFromLastRun({
         filePath: `${LocalToPath}/app.js`,
         newVersion: LocalVersion,
         inNewVersionProtected: LocalVersionSecured,
@@ -76,7 +83,11 @@ const LocalFuncForMaxVersion = async ({ inVersionStart }) => {
     if (LocalFromMaxVersion === 0) {
         const LocalFromCopy = await StartFuncFromFirstCopy({ inToPath: LocalToPath });
 
+        //  return LocalFromCopy;
+
         if (LocalFromCopy === false) {
+            // console.log("already present");
+
             return false;
         };
     } else {
