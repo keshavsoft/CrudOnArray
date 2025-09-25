@@ -190,6 +190,10 @@ write end points in nodejs
 
 - OnlyBackEnd good
 
+### 1.11.1
+
+- v10 bad
+
 ## License
 
 MIT
