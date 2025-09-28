@@ -194,6 +194,10 @@ write end points in nodejs
 
 - v10 bad
 
+### 1.11.2
+
+- v11 case changed for ubuntu
+
 ## License
 
 MIT

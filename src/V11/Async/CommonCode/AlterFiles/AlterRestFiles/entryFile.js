@@ -4,7 +4,7 @@ const { StartFunc: StartFuncFromReadRestFile } = require("./ReadRestFile");
 const { StartFunc: StartFuncFromAlterRestFile } = require("./AlterRestFile");
 const { StartFunc: StartFuncFromDeleteRestFile } = require("./DeleteRestFile");
 const { StartFunc: StartFuncFromAggregateRestFile } = require("./AggregateRestFile");
-const { StartFunc: StartFuncFromSubinsertRestFile } = require("./SubinsertRestFile");
+const { StartFunc: StartFuncFromSubInsertRestFile } = require("./subInsertRestFile");
 const { StartFunc: StartFuncFromSubReadRestFile } = require("./SubReadRestFile");
 const { StartFunc: StartFuncFromSubAlterRestFile } = require("./SubAlterRestFile");
 const { StartFunc: StartFuncFromSubDeleteRestFile } = require("./SubDeleteRestFile");
@@ -74,7 +74,7 @@ async function StartFunc({ inEditorPath, inTableName, inPortNumber, inVersion, i
         inColumnsAsArray
     });
 
-    await StartFuncFromSubinsertRestFile({
+    await StartFuncFromSubInsertRestFile({
         inFolderPath: `${inEditorPath}/${LocalVersion}/${inTableName}/${CommonSubTableFunctions}/Insert`,
         inTableName, inPortNumber,
         inColumnsAsArray
