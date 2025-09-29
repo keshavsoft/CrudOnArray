@@ -5,7 +5,7 @@ const path = require('path');
 const { StartFunc: StartFuncFromRouteUse } = require("../RouteUse/entryFile");
 const { StartFunc: StartFuncFromAlterFiles } = require('../../CommonCode/AlterFiles/entryFile');
 
-const StartFunc = async ({ inTableName, inColumnsAsArray, inDataPath, inPortNumber, inToPath, inColumnsWithSchema, inData, inVersion }) => {
+const StartFunc = async ({ inTableName, inColumnsAsArray, inDataPath, inPortNumber, inToPath, inColumnsWithSchema, inData, inVersion, inDefaultObjectToInsert }) => {
     const LocalTableName = inTableName;
     const LocalColumnsAsArray = inColumnsAsArray;
     const LocalDataPath = inDataPath;
@@ -29,7 +29,8 @@ const StartFunc = async ({ inTableName, inColumnsAsArray, inDataPath, inPortNumb
             inEditorPath: LocalToPath, inTableName: LocalTableName,
             inDataPath: LocalDataPath, inPortNumber: LocalPortNumber,
             inColumnsAsArray: LocalColumnsAsArray, inVersion: LocalVersion,
-            inColumnsWithSchema, inData
+            inColumnsWithSchema, inData,
+            inDefaultObjectToInsert
         });
 
         vscode.window.showInformationMessage(`BoilerPlate code to: ${LocalToPath}`);

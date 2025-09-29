@@ -192,6 +192,10 @@ write end points in nodejs
 
 - readme is better
 
+### 1.11.4
+
+- genwmail LocalDefaultObjectToInsert perfect
+
 ## License
 
 MIT

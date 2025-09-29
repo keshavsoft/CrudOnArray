@@ -2,20 +2,17 @@ const { StartFunc: StartFuncFromReadParams } = require("./readParams");
 const { StartFunc: StartFuncFromAlterRestFiles } = require("./AlterRestFiles/entryFile");
 const { StartFunc: StartFuncFromForGetColumnsAsArray } = require("./ForGetColumnsAsArray/entryFile");
 const { StartFunc: StartFuncFromForAlterWithColumns } = require("./ForAlterWithColumns/entryFile");
-// const { StartFunc: StartFuncFromForValidateColumnAsIs } = require("./ForValidateColumnAsIs/entryFile");
-
-// const { StartFunc: StartFuncFromForInsertWithColumns } = require("./ForInsert/ForInsertWithColumns/entryFile");
-// const { StartFunc: StartFuncFromForInsertColumnExist } = require("./ForInsert/ForInsertColumnExist/entryFile");
 
 const { StartFunc: StartFuncFromForInsert } = require("./ForInsert/entryFile");
 
-const StartFunc = async ({ inEditorPath, inTableName, inDataPath, inPortNumber, inColumnsAsArray, inVersion, inColumnsWithSchema, inData }) => {
+const StartFunc = async ({ inEditorPath, inTableName, inDataPath, inPortNumber, inColumnsAsArray, inVersion, inColumnsWithSchema, inData, inDefaultObjectToInsert }) => {
     const LocalVersion = inVersion;
 
     StartFuncFromReadParams({
         inEditorPath, inTableName, inDataPath,
         inVersion: LocalVersion,
-        inColumnsAsArray, inColumnsWithSchema
+        inColumnsAsArray, inColumnsWithSchema,
+        inDefaultObjectToInsert
     });
 
     await StartFuncFromAlterRestFiles({
@@ -25,13 +22,9 @@ const StartFunc = async ({ inEditorPath, inTableName, inDataPath, inPortNumber, 
 
     await StartFuncFromForGetColumnsAsArray({ inEditorPath, inTableName, inPortNumber, inVersion });
 
-    // await StartFuncFromForInsertWithColumns({ inEditorPath, inTableName, inColumnsAsArray, inPortNumber, inVersion });
-    // await StartFuncFromForInsertColumnExist({ inEditorPath, inTableName, inColumnsAsArray, inPortNumber, inVersion });
-
     await StartFuncFromForInsert({ inEditorPath, inTableName, inColumnsAsArray, inPortNumber, inVersion });
 
     await StartFuncFromForAlterWithColumns({ inEditorPath, inTableName, inColumnsAsArray, inPortNumber, inVersion });
-    // await StartFuncFromForValidateColumnAsIs({ inEditorPath, inTableName, inColumnsAsArray, inPortNumber, inVersion });
 };
 
 module.exports = { StartFunc };
