@@ -42,6 +42,68 @@ write end points in nodejs
 
 .env
 
+# CrudOnArray
+
+*CrudOnArray* is a VS Code extension by Keshav Soft that helps you quickly generate backend boilerplate for CRUD operations on arrays.
+
+
+## *Installation*
+
+1. *Install the Extension*
+   - Open *VS Code*.
+   - Go to the Extensions panel (Ctrl+Shift+X / Cmd+Shift+X on Mac).
+   - Search for *CrudOnArray* by Keshav Soft and install it.
+
+2. *Open an Empty Folder*
+   - Create or open an empty folder in VS Code where you want the project to be generated.
+
+3. *Generate Backend*
+   - Open the *Command Palette* (Ctrl+Shift+P / Cmd+Shift+P on Mac).
+   - Type and select commandArray (OnlyBackEnd).
+   - You will see available options like *Generate*. Choose the desired option.
+   - All the necessary files and folders will be copied to your empty folder.
+
+---
+
+## *Configuration*
+
+- **.env file**  
+  Define your configuration here:
+  ```env
+  DATA_PATH=your/data/path
+  PORT=3000
+
+
+## **Testing the API
+
+- *Install REST API Client*
+
+-- *Install REST API Client by Huachao Mao in VS Code.*
+
+## Test Read Endpoint
+
+*Navigate to: V1 -> StudentsName -> Read -> RestClients -> 1.AsIs.http.*
+
+1. Click the Send button
+
+2. Ensure the backend is running on port 3000
+
+3. You should receive a 200 OK response, confirming the server is running properly
+
+## Test Insert Endpoint
+
+*Go to: Insert -> 1.AsIs.http and create a new entry (e.g., a student name)*
+
+1. After creating, go back to: Read -> RestClients -> 1.AsIs.http
+
+2. Send the request again and you should see the recently created name in the response
+
+## Verify Backend Functionality
+
+*Repeat the Insert → Read process multiple times to verify that entries are correctly saved and retrieved*
+
+1.  Make sure all requests return 200 OK, indicating the backend is running correctly
+
 ## Known Issues
 
 - No known issues.
