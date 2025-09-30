@@ -11,15 +11,14 @@ const { StartFunc: StartFuncFromReadEnvFile } = require("./readEnvFile");
 const { StartFunc: StartFuncFromFirstCopy } = require("./FirstCopy/entryFile");
 
 const { StartFunc: StartFuncFromGetMaxVersion } = require("./getMaxVersion");
-const { StartFunc: StartFuncrunNodeApp } = require("./serverRun");
 
 const { StartFunc: StartFuncFromLastRun } = require("../../CommonCode/LastRun/entryFile");
 
 const StartFunc = () => {
-    vscode.commands.registerCommand(CommonRegisterCommand, LocalFuncToActivate);
+    vscode.commands.registerCommand(CommonRegisterCommand, FuncToActivate);
 };
 
-const LocalFuncToActivate = async () => {
+const FuncToActivate = async () => {
     const LocalToPath = LocalFuncGetWorkSpaceFolder();
     let LocalVersion = await LocalFuncForMaxVersion({ inVersionStart: "V" });
 
@@ -114,4 +113,4 @@ const LocalFuncGetWorkSpaceFolder = () => {
     };
 };
 
-module.exports = { StartFunc };
+module.exports = { StartFunc, FuncToActivate };

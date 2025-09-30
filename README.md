@@ -204,6 +204,10 @@ write end points in nodejs
 
 - GenerateWMail.BackEnd.Only started
 
+### 1.12.2
+
+- GenerateWMail.BackEnd.Only not tested
+
 ## License
 
 MIT
