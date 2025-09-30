@@ -3,6 +3,7 @@ const { StartFunc: StartFuncFromOnlyBackEnd } = require("./OnlyBackEnd/entryFile
 const { StartFunc: StartFuncFromFrontAndBackWithGulp } = require("./FrontAndBackWithGulp/entryFile");
 const { StartFunc: StartFuncFromOnlyFrontEnd } = require("./OnlyFrontEnd/entryFile");
 const { StartFunc: StartFuncFromFrontAndBackWGulpNonSec } = require("./FrontAndBackWGulpNonSec/entryFile");
+const { StartFunc: StartFuncFromBackEnd } = require("./BackEnd/entryFile");
 
 const StartFunc = () => {
     StartFuncFromWithSubTable();
@@ -10,6 +11,7 @@ const StartFunc = () => {
     StartFuncFromFrontAndBackWithGulp();
     StartFuncFromOnlyFrontEnd();
     StartFuncFromFrontAndBackWGulpNonSec();
+    StartFuncFromBackEnd();
 };
 
 module.exports = { StartFunc };
