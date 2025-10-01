@@ -208,6 +208,10 @@ write end points in nodejs
 
 - GenerateWMail.BackEnd.Only not tested
 
+### 1.13.1
+
+- GenerateWMail insert asinand ts changed
+
 ## License
 
 MIT
