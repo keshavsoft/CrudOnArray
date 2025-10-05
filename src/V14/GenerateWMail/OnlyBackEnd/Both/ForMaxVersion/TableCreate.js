@@ -1,11 +1,10 @@
 const vscode = require('vscode');
-const fse = require('fs-extra');
-const path = require('path');
 
 const { StartFunc: StartFuncFromRouteUse } = require("../RouteUse/entryFile");
 const { StartFunc: StartFuncFromAlterFiles } = require('../../../CommonCode/AlterFiles/entryFile');
+const { StartFunc: StartFuncFromCopyNeededOnly } = require("./copyNeededOnly");
 
-const StartFunc = async ({ inTableName, inColumnsAsArray, inDataPath, inPortNumber, inToPath, inColumnsWithSchema, inData, inVersion }) => {
+const StartFunc = async ({ inTableName, inColumnsAsArray, inSubRoutes, inDataPath, inPortNumber, inToPath, inColumnsWithSchema, inData, inVersion }) => {
     const LocalTableName = inTableName;
     const LocalColumnsAsArray = inColumnsAsArray;
     const LocalDataPath = inDataPath;
@@ -14,15 +13,17 @@ const StartFunc = async ({ inTableName, inColumnsAsArray, inDataPath, inPortNumb
 
     const LocalToPath = inToPath;
 
-    const LocalFromTablePath = path.join(__dirname, "..", "..", "TableName");
+    // const LocalFromTablePath = path.join(__dirname, "..", "..", "..", "TableName");
 
-    await fse.copy(LocalFromTablePath, `${LocalToPath}/${LocalVersion}/${LocalTableName}`);
+    // await fse.copy(LocalFromTablePath, `${LocalToPath}/${LocalVersion}/${LocalTableName}`);
+    StartFuncFromCopyNeededOnly({ inTableName, inSubRoutes, inToPath, inVersion });
 
     try {
         StartFuncFromRouteUse({
             inEditorPath: `${LocalToPath}/${LocalVersion}/routes.js`,
             inNewRoute: LocalTableName,
-            inVersion: LocalVersion
+            inVersion: LocalVersion,
+            inSubRoutes
         });
 
         await StartFuncFromAlterFiles({

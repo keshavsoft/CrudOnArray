@@ -26,10 +26,6 @@ const LocalFuncToActivate = async () => {
     if (LocalVersion === false) {
         return false;
     };
-    // else {
-    //     //StartFuncFromCopyMissed({ inToPath: LocalToPath });
-    //     LocalVersion = "V1";
-    // };
 
     const LocalEnvFileAsJson = StartFuncFromReadEnvFile({ inRootPath: LocalToPath });
 

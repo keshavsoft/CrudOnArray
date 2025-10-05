@@ -215,7 +215,11 @@ write end points in nodejs
 ### 1.14.1
 
 - GenerateWMail.OnlyBackEnd.NonSecured perfect
-   
+
+### 1.14.2
+
+- GenerateWMail.OnlyBackEnd.Both perfect, restfiles commented so need to be fixed
+
 ## License
 
 MIT

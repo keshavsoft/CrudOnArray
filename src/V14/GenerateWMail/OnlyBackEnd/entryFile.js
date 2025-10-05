@@ -1,8 +1,8 @@
-// const { StartFunc: StartFuncFromBoth } = require("./Both/entryFile");
+const { StartFunc: StartFuncFromBoth } = require("./Both/entryFile");
 const { StartFunc: StartFuncFromNonSecured } = require("./NonSecured/entryFile");
 
 const StartFunc = () => {
-    // StartFuncFromBoth();
+    StartFuncFromBoth();
     StartFuncFromNonSecured();
 };
 

@@ -15,10 +15,10 @@ const StartFunc = async ({ inEditorPath, inTableName, inDataPath, inPortNumber, 
         inDefaultObjectToInsert
     });
 
-    await StartFuncFromAlterRestFiles({
-        inEditorPath, inTableName, inPortNumber, inVersion,
-        inColumnsAsArray
-    });
+    // await StartFuncFromAlterRestFiles({
+    //     inEditorPath, inTableName, inPortNumber, inVersion,
+    //     inColumnsAsArray
+    // });
 
     await StartFuncFromForGetColumnsAsArray({ inEditorPath, inTableName, inPortNumber, inVersion });
 
