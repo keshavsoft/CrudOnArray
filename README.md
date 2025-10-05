@@ -212,6 +212,10 @@ write end points in nodejs
 
 - GenerateWMail insert asinand ts changed
 
+### 1.14.1
+
+- GenerateWMail.OnlyBackEnd.NonSecured perfect
+   
 ## License
 
 MIT
