@@ -224,6 +224,10 @@ write end points in nodejs
 
 - GenerateWMail.OnlyBackEnd.Both perfect, rest folder started
 
+### 1.14.4
+
+- GenerateWMail.OnlyBackEnd.Both Read, asis rest perfect
+
 ## License
 
 MIT

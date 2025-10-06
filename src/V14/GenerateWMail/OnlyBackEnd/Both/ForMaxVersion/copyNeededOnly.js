@@ -1,7 +1,7 @@
 const fse = require('fs-extra');
 const path = require('path');
 
-const StartFunc = async ({ inTableName, inSubRoutes, inToPath, inVersion }) => {
+const StartFunc = async ({ inTableName, inSubRoutes, inToPath, inVersion, inPortNumber }) => {
     const LocalTableName = inTableName;
     const LocalVersion = inVersion;
 
@@ -31,12 +31,42 @@ const StartFunc = async ({ inTableName, inSubRoutes, inToPath, inVersion }) => {
         LocalFileDataAsArray.push(`router.use("/${LoopSubRoute}", routerFrom${LoopSubRoute});`);
     };
 
+    for (const LoopSubRoute of inSubRoutes) {
+        LocalFuncToReplace({
+            inFileName: `${LocalToPath}/${LocalVersion}/${LocalTableName}/${LoopSubRoute}/RestClients/1_AsIs.http`,
+            inTableName, inVersion, inPortNumber
+        });
+    };
+
     LocalFileDataAsArray.push("");
     LocalFileDataAsArray.push("export { router };");
 
     fse.writeFileSync(`${LocalToPath}/${LocalVersion}/${LocalTableName}/routes.js`, LocalFileDataAsArray.join("\n"));
 };
 
+
+const LocalFuncToReplace = ({ inFileName, inTableName, inVersion, inPortNumber }) => {
+    const filePath = inFileName; // Replace with your file path
+
+    fse.readFile(filePath, 'utf-8', (err, contents) => {
+        if (err) {
+            console.error('Error reading file:', err);
+            return;
+        };
+
+        let updatedContents = contents.replace(new RegExp("{PortNumber}", 'g'), inPortNumber);
+        let updatedContents1 = updatedContents.replace(new RegExp("{Version}", 'g'), inVersion);
+        let updatedContents2 = updatedContents1.replace(new RegExp("{TableName}", 'g'), inTableName);
+
+        fse.writeFile(filePath, updatedContents2, 'utf-8', (err) => {
+            if (err) {
+                console.error('Error writing file:', err);
+                return;
+            }
+            console.log('String replaced successfully in', filePath);
+        });
+    });
+};
 
 
 

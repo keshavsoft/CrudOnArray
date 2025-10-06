@@ -40,7 +40,8 @@ const StartFunc = async ({ inDataPath, inPortNumber, inToPath, inVersion }) => {
             inPortNumber, inToPath: LocalToPath,
             inColumnsWithSchema: LocalColumnsWithSchema,
             inData: LocalData, inVersion: localVersion,
-            inSubRoutes: LocalSubRoutes
+            inSubRoutes: LocalSubRoutes,
+            inPortNumber
         });
     };
 };
