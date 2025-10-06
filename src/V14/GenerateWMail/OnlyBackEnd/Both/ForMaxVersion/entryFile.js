@@ -1,3 +1,4 @@
+const vscode = require('vscode');
 const path = require('path');
 const { StartFunc: StartFuncFromTableCreates } = require('./TableCreate');
 const fs = require("fs");
@@ -30,7 +31,12 @@ const StartFunc = async ({ inDataPath, inPortNumber, inToPath, inVersion }) => {
         const LocalColumnsAsArray = LocalFromTableJson.columns.map(el => el.field);
         const LocalData = LocalFromTableJson.Data ? LocalFromTableJson.Data : [];
         const LocalColumnsWithSchema = LocalFromTableJson.columns;
-        const LocalSubRoutes = LocalFromTableJson.SubRoutes;
+
+        if ("SubRoutes" in LocalFromTableJson === false) {
+            vscode.window.showInformationMessage(`SubRoutes not found in Json Schema : ${tableName}`);
+        };
+
+        const LocalSubRoutes = LocalFromTableJson.SubRoutes ? LocalFromTableJson.SubRoutes : [];
 
         await StartFuncFromTableCreates({
             inFromTablePath: fromTablePath, inToTablePath: toTablePath,

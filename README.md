@@ -228,6 +228,10 @@ write end points in nodejs
 
 - GenerateWMail.OnlyBackEnd.Both Read, asis rest perfect
 
+### 1.14.5
+
+- GenerateWMail.OnlyBackEnd.Both error handled for SubRoutes key in Json Schema
+
 ## License
 
 MIT

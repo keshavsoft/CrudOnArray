@@ -28,5 +28,8 @@
         "Header": {
             "autoFocus": "title"
         }
-    }
+    },
+    "SubRoutes": [
+        "Read"
+    ]
 }
