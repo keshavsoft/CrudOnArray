@@ -13,7 +13,8 @@ const { StartFunc: StartFuncFromFirstCopy } = require("./FirstCopy/entryFile");
 const { StartFunc: StartFuncFromGetMaxVersion } = require("./getMaxVersion");
 const { StartFunc: StartFuncrunNodeApp } = require("./serverRun");
 
-const { StartFunc: StartFuncFromLastRun } = require("../../CommonCode/LastRun/entryFile");
+// const { StartFunc: StartFuncFromLastRun } = require("../../CommonCode/LastRun/entryFile");
+const { StartFunc: StartFuncFromLastRun } = require("./LastRun/entryFile");
 
 const StartFunc = () => {
     vscode.commands.registerCommand(CommonRegisterCommand, LocalFuncToActivate);
@@ -53,13 +54,6 @@ const LocalFuncToActivate = async () => {
         inToPath: LocalToPath,
         inVersion: LocalVersionSecured
     });
-
-    // updateServerFileFromAppFile({
-    //     filePath: `${LocalToPath}/app.js`,
-    //     newVersion: LocalVersion,
-    //     inNewVersionProtected: LocalVersionSecured,
-    //     inToPath: LocalToPath
-    // });
 
     StartFuncFromLastRun({
         filePath: `${LocalToPath}/app.js`,
