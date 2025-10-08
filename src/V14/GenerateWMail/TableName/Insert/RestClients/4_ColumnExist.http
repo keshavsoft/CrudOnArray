@@ -1,0 +1,8 @@
+POST http://localhost:{PortNumber}/{Version}/{TableName}/Insert/ColumnExist
+Content-Type: application/json
+
+{
+  "title": "",
+  "start": "",
+  "className": ""
+}

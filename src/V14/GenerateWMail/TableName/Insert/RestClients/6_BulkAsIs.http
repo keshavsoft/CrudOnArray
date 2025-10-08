@@ -1,0 +1,10 @@
+POST http://localhost:{PortNumber}/{Version}/{TableName}/Insert/BulkAsIs
+Content-Type: application/json
+
+[
+  {
+    "title": "",
+    "start": "",
+    "className": ""
+  }
+]
