@@ -240,6 +240,10 @@ write end points in nodejs
 
 - GenerateWMail.OnlyBackEnd all 3 perfect, UnSecured, middleware removed
 
+### 1.14.8
+
+- GenerateWMail.OnlyBackEnd all 3 perfect, UnSecured, max version fixed here only
+
 ## License
 
 MIT
