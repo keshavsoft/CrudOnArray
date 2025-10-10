@@ -1,8 +1,9 @@
 const fse = require('fs-extra');
 const path = require('path');
 const { StartFunc: StartFuncFromRead } = require('../../../CommonCode/RestFiles/Read/entryFile');
+const { StartFunc: StartFuncFromInsert } = require('../../../CommonCode/RestFiles/Insert/entryFile');
 
-const StartFunc = async ({ inTableName, inSubRoutes, inToPath, inVersion, inPortNumber }) => {
+const StartFunc = async ({ inTableName, inSubRoutes, inToPath, inVersion, inPortNumber, inColumnsAsArray }) => {
     const LocalTableName = inTableName;
     const LocalVersion = inVersion;
 
@@ -39,6 +40,12 @@ const StartFunc = async ({ inTableName, inSubRoutes, inToPath, inVersion, inPort
                 StartFuncFromRead({
                     inFolder: `${LocalToPath}/${LocalVersion}/${LocalTableName}/${LoopSubRoute}/RestClients`,
                     inTableName, inVersion, inPortNumber
+                })
+                break;
+            case "Insert":
+                StartFuncFromInsert({
+                    inFolder: `${LocalToPath}/${LocalVersion}/${LocalTableName}/${LoopSubRoute}/RestClients`,
+                    inTableName, inVersion, inPortNumber, inColumnsAsArray
                 })
                 break;
 
