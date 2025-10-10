@@ -1,5 +1,6 @@
 const fse = require('fs-extra');
 const path = require('path');
+const { StartFunc: StartFuncFromRead } = require('../../../CommonCode/RestFiles/Read/entryFile');
 
 const StartFunc = async ({ inTableName, inSubRoutes, inToPath, inVersion, inPortNumber }) => {
     const LocalTableName = inTableName;
@@ -32,10 +33,22 @@ const StartFunc = async ({ inTableName, inSubRoutes, inToPath, inVersion, inPort
     };
 
     for (const LoopSubRoute of inSubRoutes) {
-        LocalFuncToReplace({
-            inFileName: `${LocalToPath}/${LocalVersion}/${LocalTableName}/${LoopSubRoute}/RestClients/1_AsIs.http`,
-            inTableName, inVersion, inPortNumber
-        });
+
+        switch (LoopSubRoute) {
+            case "Read":
+                StartFuncFromRead({
+                    inFolder: `${LocalToPath}/${LocalVersion}/${LocalTableName}/${LoopSubRoute}/RestClients`,
+                    inTableName, inVersion, inPortNumber
+                })
+                break;
+
+            default:
+                break;
+        }
+        // LocalFuncToReplace({
+        //     inFileName: `${LocalToPath}/${LocalVersion}/${LocalTableName}/${LoopSubRoute}/RestClients/1_AsIs.http`,
+        //     inTableName, inVersion, inPortNumber
+        // });
     };
 
     LocalFileDataAsArray.push("");
