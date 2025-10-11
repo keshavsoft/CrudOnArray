@@ -17,7 +17,6 @@ const handlers = {
     "6_BulkAsIs.http": StartFuncFromBulkAsIs,
     "7_Default.http": StartFuncFromDefault,
     "8_OnlyDefault.http": StartFuncFromOnlyDefault
-
 };
 
 async function StartFunc({ inFolder, inTableName, inVersion, inPortNumber, inColumnsAsArray }) {

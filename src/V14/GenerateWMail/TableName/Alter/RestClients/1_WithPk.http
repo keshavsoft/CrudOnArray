@@ -1,8 +1,4 @@
 POST http://localhost:{PortNumber}/{Version}/{TableName}/Alter/WithPk/{pk}
 Content-Type: application/json
 
-{
-  "title": "",
-  "start": "",
-  "className": ""
-}
+{Columns}
