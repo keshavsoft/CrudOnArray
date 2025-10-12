@@ -10,12 +10,11 @@ const { StartFunc: StartFuncFromReadEnvFile } = require("./readEnvFile");
 
 const { StartFunc: StartFuncFromFirstCopy } = require("./FirstCopy/entryFile");
 
-// const { StartFunc: StartFuncFromGetMaxVersion } = require("./getMaxVersion");
+const { StartFunc: StartFuncFromGetMaxVersion } = require("./getMaxVersion");
 const { StartFunc: StartFuncrunNodeApp } = require("./serverRun");
-const { StartFunc: StartFuncFromGetMaxVersion } = require("../getMaxVersion");
 
+// const { StartFunc: StartFuncFromLastRun } = require("../../CommonCode/LastRun/entryFile");
 const { StartFunc: StartFuncFromLastRun } = require("./LastRun/entryFile");
-const { StartFunc: StartFuncForMaxVersion } = require("./forMaxVersion");
 
 const StartFunc = () => {
     vscode.commands.registerCommand(CommonRegisterCommand, LocalFuncToActivate);
@@ -23,23 +22,24 @@ const StartFunc = () => {
 
 const LocalFuncToActivate = async () => {
     const LocalToPath = LocalFuncGetWorkSpaceFolder();
+    let LocalVersion = await LocalFuncForMaxVersion({ inVersionStart: "V" });
 
-    let LocalVersionSecured = await StartFuncForMaxVersion({ inVersionStart: "SV" });
-
-    if (LocalVersionSecured === false) {
+    if (LocalVersion === false) {
         return false;
     };
 
     const LocalEnvFileAsJson = StartFuncFromReadEnvFile({ inRootPath: LocalToPath });
-
-    const LocalDataPath = LocalEnvFileAsJson.DataPath ? LocalEnvFileAsJson.DataPath : "";
-    const LocalPortNumber = LocalEnvFileAsJson.PORT ? LocalEnvFileAsJson.PORT : "";
 
     if (LocalEnvFileAsJson == null) {
         vscode.window.showInformationMessage(`.env file not present...`);
 
         return false;
     };
+
+    const LocalDataPath = LocalEnvFileAsJson.DataPath ? LocalEnvFileAsJson.DataPath : "";
+    const LocalPortNumber = LocalEnvFileAsJson.PORT ? LocalEnvFileAsJson.PORT : "";
+
+    let LocalVersionSecured = await LocalFuncForMaxVersion({ inVersionStart: "SV" });
 
     await StartFuncFromForMaxVersion({
         inDataPath: LocalDataPath,
@@ -72,7 +72,11 @@ const LocalFuncForMaxVersion = async ({ inVersionStart }) => {
     if (LocalFromMaxVersion === 0) {
         const LocalFromCopy = await StartFuncFromFirstCopy({ inToPath: LocalToPath });
 
+        //  return LocalFromCopy;
+
         if (LocalFromCopy === false) {
+            // console.log("already present");
+
             return false;
         };
     } else {
