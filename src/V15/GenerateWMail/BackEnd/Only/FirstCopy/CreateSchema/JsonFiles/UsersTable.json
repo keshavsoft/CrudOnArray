@@ -1,0 +1,45 @@
+{
+    "tableName": "UsersTable",
+    "columns": [
+        {
+            "field": "UserName",
+            "title": "UserName",
+            "unique": true,
+            "type": "text",
+            "isInput": true,
+            "isAutoFocus": true
+        },
+        {
+            "field": "Password",
+            "title": "Password",
+            "type": "text",
+            "isInput": true
+        }
+    ],
+    "data": [
+        {
+            "UserName": "Keshav",
+            "Password": 9848163021
+        }
+    ],
+    "Vertical": [
+        {
+            "field": "UserName",
+            "title": "UserName",
+            "unique": true,
+            "type": "text",
+            "isInput": true
+        },
+        {
+            "field": "Password",
+            "title": "Password",
+            "type": "text",
+            "isInput": true
+        }
+    ],
+    "DataTableOptions": {
+        "Header": {
+            "autoFocus": "title"
+        }
+    }
+}

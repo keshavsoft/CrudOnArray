@@ -248,6 +248,10 @@ write end points in nodejs
 
 - GenerateWMail.OnlyBackEnd started working on secured...
 
+### 1.15.1
+
+- GenerateWMail.FrontAndBack started...
+
 ## License
 
 MIT
