@@ -252,6 +252,10 @@ write end points in nodejs
 
 - GenerateWMail.FrontAndBack started...
 
+### 1.15.2
+
+- working on filter
+
 ## License
 
 MIT

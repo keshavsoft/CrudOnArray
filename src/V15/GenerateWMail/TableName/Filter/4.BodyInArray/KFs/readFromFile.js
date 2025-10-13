@@ -4,6 +4,7 @@ import ParamsJson from '../../../CommonFuncs/params.json' with { type: 'json' };
 let StartFunc = ({ inKey, inValue }) => {
     const LocalFileName = ParamsJson.TableName;
     const LocalDataPath = ParamsJson.DataPath;
+    // console.log("--------- : ", inValue);
 
     let LocalReturnData = { KTF: false };
 
@@ -11,7 +12,7 @@ let StartFunc = ({ inKey, inValue }) => {
         const data = fs.readFileSync(`${LocalDataPath}/${LocalFileName}.json`, 'utf8');
         const parsedData = JSON.parse(data);
 
-        const filteredData = parsedData.filter(item => item[inKey] === inValue);
+        const filteredData = parsedData.filter(item => inValue.includes(item[inKey]));
 
         if (filteredData.length === 0) {
             LocalReturnData.KReason = `No data found with ${inKey}: ${inValue}`;
