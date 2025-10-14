@@ -15,61 +15,61 @@ const StartFunc = async ({ inFolder, inTableName, inSubRoutes, inVersion, inPort
 
         switch (LoopSubRoute) {
             case "Read":
-                StartFuncFromRead({
+                await StartFuncFromRead({
                     inFolder: `${inFolder}/${LoopSubRoute}/RestClients`,
                     inTableName, inVersion, inPortNumber
                 })
                 break;
             case "Insert":
-                StartFuncFromInsert({
+                await StartFuncFromInsert({
                     inFolder: `${inFolder}/${LoopSubRoute}/RestClients`,
                     inTableName, inVersion, inPortNumber, inColumnsAsArray
                 })
                 break;
             case "Alter":
-                StartFuncFromAlter({
+                await StartFuncFromAlter({
                     inFolder: `${inFolder}/${LoopSubRoute}/RestClients`,
                     inTableName, inVersion, inPortNumber, inColumnsAsArray
                 })
                 break;
             case "Delete":
-                StartFuncFromDelete({
+                await StartFuncFromDelete({
                     inFolder: `${inFolder}/${LoopSubRoute}/RestClients`,
                     inTableName, inVersion, inPortNumber, inColumnsAsArray
                 })
                 break;
             case "Filter":
-                StartFuncFromFilter({
+                await StartFuncFromFilter({
                     inFolder: `${inFolder}/${LoopSubRoute}/RestClients`,
                     inTableName, inVersion, inPortNumber, inColumnsAsArray
                 })
                 break;
             case "InsertWithChecks":
-                StartFuncFromInsertWithChecks({
+                await StartFuncFromInsertWithChecks({
                     inFolder: `${inFolder}/${LoopSubRoute}/RestClients`,
                     inTableName, inVersion, inPortNumber, inColumnsAsArray
                 })
                 break;
             case "ReadSchema":
-                StartFuncFromReadSchema({
+                await StartFuncFromReadSchema({
                     inFolder: `${inFolder}/${LoopSubRoute}/RestClients`,
                     inTableName, inVersion, inPortNumber, inColumnsAsArray
                 })
                 break;
             case "GroupBy":
-                StartFuncFromGroupBy({
+                await StartFuncFromGroupBy({
                     inFolder: `${inFolder}/${LoopSubRoute}/RestClients`,
                     inTableName, inVersion, inPortNumber, inColumnsAsArray
                 })
                 break;
             case "ReadSingleCol":
-                StartFuncFromReadSingleCol({
+                await StartFuncFromReadSingleCol({
                     inFolder: `${inFolder}/${LoopSubRoute}/RestClients`,
                     inTableName, inVersion, inPortNumber, inColumnsAsArray
                 })
                 break;
             case "AggregateFunctions":
-                StartFuncFromAggregateFunctions({
+                await StartFuncFromAggregateFunctions({
                     inFolder: `${inFolder}/${LoopSubRoute}/RestClients`,
                     inTableName, inVersion, inPortNumber, inColumnsAsArray
                 })

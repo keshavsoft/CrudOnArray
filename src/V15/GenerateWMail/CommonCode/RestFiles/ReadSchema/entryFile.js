@@ -7,7 +7,7 @@ const { StartFunc: StartFuncFromSelColumns } = require('./SelColumns');
 const handlers = {
     "1_AsIs.http": StartFuncFromAsIs,
     "2_Both.http": StartFuncFromRowDataWithPk,
-    "3_Fieldsonly.http": StartFuncFromSelColsAsArray,
+    "3_FieldsOnly.http": StartFuncFromSelColsAsArray,
     "4_TitlesOnly.http": StartFuncFromSelColumns,
 };
 

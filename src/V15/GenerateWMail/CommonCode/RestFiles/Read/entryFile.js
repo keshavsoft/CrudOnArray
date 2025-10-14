@@ -20,18 +20,34 @@ const handlers = {
 
 };
 
-async function StartFunc({ inFolder, inTableName, inVersion, inPortNumber }) {
+async function StartFunc({ inFolder, inTableName, inVersion, inPortNumber, inColumnsAsArray }) {
     const files = fs.readdirSync(inFolder);
+    console.log("📂 Files found:", files);
 
-    files.forEach(file => {
+    for (const file of files) {
         const handler = handlers[file];
+        const filePath = `${inFolder}/${file}`;
+
         if (handler) {
-            handler({
-                inFilePath: `${inFolder}/${file}`,
-                inTableName, inVersion, inPortNumber
-            });
+            console.log(`⚙️ Running handler for: ${file}`);
+            try {
+                await handler({
+                    inFilePath: filePath,
+                    inTableName,
+                    inVersion,
+                    inPortNumber,
+                    inColumnsAsArray
+                });
+                console.log(`✅ Completed: ${file}`);
+            } catch (error) {
+                console.error(`❌ Error in ${file}:`, error.message);
+            }
+        } else {
+            console.warn(`⚠️ No handler found for file: ${file}`);
         }
-    });
+    }
+
+    console.log("🎉 All handlers executed successfully!");
 }
 
 module.exports = { StartFunc };
