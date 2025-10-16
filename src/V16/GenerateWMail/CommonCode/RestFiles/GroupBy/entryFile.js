@@ -6,11 +6,11 @@ const { StartFunc: StartFuncFromSum } = require('./Sum');
 const { StartFunc: StartFuncFromSingleColumnSum } = require('./SingleColumnSum');
 
 const handlers = {
-    "1.SingleColumn.http": StartFuncFromSingleColumn,
-    "2.SingleColLength.http": StartFuncFromSingleColLength,
-    "3.SetSingleColumn.http": StartFuncFromSetSingleColumn,
-    "4.Sum.http": StartFuncFromSum,
-    "5.SingleColumnSum.http": StartFuncFromSingleColumnSum
+    "1_SingleColumn.http": StartFuncFromSingleColumn,
+    "2_SingleColLength.http": StartFuncFromSingleColLength,
+    "3_SetSingleColumn.http": StartFuncFromSetSingleColumn,
+    "4_Sum.http": StartFuncFromSum,
+    "5_SingleColumnSum.http": StartFuncFromSingleColumnSum
 };
 
 async function StartFunc({ inFolder, inTableName, inVersion, inPortNumber, inColumnsAsArray }) {

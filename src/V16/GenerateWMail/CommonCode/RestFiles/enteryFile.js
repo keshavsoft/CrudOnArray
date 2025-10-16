@@ -8,6 +8,7 @@ const { StartFunc: StartFuncFromReadSchema } = require('./ReadSchema/entryFile')
 const { StartFunc: StartFuncFromGroupBy } = require('./GroupBy/entryFile');
 const { StartFunc: StartFuncFromReadSingleCol } = require('./ReadSingleCol/entryFile');
 const { StartFunc: StartFuncFromAggregateFunctions } = require('./AggregateFunctions/entryFile');
+const { StartFunc: StartFuncFromAddWithDefault } = require('./AddWithDefault/entryFile');
 
 const StartFunc = async ({ inFolder, inTableName, inSubRoutes, inVersion, inPortNumber, inColumnsAsArray }) => {
 
@@ -70,6 +71,12 @@ const StartFunc = async ({ inFolder, inTableName, inSubRoutes, inVersion, inPort
                 break;
             case "AggregateFunctions":
                 StartFuncFromAggregateFunctions({
+                    inFolder: `${inFolder}/${LoopSubRoute}/RestClients`,
+                    inTableName, inVersion, inPortNumber, inColumnsAsArray
+                })
+                break;
+            case "AddWithDefault":
+                StartFuncFromAddWithDefault({
                     inFolder: `${inFolder}/${LoopSubRoute}/RestClients`,
                     inTableName, inVersion, inPortNumber, inColumnsAsArray
                 })
