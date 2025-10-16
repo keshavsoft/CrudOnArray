@@ -28,11 +28,6 @@ async function StartFunc({ inEditorPath, inTableName, inColumnsAsArray, inVersio
         inTaskName: CommonTaskName
     });
 
-    // await StartFuncFromAlterRestFiles({
-    //     inFilePath: `${inEditorPath}/${LocalVersion}/${inTableName}/Insert/RestClients/InsertColumnExist.http`,
-    //     inTableName, inPortNumber, inColumnsAsArray
-    // });
-
     await StartFuncFromMiddlewares({
         inEditorPath, inTableName, inColumnsAsArray,
         inVersion: LocalVersion, inTaskName: CommonTaskName
