@@ -1,7 +1,8 @@
 const fse = require('fs-extra');
 const path = require('path');
+const { StartFunc: StartFuncFromRestFiles } = require('../../../CommonCode/RestFiles/enteryFile');
 
-const StartFunc = async ({ inTableName, inSubRoutes, inToPath, inVersion, inPortNumber }) => {
+const StartFunc = async ({ inTableName, inSubRoutes, inToPath, inVersion, inPortNumber, inColumnsAsArray }) => {
     const LocalTableName = inTableName;
     const LocalVersion = inVersion;
 
@@ -31,12 +32,17 @@ const StartFunc = async ({ inTableName, inSubRoutes, inToPath, inVersion, inPort
         LocalFileDataAsArray.push(`router.use("/${LoopSubRoute}", routerFrom${LoopSubRoute});`);
     };
 
-    for (const LoopSubRoute of inSubRoutes) {
-        LocalFuncToReplace({
-            inFileName: `${LocalToPath}/${LocalVersion}/${LocalTableName}/${LoopSubRoute}/RestClients/1_AsIs.http`,
-            inTableName, inVersion, inPortNumber
-        });
-    };
+    StartFuncFromRestFiles({
+        inFolder: `${LocalToPath}/${LocalVersion}/${LocalTableName}`,
+        inTableName, inVersion, inPortNumber, inSubRoutes, inColumnsAsArray
+    });
+
+    // for (const LoopSubRoute of inSubRoutes) {
+    //     LocalFuncToReplace({
+    //         inFileName: `${LocalToPath}/${LocalVersion}/${LocalTableName}/${LoopSubRoute}/RestClients/1_AsIs.http`,
+    //         inTableName, inVersion, inPortNumber
+    //     });
+    // };
 
     LocalFileDataAsArray.push("");
     LocalFileDataAsArray.push("export { router };");
