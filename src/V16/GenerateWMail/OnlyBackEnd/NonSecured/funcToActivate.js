@@ -1,17 +1,12 @@
 const vscode = require('vscode');
 
 const { StartFunc: StartFuncFromForMaxVersion } = require("./ForMaxVersion/entryFile");
-
 const { StartFunc: StartFuncFromOpenApp } = require("./openApp");
-
 const { StartFunc: StartFuncFromReadEnvFile } = require("./readEnvFile");
-
 const { StartFunc: StartFuncFromFirstCopy } = require("./FirstCopy/entryFile");
-
 const { StartFunc: StartFuncFromGetMaxVersion } = require("./getMaxVersion");
-// const { StartFunc: StartFuncrunNodeApp } = require("./serverRun");
-
 const { StartFunc: StartFuncFromLastRun } = require("./LastRun/entryFile");
+// const { StartFunc: StartFuncrunNodeApp } = require("./serverRun");
 
 const StartFunc = async ({ inToPath }) => {
     const LocalToPath = inToPath;
@@ -63,12 +58,10 @@ const LocalFuncForMaxVersion = async ({ inVersionStart }) => {
 
     if (LocalFromMaxVersion === 0) {
         const LocalFromCopy = await StartFuncFromFirstCopy({ inToPath: LocalToPath });
-
         //  return LocalFromCopy;
 
         if (LocalFromCopy === false) {
             // console.log("already present");
-
             return false;
         };
     } else {

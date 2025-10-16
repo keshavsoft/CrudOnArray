@@ -31,9 +31,9 @@ const StartFunc = async ({ inTableName, inSubRoutes, inToPath, inVersion, inPort
     for (const LoopSubRoute of inSubRoutes) {
         LocalFileDataAsArray.push(`router.use("/${LoopSubRoute}", routerFrom${LoopSubRoute});`);
     };
-    StartFuncFromRestFiles({
+    await StartFuncFromRestFiles({
         inFolder: `${LocalToPath}/${LocalVersion}/${LocalTableName}`,
-        inTableName, inVersion, inPortNumber, inSubRoutes
+        inTableName, inVersion, inPortNumber, inSubRoutes,inColumnsAsArray
     });
 
     LocalFileDataAsArray.push("");

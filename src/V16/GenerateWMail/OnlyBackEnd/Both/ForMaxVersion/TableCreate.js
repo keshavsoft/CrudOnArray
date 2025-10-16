@@ -12,10 +12,6 @@ const StartFunc = async ({ inTableName, inColumnsAsArray, inSubRoutes, inDataPat
     const LocalVersion = inVersion;
 
     const LocalToPath = inToPath;
-
-    // const LocalFromTablePath = path.join(__dirname, "..", "..", "..", "TableName");
-
-    // await fse.copy(LocalFromTablePath, `${LocalToPath}/${LocalVersion}/${LocalTableName}`);
     StartFuncFromCopyNeededOnly({ inTableName, inSubRoutes, inToPath, inVersion, inPortNumber, inColumnsAsArray });
 
     try {
@@ -25,7 +21,8 @@ const StartFunc = async ({ inTableName, inColumnsAsArray, inSubRoutes, inDataPat
             inVersion: LocalVersion,
             inSubRoutes
         });
-
+        
+        // some api alter files creation
         await StartFuncFromAlterFiles({
             inEditorPath: LocalToPath, inTableName: LocalTableName,
             inDataPath: LocalDataPath, inPortNumber: LocalPortNumber,

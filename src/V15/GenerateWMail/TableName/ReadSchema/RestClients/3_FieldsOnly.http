@@ -1,1 +1,1 @@
-GET http://localhost:{PortNumber}/{Version}/{TableName}/FieldsOnly
+GET http://localhost:{PortNumber}/{Version}/{TableName}/ReadSchema/FieldsOnly
