@@ -33,7 +33,7 @@ const StartFunc = async ({ inTableName, inSubRoutes, inToPath, inVersion, inPort
     };
     StartFuncFromRestFiles({
         inFolder: `${LocalToPath}/${LocalVersion}/${LocalTableName}`,
-        inTableName, inVersion, inPortNumber, inSubRoutes
+        inTableName, inVersion, inPortNumber, inSubRoutes,inColumnsAsArray
     });
 
     LocalFileDataAsArray.push("");

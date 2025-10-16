@@ -1,4 +1,4 @@
-POST http://localhost:{PORT}{SubRoute}/GroupBy/SingleColumnSum/{GroupByColumnName}
+POST http://localhost:{PortNumber}/{Version}/{TableName}/GroupBy/SingleColumnSum/{GroupByColumnName}
 Content-Type: application/json
 
 [
