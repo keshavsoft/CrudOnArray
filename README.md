@@ -256,6 +256,10 @@ write end points in nodejs
 
 - working on filter
 
+### 1.16.1
+
+- only backend nonsec schema from files not static
+
 ## License
 
 MIT
