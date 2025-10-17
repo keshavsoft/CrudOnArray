@@ -3,19 +3,14 @@ const vscode = require('vscode');
 const CommonRegisterCommand = "GenerateWMail.OnlyBackEnd.Secured";
 
 const { StartFunc: StartFuncFromForMaxVersion } = require("./ForMaxVersion/entryFile");
-
 const { StartFunc: StartFuncFromOpenApp } = require("./openApp");
-
 const { StartFunc: StartFuncFromReadEnvFile } = require("./readEnvFile");
-
 const { StartFunc: StartFuncFromFirstCopy } = require("./FirstCopy/entryFile");
-
-// const { StartFunc: StartFuncFromGetMaxVersion } = require("./getMaxVersion");
 const { StartFunc: StartFuncrunNodeApp } = require("./serverRun");
 const { StartFunc: StartFuncFromGetMaxVersion } = require("../getMaxVersion");
-
 const { StartFunc: StartFuncFromLastRun } = require("./LastRun/entryFile");
 const { StartFunc: StartFuncForMaxVersion } = require("./forMaxVersion");
+// const { StartFunc: StartFuncFromGetMaxVersion } = require("./getMaxVersion");
 
 const StartFunc = () => {
     vscode.commands.registerCommand(CommonRegisterCommand, LocalFuncToActivate);

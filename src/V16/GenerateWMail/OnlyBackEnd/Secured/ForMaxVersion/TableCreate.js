@@ -10,7 +10,6 @@ const StartFunc = async ({ inTableName, inColumnsAsArray, inSubRoutes, inDataPat
     const LocalDataPath = inDataPath;
     const LocalPortNumber = inPortNumber;
     const LocalVersion = inVersion;
-
     const LocalToPath = inToPath;
 
     StartFuncFromCopyNeededOnly({ inTableName, inSubRoutes, inToPath, inVersion, inPortNumber, inColumnsAsArray });
@@ -23,6 +22,7 @@ const StartFunc = async ({ inTableName, inColumnsAsArray, inSubRoutes, inDataPat
             inSubRoutes
         });
 
+        // some api files alter creation
         await StartFuncFromAlterFiles({
             inEditorPath: LocalToPath, inTableName: LocalTableName,
             inDataPath: LocalDataPath, inPortNumber: LocalPortNumber,
