@@ -264,6 +264,10 @@ write end points in nodejs
 
 - schema check perfect
 
+### 1.16.3
+
+- new import added in insert
+
 ## License
 
 MIT

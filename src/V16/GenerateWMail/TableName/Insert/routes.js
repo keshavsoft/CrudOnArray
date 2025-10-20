@@ -10,6 +10,7 @@ import { router as routerFromSchemaColumnsOnly } from "./5.SchemaColumnsOnly/rou
 import { router as routerFromBulkAsIs } from "./6.BulkAsIs/routes.js";
 import { router as routerFromDefault } from "./7.Default/routes.js";
 import { router as routerFromOnlyDefault } from "./8.OnlyDefault/routes.js";
+import { router as routerFromBulkTransformByType } from "./9.BulkTransformByType/routes.js";
 
 router.use("/AsIs", routerFromAsIs);
 router.use("/AsIsNoPk", routerFromAsIsNoPk);
@@ -19,5 +20,6 @@ router.use("/SchemaColumnsOnly", routerFromSchemaColumnsOnly);
 router.use("/BulkAsIs", routerFromBulkAsIs);
 router.use("/Default", routerFromDefault);
 router.use("/OnlyDefault", routerFromOnlyDefault);
+router.use("/BulkTransformByType", routerFromBulkTransformByType);
 
 export { router };
