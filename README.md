@@ -260,6 +260,10 @@ write end points in nodejs
 
 - only backend nonsec schema from files not static
 
+### 1.16.2
+
+- schema check perfect
+
 ## License
 
 MIT
