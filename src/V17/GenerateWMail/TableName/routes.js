@@ -17,6 +17,7 @@ import { router as routerFromSubTableOnObj } from "./SubTableOnObj/routes.js";
 import { router as routerFromMail } from "./Mail/routes.js";
 import { router as routerFromInsertWithChecks } from "./InsertWithChecks/routes.js";
 import { router as routerFromReadSingleCol } from "./ReadSingleCol/routes.js";
+import { router as routerFromImport } from "./Import/routes.js";
 
 router.use("/Read", routerFromRead);
 router.use("/Insert", routerFromInsert);
@@ -34,5 +35,6 @@ router.use("/SubTableOnObj", routerFromSubTableOnObj);
 router.use("/Mail", routerFromMail);
 router.use("/InsertWithChecks", routerFromInsertWithChecks);
 router.use("/ReadSingleCol", routerFromReadSingleCol);
+router.use("/Import", routerFromImport);
 
 export { router };
