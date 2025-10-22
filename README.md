@@ -268,6 +268,10 @@ write end points in nodejs
 
 - new import added in insert
 
+### 1.17.1
+
+- new version just started
+
 ## License
 
 MIT
