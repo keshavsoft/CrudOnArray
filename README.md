@@ -272,6 +272,10 @@ write end points in nodejs
 
 - new version just started
 
+### 1.17.2
+
+- Sub Route error fixed
+
 ## License
 
 MIT
