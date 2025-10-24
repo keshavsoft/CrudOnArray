@@ -10,6 +10,8 @@ const { StartFunc: StartFuncFromReadSingleCol } = require('./ReadSingleCol/entry
 const { StartFunc: StartFuncFromAggregateFunctions } = require('./AggregateFunctions/entryFile');
 const { StartFunc: StartFuncFromAddWithDefault } = require('./AddWithDefault/entryFile');
 const { StartFunc: StartFuncFromImport } = require('./Import/entryFile');
+const { StartFunc: StartFuncFromSubTableOnArray } = require('./SubTableOnArray/entryFile');
+const { StartFunc: StartFuncFromSubTableOnObj } = require('./SubTableOnObj/entryFile');
 
 const StartFunc = async ({ inFolder, inTableName, inSubRoutes, inVersion, inPortNumber, inColumnsAsArray }) => {
 
@@ -85,6 +87,18 @@ const StartFunc = async ({ inFolder, inTableName, inSubRoutes, inVersion, inPort
             case "Import":
                 StartFuncFromImport({
                     inFolder: `${inFolder}/${LoopSubRoute}/RestClients`,
+                    inTableName, inVersion, inPortNumber, inColumnsAsArray
+                })
+                break;
+            case "SubTableOnArray":
+                StartFuncFromSubTableOnArray({
+                    inFolder: `${inFolder}/${LoopSubRoute}`,
+                    inTableName, inVersion, inPortNumber, inColumnsAsArray
+                })
+                break;
+            case "SubTableOnObj":
+                StartFuncFromSubTableOnObj({
+                    inFolder: `${inFolder}/${LoopSubRoute}`,
                     inTableName, inVersion, inPortNumber, inColumnsAsArray
                 })
                 break;

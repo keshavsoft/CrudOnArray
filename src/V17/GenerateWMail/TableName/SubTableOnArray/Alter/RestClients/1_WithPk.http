@@ -1,0 +1,4 @@
+POST http://localhost:{PortNumber}/{Version}/{TableName}/SubTableOnArray/Alter/WithPk/{RowPk}/{KeyName}/{pk}
+Content-Type: application/json
+
+{Columns}
