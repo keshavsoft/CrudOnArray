@@ -1,0 +1,1 @@
+DELETE http://localhost:{PortNumber}/{Version}/{TableName}/SubTableOnObj/Delete/WithPk/{RowPk}/{KeyName}/{pk}
