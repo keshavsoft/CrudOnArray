@@ -276,6 +276,10 @@ write end points in nodejs
 
 - Sub Route error fixed
 
+### 1.17.3
+
+- import bulk update perfect
+
 ## License
 
 MIT
