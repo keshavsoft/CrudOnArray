@@ -4,7 +4,6 @@ const { StartFunc: StartFuncFromAsIsNoPk } = require('./AsIsNoPk');
 const { StartFunc: StartFuncFromAsIsAndTS } = require('./AsIsAndTS');
 const { StartFunc: StartFuncFromColumnExist } = require('./ColumnExist');
 const { StartFunc: StartFuncFromSchemaColumnsOnly } = require('./SchemaColumnsOnly');
-const { StartFunc: StartFuncFromBulkAsIs } = require('./BulkAsIs');
 const { StartFunc: StartFuncFromDefault } = require('./Default');
 const { StartFunc: StartFuncFromOnlyDefault } = require('./OnlyDefault');
 
@@ -14,7 +13,6 @@ const handlers = {
     "3_AsIsAndTS.http": StartFuncFromAsIsAndTS,
     "4_ColumnExist.http": StartFuncFromColumnExist,
     "5_SchemaColumnsOnly.http": StartFuncFromSchemaColumnsOnly,
-    "6_BulkAsIs.http": StartFuncFromBulkAsIs,
     "7_Default.http": StartFuncFromDefault,
     "8_OnlyDefault.http": StartFuncFromOnlyDefault
 };
