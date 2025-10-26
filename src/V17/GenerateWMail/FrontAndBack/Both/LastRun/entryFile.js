@@ -2,8 +2,8 @@ const { StartFunc: StartFuncFromCopyTokenFolder } = require("./copyTokenFolder")
 const { StartFunc: StartFuncFromCreateDataFolder } = require("./createDataFolder");
 const { StartFunc: StartFuncFromAlterAppFile } = require("./alterAppFile");
 
-const StartFunc = ({ filePath, newVersion, inNewVersionProtected, inToPath }) => {
-    StartFuncFromAlterAppFile({ filePath, newVersion, inNewVersionProtected });
+const StartFunc = ({ filePath, newVersion, inToPath }) => {
+    StartFuncFromAlterAppFile({ filePath, newVersion });
 
     StartFuncFromCopyTokenFolder({ inToPath });
 

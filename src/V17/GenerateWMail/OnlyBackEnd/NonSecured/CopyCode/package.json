@@ -1,5 +1,5 @@
 {
-  "name": "jsoncrud",
+  "name": "OnlyBackEndNonSecured",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -17,6 +17,7 @@
     "cookie-parser": "^1.4.7",
     "dotenv": "17.2.0",
     "multer": "^2.0.2",
-    "nodemailer": "^7.0.6"
+    "nodemailer": "^7.0.6",
+    "archiver": "^7.0.1"
   }
 }

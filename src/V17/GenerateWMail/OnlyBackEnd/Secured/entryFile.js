@@ -2,79 +2,21 @@ const vscode = require('vscode');
 
 const CommonRegisterCommand = "GenerateWMail.OnlyBackEnd.Secured";
 
-const { StartFunc: StartFuncFromForMaxVersion } = require("./ForMaxVersion/entryFile");
-const { StartFunc: StartFuncFromOpenApp } = require("./openApp");
-const { StartFunc: StartFuncFromReadEnvFile } = require("./readEnvFile");
-const { StartFunc: StartFuncFromFirstCopy } = require("./FirstCopy/entryFile");
+const { StartFunc: StartFuncFromFuncToActivate } = require("./funcToActivate");
 const { StartFunc: StartFuncrunNodeApp } = require("./serverRun");
-const { StartFunc: StartFuncFromGetMaxVersion } = require("../getMaxVersion");
-const { StartFunc: StartFuncFromLastRun } = require("./LastRun/entryFile");
-const { StartFunc: StartFuncForMaxVersion } = require("./forMaxVersion");
-// const { StartFunc: StartFuncFromGetMaxVersion } = require("./getMaxVersion");
 
 const StartFunc = () => {
-    vscode.commands.registerCommand(CommonRegisterCommand, LocalFuncToActivate);
-};
+    vscode.commands.registerCommand(CommonRegisterCommand, async () => {
+        const LocalToPath = LocalFuncGetWorkSpaceFolder();
 
-const LocalFuncToActivate = async () => {
-    const LocalToPath = LocalFuncGetWorkSpaceFolder();
+        const LocalFromActivate = await StartFuncFromFuncToActivate({ inToPath: LocalToPath });
 
-    let LocalVersionSecured = await StartFuncForMaxVersion({ inVersionStart: "SV" });
-
-    if (LocalVersionSecured === false) {
-        return false;
-    };
-
-    const LocalEnvFileAsJson = StartFuncFromReadEnvFile({ inRootPath: LocalToPath });
-
-    const LocalDataPath = LocalEnvFileAsJson.DataPath ? LocalEnvFileAsJson.DataPath : "";
-    const LocalPortNumber = LocalEnvFileAsJson.PORT ? LocalEnvFileAsJson.PORT : "";
-
-    if (LocalEnvFileAsJson == null) {
-        vscode.window.showInformationMessage(`.env file not present...`);
-
-        return false;
-    };
-
-    await StartFuncFromForMaxVersion({
-        inDataPath: LocalDataPath,
-        inPortNumber: LocalPortNumber,
-        inToPath: LocalToPath,
-        inVersion: LocalVersionSecured
-    });
-
-    StartFuncFromLastRun({
-        filePath: `${LocalToPath}/app.js`,
-        inNewVersionProtected: LocalVersionSecured,
-        inToPath: LocalToPath
-    });
-
-    vscode.window.showInformationMessage(`BoilerPlate code to: ${LocalToPath}`);
-
-    await StartFuncFromOpenApp({ inToPath: LocalToPath });
-    StartFuncrunNodeApp(LocalToPath)
-};
-
-const LocalFuncForMaxVersion = async ({ inVersionStart }) => {
-    const LocalToPath = LocalFuncGetWorkSpaceFolder();
-    let LocalVersion = `${inVersionStart}1`;
-
-    const LocalFromMaxVersion = await StartFuncFromGetMaxVersion({
-        inToPath: LocalToPath,
-        inVersionStart
-    });
-
-    if (LocalFromMaxVersion === 0) {
-        const LocalFromCopy = await StartFuncFromFirstCopy({ inToPath: LocalToPath });
-
-        if (LocalFromCopy === false) {
+        if (LocalFromActivate === false) {
             return false;
         };
-    } else {
-        LocalVersion = `${inVersionStart}${LocalFromMaxVersion}`;
-    };
 
-    return LocalVersion;
+        StartFuncrunNodeApp(LocalToPath);
+    });
 };
 
 const LocalFuncGetWorkSpaceFolder = () => {
@@ -86,5 +28,6 @@ const LocalFuncGetWorkSpaceFolder = () => {
         console.log("No workspace folders found.");
     };
 };
+
 
 module.exports = { StartFunc };

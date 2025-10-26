@@ -9,12 +9,9 @@ const app = express();
 
 var port = normalizePort(process.env.PORT || 3000);
 
-import { StartFunc as StartFuncFromMiddleware } from "./Token/MiddleWares/entryFile.js";
-
 import { router as routerFromSecret } from "./Secret/routes.js";
 import { router as routerFromUsers } from "./Users/routes.js";
 import { router as routerFromV1 } from "./V1/routes.js";
-import { router as routerFromSV1 } from "./SV1/routes.js";
 
 app.use(express.static('Public'));
 app.use(cookieParser());
@@ -22,7 +19,6 @@ app.use(cookieParser());
 app.use("/Secret", routerFromSecret);
 app.use("/Users", routerFromUsers);
 app.use("/V1", routerFromV1);
-app.use("/SV1", StartFuncFromMiddleware, routerFromSV1);
 
 function normalizePort(val) {
     var port = parseInt(val, 10);

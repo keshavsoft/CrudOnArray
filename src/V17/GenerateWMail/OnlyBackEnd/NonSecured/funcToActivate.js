@@ -11,6 +11,27 @@ const { StartFunc: StartFuncFromLastRun } = require("./LastRun/entryFile");
 const StartFunc = async ({ inToPath }) => {
     const LocalToPath = inToPath;
 
+    let LocalVersion = await LocalFuncForNonSecureEndPoints({ inToPath });
+
+    if (LocalVersion === false) {
+        return await false;
+    };
+
+    StartFuncFromLastRun({
+        filePath: `${LocalToPath}/app.js`,
+        newVersion: LocalVersion,
+        inToPath: LocalToPath
+    });
+
+    vscode.window.showInformationMessage(`BoilerPlate code to: ${LocalToPath}`);
+
+    await StartFuncFromOpenApp({ inToPath: LocalToPath });
+    // StartFuncrunNodeApp(LocalToPath)
+};
+
+const StartFunc_Keshav_26Oct2025 = async ({ inToPath }) => {
+    const LocalToPath = inToPath;
+
     let LocalVersion = await LocalFuncForMaxVersion({ inVersionStart: "V" });
 
     if (LocalVersion === false) {
@@ -45,6 +66,36 @@ const StartFunc = async ({ inToPath }) => {
 
     await StartFuncFromOpenApp({ inToPath: LocalToPath });
     // StartFuncrunNodeApp(LocalToPath)
+};
+
+const LocalFuncForNonSecureEndPoints = async ({ inToPath }) => {
+    const LocalToPath = inToPath;
+
+    let LocalVersion = await LocalFuncForMaxVersion({ inVersionStart: "V" });
+
+    if (LocalVersion === false) {
+        return false;
+    };
+
+    const LocalEnvFileAsJson = StartFuncFromReadEnvFile({ inRootPath: LocalToPath });
+
+    if (LocalEnvFileAsJson == null) {
+        vscode.window.showInformationMessage(`.env file not present...`);
+
+        return false;
+    };
+
+    const LocalDataPath = LocalEnvFileAsJson.DataPath ? LocalEnvFileAsJson.DataPath : "";
+    const LocalPortNumber = LocalEnvFileAsJson.PORT ? LocalEnvFileAsJson.PORT : "";
+
+    await StartFuncFromForMaxVersion({
+        inDataPath: LocalDataPath,
+        inPortNumber: LocalPortNumber,
+        inToPath: LocalToPath,
+        inVersion: LocalVersion
+    });
+
+    return await LocalVersion;
 };
 
 const LocalFuncForMaxVersion = async ({ inVersionStart }) => {

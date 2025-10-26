@@ -11,6 +11,9 @@ const StartFunc = (dirPath) => {
     LocalFuncShowTerminal({ inTerminal: terminal });
     LocalFuncForNPM({ inDirPath: dirPath, inTerminal: terminal });
 
+    terminal.sendText(`.\\BatchFiles\\generateApiVersion.bat`);
+    terminal.sendText(`.\\GulPHBSFrontEndNonSec.bat`);
+
     terminal.sendText(CommonTermName);
 };
 
@@ -27,6 +30,15 @@ const LocalFuncShowTerminal = ({ inTerminal }) => {
 const LocalFuncForNPM = ({ inDirPath, inTerminal }) => {
     if (!fs.existsSync(path.join(inDirPath, 'node_modules'))) {
         inTerminal.sendText('npm i');
+    };
+};
+
+const LocalFuncGetWorkSpaceFolder = () => {
+    if (vscode.workspace.workspaceFolders) {
+        const rootFolderName = vscode.workspace.workspaceFolders[0].name;
+        return rootFolderName;
+    } else {
+        console.log("No workspace folders found.");
     };
 };
 
