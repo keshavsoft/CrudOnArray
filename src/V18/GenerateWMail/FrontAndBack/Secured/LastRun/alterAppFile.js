@@ -1,11 +1,11 @@
 const fse = require('fs-extra');
-const { StartFunc: StartFuncFromWithMiddleware } = require("./withMiddleware");
+const { StartFunc: StartFuncFromWithOutMiddleware } = require("./withOutMiddleware");
 
-const StartFunc = ({ filePath, inNewVersionProtected }) => {
+const StartFunc = ({ filePath, newVersion }) => {
     const content = fse.readFileSync(filePath, 'utf-8');
     const lines = content.split('\n');
 
-    StartFuncFromWithMiddleware({ inLines: lines, inNewVersion: inNewVersionProtected });
+    StartFuncFromWithOutMiddleware({ inLines: lines, inNewVersion: newVersion });
 
     fse.writeFileSync(filePath, lines.join('\n'), 'utf-8');
 };

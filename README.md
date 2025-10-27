@@ -288,6 +288,10 @@ write end points in nodejs
 
 - 18 just started
 
+### 1.18.2
+
+- Both with frontend still need to be done
+
 ## License
 
 MIT

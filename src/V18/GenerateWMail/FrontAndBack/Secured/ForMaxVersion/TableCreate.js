@@ -13,7 +13,10 @@ const StartFunc = async ({ inTableName, inColumnsAsArray, inSubRoutes, inDataPat
 
     const LocalToPath = inToPath;
 
-    StartFuncFromCopyNeededOnly({ inTableName, inSubRoutes, inToPath, inVersion, inPortNumber, inColumnsAsArray });
+    // const LocalFromTablePath = path.join(__dirname, "..", "..", "..", "TableName");
+
+    // await fse.copy(LocalFromTablePath, `${LocalToPath}/${LocalVersion}/${LocalTableName}`);
+    StartFuncFromCopyNeededOnly({ inTableName, inSubRoutes, inToPath, inVersion, inPortNumber });
 
     try {
         StartFuncFromRouteUse({

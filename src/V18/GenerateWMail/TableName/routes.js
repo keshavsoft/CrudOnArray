@@ -18,6 +18,7 @@ import { router as routerFromMail } from "./Mail/routes.js";
 import { router as routerFromInsertWithChecks } from "./InsertWithChecks/routes.js";
 import { router as routerFromReadSingleCol } from "./ReadSingleCol/routes.js";
 import { router as routerFromImport } from "./Import/routes.js";
+import { router as routerFromImage } from "./Image/routes.js";
 
 router.use("/Read", routerFromRead);
 router.use("/Insert", routerFromInsert);
@@ -36,5 +37,6 @@ router.use("/Mail", routerFromMail);
 router.use("/InsertWithChecks", routerFromInsertWithChecks);
 router.use("/ReadSingleCol", routerFromReadSingleCol);
 router.use("/Import", routerFromImport);
+router.use("/Image", routerFromImage);
 
 export { router };

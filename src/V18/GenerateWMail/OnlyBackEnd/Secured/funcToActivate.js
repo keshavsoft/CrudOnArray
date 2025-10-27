@@ -1,4 +1,5 @@
 const vscode = require('vscode');
+const fs = require('fs');
 
 const { StartFunc: StartFuncFromForMaxVersion } = require("./ForMaxVersion/entryFile");
 const { StartFunc: StartFuncFromOpenApp } = require("./openApp");
@@ -27,49 +28,13 @@ const StartFunc = async ({ inToPath }) => {
     // StartFuncrunNodeApp(LocalToPath)
 };
 
-const StartFunc_Keshav_26Oct2025 = async ({ inToPath }) => {
-    const LocalToPath = inToPath;
-
-    let LocalVersionSecured = await LocalFuncForMaxVersion({ inVersionStart: "SV" });
-
-    if (LocalVersionSecured === false) {
-        return false;
-    };
-
-    const LocalEnvFileAsJson = StartFuncFromReadEnvFile({ inRootPath: LocalToPath });
-
-    if (LocalEnvFileAsJson == null) {
-        vscode.window.showInformationMessage(`.env file not present...`);
-
-        return false;
-    };
-
-    const LocalDataPath = LocalEnvFileAsJson.DataPath ? LocalEnvFileAsJson.DataPath : "";
-    const LocalPortNumber = LocalEnvFileAsJson.PORT ? LocalEnvFileAsJson.PORT : "";
-
-    await StartFuncFromForMaxVersion({
-        inDataPath: LocalDataPath,
-        inPortNumber: LocalPortNumber,
-        inToPath: LocalToPath,
-        inVersion: LocalVersionSecured
-    });
-
-    StartFuncFromLastRun({
-        filePath: `${LocalToPath}/app.js`,
-        inNewVersionProtected: LocalVersionSecured,
-        inToPath: LocalToPath
-    });
-
-    vscode.window.showInformationMessage(`BoilerPlate code to: ${LocalToPath}`);
-
-    await StartFuncFromOpenApp({ inToPath: LocalToPath });
-    // StartFuncrunNodeApp(LocalToPath)
-};
-
 const LocalFuncForSecureEndPoints = async ({ inToPath }) => {
     const LocalToPath = inToPath;
 
-    let LocalVersionSecured = await LocalFuncForMaxVersion({ inVersionStart: "SV" });
+    let LocalVersionSecured = await LocalFuncForMaxVersion({
+        inVersionStart: "SV",
+        inToPath
+    });
 
     if (LocalVersionSecured === false) {
         return false;
@@ -96,7 +61,11 @@ const LocalFuncForSecureEndPoints = async ({ inToPath }) => {
     return await LocalVersionSecured;
 };
 
-const LocalFuncForMaxVersion = async ({ inVersionStart }) => {
+const LocalFuncCheckAppJs = ({ inToPath }) => {
+    return fs.existsSync(`${inToPath}/app.js`)
+};
+
+const LocalFuncForMaxVersion = async ({ inVersionStart, inToPath }) => {
     const LocalToPath = LocalFuncGetWorkSpaceFolder();
     let LocalVersion = `${inVersionStart}1`;
 
@@ -106,12 +75,12 @@ const LocalFuncForMaxVersion = async ({ inVersionStart }) => {
     });
 
     if (LocalFromMaxVersion === 0) {
-        const LocalFromCopy = await StartFuncFromFirstCopy({ inToPath: LocalToPath });
-        //  return LocalFromCopy;
+        if (LocalFuncCheckAppJs({ inToPath }) === false) {
+            const LocalFromCopy = await StartFuncFromFirstCopy({ inToPath: LocalToPath });
 
-        if (LocalFromCopy === false) {
-            // console.log("already present");
-            return false;
+            if (LocalFromCopy === false) {
+                return false;
+            };
         };
     } else {
         LocalVersion = `${inVersionStart}${LocalFromMaxVersion}`;

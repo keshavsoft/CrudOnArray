@@ -1,10 +1,7 @@
 const fse = require('fs-extra');
 const path = require('path');
-const { StartFunc: StartFuncFromRead } = require('../../../CommonCode/RestFiles/Read/entryFile');
-const { StartFunc: StartFuncFromInsert } = require('../../../CommonCode/RestFiles/Insert/entryFile');
-const { StartFunc: StartFuncFromAlter } = require('../../../CommonCode/RestFiles/Alter/entryFile');
 
-const StartFunc = async ({ inTableName, inSubRoutes, inToPath, inVersion, inPortNumber, inColumnsAsArray }) => {
+const StartFunc = async ({ inTableName, inSubRoutes, inToPath, inVersion, inPortNumber }) => {
     const LocalTableName = inTableName;
     const LocalVersion = inVersion;
 
@@ -35,34 +32,10 @@ const StartFunc = async ({ inTableName, inSubRoutes, inToPath, inVersion, inPort
     };
 
     for (const LoopSubRoute of inSubRoutes) {
-
-        switch (LoopSubRoute) {
-            case "Read":
-                StartFuncFromRead({
-                    inFolder: `${LocalToPath}/${LocalVersion}/${LocalTableName}/${LoopSubRoute}/RestClients`,
-                    inTableName, inVersion, inPortNumber
-                })
-                break;
-            case "Insert":
-                StartFuncFromInsert({
-                    inFolder: `${LocalToPath}/${LocalVersion}/${LocalTableName}/${LoopSubRoute}/RestClients`,
-                    inTableName, inVersion, inPortNumber, inColumnsAsArray
-                })
-                break;
-            case "Alter":
-                StartFuncFromAlter({
-                    inFolder: `${LocalToPath}/${LocalVersion}/${LocalTableName}/${LoopSubRoute}/RestClients`,
-                    inTableName, inVersion, inPortNumber, inColumnsAsArray
-                })
-                break;
-
-            default:
-                break;
-        }
-        // LocalFuncToReplace({
-        //     inFileName: `${LocalToPath}/${LocalVersion}/${LocalTableName}/${LoopSubRoute}/RestClients/1_AsIs.http`,
-        //     inTableName, inVersion, inPortNumber
-        // });
+        LocalFuncToReplace({
+            inFileName: `${LocalToPath}/${LocalVersion}/${LocalTableName}/${LoopSubRoute}/RestClients/1_AsIs.http`,
+            inTableName, inVersion, inPortNumber
+        });
     };
 
     LocalFileDataAsArray.push("");
