@@ -1,6 +1,0 @@
-POST http://localhost:{PORT}{SubRoute}/GroupBy/SingleColumnSum/{GroupByColumnName}
-Content-Type: application/json
-
-[
-	"SumColumnName"
-]

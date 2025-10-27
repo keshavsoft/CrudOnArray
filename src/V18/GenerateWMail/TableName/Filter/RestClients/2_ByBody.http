@@ -1,0 +1,4 @@
+POST http://localhost:{PortNumber}/{Version}/{TableName}/Filter/ByBody
+Content-Type: application/json
+
+{"inKey":"element.","inValue":""}
