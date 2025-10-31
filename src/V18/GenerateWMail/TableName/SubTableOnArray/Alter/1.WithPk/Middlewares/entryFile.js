@@ -13,12 +13,6 @@ const StartFunc = (req, res, next) => {
         return res.status(400).send("Request body should not be empty.");
     }
 
-    const { Key: LocalKey, Value: LocalValue } = LocalBody;
-
-    if (!LocalKey || !LocalValue) {
-        return res.status(400).send("Both 'Key' and 'Value' fields are required.");
-    }
-
     next();
 };
 

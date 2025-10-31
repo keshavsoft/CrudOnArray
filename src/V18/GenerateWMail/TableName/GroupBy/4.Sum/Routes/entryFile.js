@@ -11,6 +11,6 @@ import { StartFunc as StartFuncFromMiddlewares } from "../Middlewares/entryFile.
 
 router.use(bodyparser.json());
 
-router.post('/', postFilterDataFromBodyFunc);
+router.post('/', StartFuncFromMiddlewares, postFilterDataFromBodyFunc);
 
 export { router };
