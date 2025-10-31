@@ -7,10 +7,10 @@ import {
     postFilterDataFromBodyFunc
 } from '../Controllers/entryFile.js';
 
-// import { StartFunc as middlewarespostFilterDataFromBodyFunc } from "../Middlewares/entryFile.js";
+import { StartFunc as middlewarespostInitRow } from "../Middlewares/entryFile.js";
 
 router.use(bodyparser.json());
 
-router.post('/:inKey', postFilterDataFromBodyFunc);
+router.post('/:inKey', middlewarespostInitRow, postFilterDataFromBodyFunc);
 
 export { router };
