@@ -8,10 +8,10 @@ import { router as routerFromSetSingleColumn } from "./3.SetSingleColumn/routes.
 import { router as routerFromSum } from "./4.Sum/routes.js";
 import { router as routerFromSingleColumnSum } from "./5.SingleColumnSum/routes.js";
 
-router.use("/SingleColLength", routerFromSingleColLength);
-router.use("/SingleColumn", routerFromSingleColumn);
-router.use("/SetSingleColumn", routerFromSetSingleColumn);
-router.use("/Sum", routerFromSum);
+router.use("/SingleColLength", routerFromSingleColLength);// group lenght by column 
+router.use("/SingleColumn", routerFromSingleColumn); // group by column
+router.use("/SetSingleColumn", routerFromSetSingleColumn); // only return single value group by column 
+router.use("/Sum", routerFromSum); // return sum vaules ,send throught array 
 router.use("/SingleColumnSum", routerFromSingleColumnSum);
 
 export { router };
