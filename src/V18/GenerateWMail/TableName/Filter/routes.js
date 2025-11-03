@@ -9,6 +9,6 @@ import { router as routerFromBodyInArray } from "./4.BodyInArray/routes.js";
 // router.use("/RowFilter", routerFromRowFilter);//filter by key and value
 router.use("/ByKeyAndValue", routerFromByKeyAndValue); // filter by key value
 router.use("/ByBody", routerFromByBody);// filter data from body string
-router.use("/BodyInArray", routerFromBodyInArray);
+router.use("/BodyInArray", routerFromBodyInArray); //filter by body key and value
 
 export { router };
