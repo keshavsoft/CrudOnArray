@@ -3,7 +3,7 @@ const vscode = require('vscode');
 const CommonRegisterCommand = "GenerateWMail.FrontAndBack.NonSecured";
 
 const { StartFunc: StartFuncFromOnlyBackEnd } = require("../../OnlyBackEnd/NonSecured/funcToActivate");
-const { StartFunc: StartFuncFromServerRun } = require("./serverRun-");
+const { StartFunc: StartFuncFromServerRun } = require("./serverRun");
 const { StartFunc: StartFuncFromCopyNeeded } = require("./CopyNeeded/entryFile");
 
 const StartFunc = () => {
