@@ -29,4 +29,8 @@
 
 You need to send inFromDate, inToDate and inDateField in the request params in dd-mm-yyyy format.
 
+📌 **5.BetweenDates** = Between filters the records where the date field is between two given dates (inclusive).
+
+You need to send inFromDate, inToDate and inDateField in the request params in dd-mm-yyyy format.
+
 
