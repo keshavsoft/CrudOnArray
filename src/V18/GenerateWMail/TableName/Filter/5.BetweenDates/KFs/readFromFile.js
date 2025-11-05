@@ -12,16 +12,16 @@ let StartFunc = ({ inFromDate, inToDate, inDateField }) => {
         return LocalReturnData;
     }
 
-    // Convert dd-mm-yyyy to JS dates
+    // ✅ Convert yyyy-mm-dd to JS Date safely
     const ConvertToDate = (dateStr) => {
-        const [day, month, year] = dateStr.split("-");
-        return new Date(`${year}-${month}-${day}T00:00:00`);
+        // dateStr like "2025-10-30"
+        return new Date(`${dateStr}T00:00:00`);
     };
 
     let from = ConvertToDate(inFromDate);
     let to = ConvertToDate(inToDate);
 
-    // Make 'to' date end of day
+    // End of day for `to` date
     to.setHours(23, 59, 59, 999);
 
     try {

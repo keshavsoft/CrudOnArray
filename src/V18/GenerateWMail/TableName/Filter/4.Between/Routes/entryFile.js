@@ -9,6 +9,6 @@ import {
 import { StartFunc as StartFuncFromMiddlewares } from "../Middlewares/entryFile.js";
 
 
-router.get('/:fromDate/:toDate/:dateField', StartFuncFromMiddlewares, GetFunc);
+router.get('/:dateField/:fromDate/:toDate', StartFuncFromMiddlewares, GetFunc);
 
 export { router };

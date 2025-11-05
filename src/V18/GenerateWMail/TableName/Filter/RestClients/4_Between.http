@@ -1,1 +1,1 @@
-GET http://localhost:{PortNumber}/{Version}/{TableName}/Filter/Between/{fromDate}/{toDate}/{dateField}
+GET http://localhost:{PortNumber}/{Version}/{TableName}/Filter/Between/{dateField}/{fromDate}/{toDate}
