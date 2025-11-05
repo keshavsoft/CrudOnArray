@@ -3,31 +3,34 @@ const StartFunc = (req, res, next) => {
     const ColumntoDate = req.params.toDate;
     const ColumndateField = req.params.dateField;
 
+    const ddmmyyyyRegex = /^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-\d{4}$/;
+
+    // Validate fromDate
     if (
         !ColumnName ||
-        typeof ColumnName !== 'string' ||
-        ColumnName.trim() === "" ||
-        ColumnName.includes("{") || ColumnName.includes("}")
+        typeof ColumnName !== "string" ||
+        !ddmmyyyyRegex.test(ColumnName)
     ) {
-        return res.status(400).send("Valid fromDate is required in the URL parameter.");
+        return res.status(400).send("fromDate must be in dd-mm-yyyy format. Example: 30-10-2025");
     }
 
+    // Validate toDate
     if (
         !ColumntoDate ||
-        typeof ColumntoDate !== 'string' ||
-        ColumntoDate.trim() === "" ||
-        ColumntoDate.includes("{") || ColumntoDate.includes("}")
+        typeof ColumntoDate !== "string" ||
+        !ddmmyyyyRegex.test(ColumntoDate)
     ) {
-        return res.status(400).send("Valid ColumntoDate is required in the URL parameter.");
+        return res.status(400).send("toDate must be in dd-mm-yyyy format. Example: 31-10-2025");
     }
 
+    // Validate dateField
     if (
         !ColumndateField ||
-        typeof ColumndateField !== 'string' ||
+        typeof ColumndateField !== "string" ||
         ColumndateField.trim() === "" ||
         ColumndateField.includes("{") || ColumndateField.includes("}")
     ) {
-        return res.status(400).send("Valid ColumndateField is required in the URL parameter.");
+        return res.status(400).send("Valid dateField is required in the URL parameter.");
     }
 
     next();
