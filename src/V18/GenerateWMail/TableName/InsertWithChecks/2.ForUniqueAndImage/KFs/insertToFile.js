@@ -45,6 +45,7 @@ const StartFunc = ({ inRequestBody }) => {
 
             LocalReturnObject.KTF = true;
             LocalReturnObject.SuccessText = `Inserted pk ${MaxPk} In To ${LocalFileName}.json successfully`;
+            LocalReturnObject.insertedPk = MaxPk;
 
             return LocalReturnObject;
         } else {

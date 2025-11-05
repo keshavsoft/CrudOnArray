@@ -300,6 +300,10 @@ write end points in nodejs
 
 - insert with checks and image working good with specific UI
 
+### 1.18.5
+
+- InsertWithChecks perfect
+
 ## License
 
 MIT
