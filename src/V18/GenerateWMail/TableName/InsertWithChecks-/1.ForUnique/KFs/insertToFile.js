@@ -28,7 +28,7 @@ const StartFunc = ({ inRequestBody }) => {
                 return LocalFromCheck;
             };
 
-            // console.log("aaaaaaaaaaaaa : ", LocalFromCheck, LocalUniqueColumns);
+            console.log("aaaaaaaaaaaaa : ", LocalFromCheck, LocalUniqueColumns);
             let LocalArrayPk = data.map(element => element.pk);
 
             let LocalRemoveUndefined = LocalArrayPk.filter(function (element) {

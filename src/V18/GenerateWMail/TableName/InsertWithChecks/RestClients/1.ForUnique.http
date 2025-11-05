@@ -1,4 +1,4 @@
-POST http://localhost:{PortNumber}/{Version}/{TableName}/InsertWithChecks/ForUnique
+POST http://localhost:9328/V3/StudentNames/InsertWithChecks/ForUnique
 Content-Type: application/json
 
 {
