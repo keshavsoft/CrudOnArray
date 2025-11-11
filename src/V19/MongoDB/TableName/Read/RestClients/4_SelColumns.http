@@ -1,0 +1,4 @@
+POST http://localhost:3000/V1/TasksTable/Read/SelColumns
+Content-Type: application/json
+
+[ "exampleKey"]

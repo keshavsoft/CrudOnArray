@@ -304,6 +304,10 @@ write end points in nodejs
 
 - InsertWithChecks perfect
 
+### 1.18.6
+
+- Working on Secured batch files
+
 ## License
 
 MIT

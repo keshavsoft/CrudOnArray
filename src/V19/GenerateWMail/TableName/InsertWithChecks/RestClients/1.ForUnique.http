@@ -1,0 +1,8 @@
+POST http://localhost:9328/V3/StudentNames/InsertWithChecks/ForUnique
+Content-Type: application/json
+
+{
+  "title": "",
+  "start": "",
+  "className": ""
+}
