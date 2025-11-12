@@ -9,7 +9,7 @@ const StartFunc = async ({ inToPath, inVersionStart }) => {
     const sortedArray = folders.sort(compareNumbers);
 
     if (sortedArray.length === 0) {
-        return 0
+        return 0;
     } else {
         const LocalMaxersion = sortedArray[sortedArray.length - 1] + 1;
 
@@ -25,7 +25,6 @@ const getFoldersInDirectory = async ({ inToPath, inVersionStart }) => {
         for (const entry of entries) {
             if (entry.isDirectory()) {
                 if (entry.name.startsWith(inVersionStart)) {
-                    // folders.push(path.join(inToPath, entry.name));
                     folders.push(parseInt(entry.name.replace(inVersionStart, "")));
                 };
             };

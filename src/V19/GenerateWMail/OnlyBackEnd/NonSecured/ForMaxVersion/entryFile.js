@@ -3,7 +3,7 @@ const path = require('path');
 const fs = require("fs");
 
 const { StartFunc: StartFuncFromTableCreates } = require('./TableCreate');
-const { StartFunc: StartFuncFromCheckSchema } = require('../../CommonFuncs/checkSchema');
+const { StartFunc: StartFuncFromCommonFuncs } = require('../../CommonFuncs/entryFile');
 
 const LocalFuncReadSchemaJson = ({ inRootPath }) => {
     try {
@@ -34,10 +34,13 @@ const StartFunc = async ({ inDataPath, inPortNumber, inToPath, inVersion }) => {
         const LocalData = LocalFromTableJson.Data ? LocalFromTableJson.Data : [];
         const LocalColumnsWithSchema = LocalFromTableJson.columns;
 
-        const LocalFromCheckSchema = StartFuncFromCheckSchema({ inColumnsAsArray: LocalColumnsWithSchema });
+        const LocalFromCheckSchema = StartFuncFromCommonFuncs({
+            inColumnsAsArray: LocalColumnsWithSchema,
+            inTableName: tableName
+        });
 
         if (LocalFromCheckSchema === false) {
-            vscode.window.showInformationMessage(`field contains invalid char : ${tableName}`);
+            // vscode.window.showInformationMessage(`field contains invalid char : ${tableName}`);
             continue;
         };
 

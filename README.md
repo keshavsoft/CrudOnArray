@@ -312,6 +312,10 @@ write end points in nodejs
 
 - unwanted folders deleted in GenerateWMail
 
+### 1.19.2
+
+- secured batch files seperate added
+
 ## License
 
 MIT

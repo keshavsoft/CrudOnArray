@@ -11,7 +11,8 @@ const StartFunc = (dirPath) => {
     LocalFuncShowTerminal({ inTerminal: terminal });
     LocalFuncForNPM({ inDirPath: dirPath, inTerminal: terminal });
 
-    terminal.sendText(`.\\BatchFiles\\generateApiVersion.bat`);
+    // terminal.sendText(`.\\BatchFiles\\generateApiVersion.bat`);
+    terminal.sendText(`.\\BatchFiles\\ForSecured\\genApiVersion.bat`);
     terminal.sendText(`.\\GulPHBSFrontEndSec.bat`);
 
     terminal.sendText(CommonTermName);
