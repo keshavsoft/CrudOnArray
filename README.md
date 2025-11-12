@@ -316,6 +316,10 @@ write end points in nodejs
 
 - secured batch files seperate added
 
+### 1.19.3
+
+- BackupDataOnly just started
+
 ## License
 
 MIT
