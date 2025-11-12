@@ -308,6 +308,10 @@ write end points in nodejs
 
 - Working on Secured batch files
 
+### 1.19.1
+
+- unwanted folders deleted in GenerateWMail
+
 ## License
 
 MIT
