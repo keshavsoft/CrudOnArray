@@ -35,6 +35,8 @@ const StartFunc = ({ inRootPath }) => {
                 const LocalFromTableJson = LocalFuncReadTableSchema({ inRootPath: path.join(inRootPath, "Schemas", `${tableName}.json`) });
 
                 fs.writeFileSync(path.join(inRootPath, "Data", `${tableName}.json`), JSON.stringify(LocalFromTableJson.data), 'utf-8');
+
+                fs.mkdirSync(path.join(inRootPath, "Data", tableName));
             };
         };
     } catch (err) {

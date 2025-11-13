@@ -1,4 +1,5 @@
 const vscode = require('vscode');
+const fs = require('fs');
 
 const { StartFunc: StartFuncFromForMaxVersion } = require("./ForMaxVersion/entryFile");
 const { StartFunc: StartFuncFromOpenApp } = require("./openApp");
@@ -32,7 +33,10 @@ const StartFunc = async ({ inToPath }) => {
 const LocalFuncForNonSecureEndPoints = async ({ inToPath }) => {
     const LocalToPath = inToPath;
 
-    let LocalVersion = await LocalFuncForMaxVersion({ inVersionStart: "V" });
+    let LocalVersion = await LocalFuncForMaxVersion({
+        inVersionStart: "V",
+        inToPath: LocalToPath
+    });
 
     if (LocalVersion === false) {
         return false;
@@ -59,7 +63,11 @@ const LocalFuncForNonSecureEndPoints = async ({ inToPath }) => {
     return await LocalVersion;
 };
 
-const LocalFuncForMaxVersion = async ({ inVersionStart }) => {
+const LocalFuncCheckAppJs = ({ inToPath }) => {
+    return fs.existsSync(`${inToPath}/app.js`)
+};
+
+const LocalFuncForMaxVersion = async ({ inVersionStart, inToPath }) => {
     const LocalToPath = LocalFuncGetWorkSpaceFolder();
     let LocalVersion = `${inVersionStart}1`;
 
@@ -69,12 +77,12 @@ const LocalFuncForMaxVersion = async ({ inVersionStart }) => {
     });
 
     if (LocalFromMaxVersion === 0) {
-        const LocalFromCopy = await StartFuncFromFirstCopy({ inToPath: LocalToPath });
-        //  return LocalFromCopy;
+        if (LocalFuncCheckAppJs({ inToPath }) === false) {
+            const LocalFromCopy = await StartFuncFromFirstCopy({ inToPath: LocalToPath });
 
-        if (LocalFromCopy === false) {
-            // console.log("already present");
-            return false;
+            if (LocalFromCopy === false) {
+                return false;
+            };
         };
     } else {
         LocalVersion = `${inVersionStart}${LocalFromMaxVersion}`;

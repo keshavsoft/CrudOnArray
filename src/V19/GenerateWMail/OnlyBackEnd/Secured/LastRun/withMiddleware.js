@@ -44,8 +44,20 @@ const LocalFuncForImportMiddleware = ({ inLines }) => {
     const alreadyUsed = LocalLines.some(line => line.trim() === useLine);
 
     if (!alreadyUsed) {
-        const lastUseIndex = LocalLines.reduce((acc, line, i) =>
-            line.trim().startsWith('const port = ') || line.trim().startsWith("let port = ") ? i : acc, -1);
+        const lastUseIndex = LocalLines.findIndex(line => {
+            if (line.trim().startsWith('const port = ')) {
+                return true;
+            };
+            if (line.trim().startsWith('let port = ')) {
+                return true;
+            };
+            if (line.trim().startsWith('var port = ')) {
+                return true;
+            };
+
+            return false;
+        });
+        // line.trim().startsWith('const port = ') || line.trim().startsWith("let port = ") ? i : acc, -1);
 
         LocalLines.splice(lastUseIndex + 1, 0, useLine);
         LocalLines.splice(lastUseIndex + 1, 0, "");
