@@ -324,6 +324,10 @@ write end points in nodejs
 
 - still working on secured for interns backed
 
+### 1.19.5
+
+- OnlyBackEnd.NonSecured backup need to be tested
+
 ## License
 
 MIT
