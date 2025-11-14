@@ -328,6 +328,10 @@ write end points in nodejs
 
 - OnlyBackEnd.NonSecured backup need to be tested
 
+### 1.19.6
+
+- OnlyBackEnd.NonSecured backup 3 perfect
+
 ## License
 
 MIT
