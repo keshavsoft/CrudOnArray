@@ -332,6 +332,10 @@ write end points in nodejs
 
 - OnlyBackEnd.NonSecured backup 3 perfect
 
+### 1.19.7
+
+- OnlyBackEnd.NonSecured backup Linked perfect
+
 ## License
 
 MIT
