@@ -336,6 +336,10 @@ write end points in nodejs
 
 - OnlyBackEnd.NonSecured backup Linked perfect
 
+### 1.19.8
+
+- OnlyBackEnd.NonSecured token creation perfect, but need to handle kill token
+
 ## License
 
 MIT
