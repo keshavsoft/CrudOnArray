@@ -8,7 +8,9 @@
             "type": "text",
             "isInput": true,
             "isAutoFocus": true,
-            "defaultvalue": "2nd"
+            "defaultvalue": "2nd",
+            "required": true,
+            "errorMessage": "Please provide title."
         },
         {
             "field": "start",
