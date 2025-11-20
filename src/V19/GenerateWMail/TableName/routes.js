@@ -19,6 +19,7 @@ import { router as routerFromInsertWithChecks } from "./InsertWithChecks/routes.
 import { router as routerFromReadSingleCol } from "./ReadSingleCol/routes.js";
 import { router as routerFromImport } from "./Import/routes.js";
 import { router as routerFromImage } from "./Image/routes.js";
+import { router as routerFromSort } from "./Sort/routes.js";
 
 router.use("/Read", routerFromRead);
 router.use("/Insert", routerFromInsert);
@@ -38,5 +39,6 @@ router.use("/InsertWithChecks", routerFromInsertWithChecks);
 router.use("/ReadSingleCol", routerFromReadSingleCol);
 router.use("/Import", routerFromImport);
 router.use("/Image", routerFromImage);
+router.use("/Sort", routerFromSort);
 
 export { router };
