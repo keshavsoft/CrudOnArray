@@ -16,11 +16,8 @@ const StartFunc = ({ inRequestBody }) => {
         if (fs.existsSync(filePath)) {
             const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
-            const LocalUniqueColumns = LocalFuncForUniqueColumns();
-
             const LocalFromCheck = LocalFuncCheck({
                 inDataAsArray: data,
-                inUniqueColumns: LocalUniqueColumns,
                 inRequestBody: LocalinDataToInsert
             });
 
@@ -28,17 +25,13 @@ const StartFunc = ({ inRequestBody }) => {
                 return LocalFromCheck;
             };
 
-            // console.log("aaaaaaaaaaaaa : ", LocalFromCheck, LocalUniqueColumns);
-            let LocalArrayPk = data.map(element => element.pk);
-
-            let LocalRemoveUndefined = LocalArrayPk.filter(function (element) {
-                return element !== undefined;
+            let LocalInsertData = LocalFuncCreateObjectToInsert({
+                inDataToInsert: LocalinDataToInsert,
+                inOriginalArray: data
             });
+            
+            const MaxPk = LocalInsertData.pk;
 
-            let numberArray = LocalRemoveUndefined.map(Number);
-            let MaxPk = Math.max(...numberArray, 0) + 1;
-
-            let LocalInsertData = { ...LocalinDataToInsert, pk: MaxPk };
             data.push(LocalInsertData);
 
             fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf8');
@@ -61,6 +54,27 @@ const StartFunc = ({ inRequestBody }) => {
     return LocalReturnObject;
 };
 
+const LocalFuncCreateObjectToInsert = ({ inDataToInsert, inOriginalArray }) => {
+    const LocalinDataToInsert = inDataToInsert;
+
+    let LocalArrayPk = inOriginalArray.map(element => element.pk);
+
+    let LocalRemoveUndefined = LocalArrayPk.filter(function (element) {
+        return element !== undefined;
+    });
+
+    let numberArray = LocalRemoveUndefined.map(Number);
+    let MaxPk = Math.max(...numberArray, 0) + 1;
+
+    let LocalInsertData = {
+        ...LocalinDataToInsert,
+        pk: MaxPk,
+        ServerInsertedTimeStamp: new Date()
+    };
+
+    return LocalInsertData;
+};
+
 const LocalFuncForUniqueColumns = () => {
     const LocalUniqueColumns = ParamsJson.ColumnsWithSchema.filter(element => {
         return element.unique;
@@ -69,13 +83,15 @@ const LocalFuncForUniqueColumns = () => {
     return LocalUniqueColumns;
 };
 
-const LocalFuncCheck = ({ inDataAsArray, inUniqueColumns, inRequestBody }) => {
+const LocalFuncCheck = ({ inDataAsArray, inRequestBody }) => {
     let LocalinDataToInsert = inRequestBody;
+
+    const LocalUniqueColumns = LocalFuncForUniqueColumns();
 
     let LocalReturnObject = {};
     LocalReturnObject.KTF = true;
 
-    inUniqueColumns.every(LoopColumn => {
+    LocalUniqueColumns.every(LoopColumn => {
         const LoopInsideColumnNeeded = LoopColumn.field;
 
         const LoopInsideValueToCheck = LocalinDataToInsert[LoopInsideColumnNeeded];
