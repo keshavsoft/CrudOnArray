@@ -1,1 +1,1 @@
-GET http://localhost:{PortNumber}/{Version}/{TableName}/Read/AsIs
+GET http://localhost:{PortNumber}/{Version}/{TableName}/Sort/AsIs
