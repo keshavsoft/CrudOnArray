@@ -13,6 +13,7 @@ const { StartFunc: StartFuncFromImport } = require('./Import/entryFile');
 const { StartFunc: StartFuncFromSubTableOnArray } = require('./SubTableOnArray/entryFile');
 const { StartFunc: StartFuncFromSubTableOnObj } = require('./SubTableOnObj/entryFile');
 const { StartFunc: StartFuncFromSort } = require('./Sort/entryFile');
+const { StartFunc: StartFuncFromAlterWithCheck } = require('./AlterWithCheck/entryFile');
 
 const StartFunc = async ({ inFolder, inTableName, inSubRoutes, inVersion, inPortNumber, inColumnsAsArray }) => {
 
@@ -107,6 +108,12 @@ const StartFunc = async ({ inFolder, inTableName, inSubRoutes, inVersion, inPort
                 StartFuncFromSort({
                     inFolder: `${inFolder}/${LoopSubRoute}/RestClients`,
                     inTableName, inVersion, inPortNumber
+                })
+                break;
+                case "AlterWithCheck":
+                StartFuncFromAlterWithCheck({
+                    inFolder: `${inFolder}/${LoopSubRoute}/RestClients`,
+                    inTableName, inVersion, inPortNumber,inColumnsAsArray
                 })
                 break;
 
