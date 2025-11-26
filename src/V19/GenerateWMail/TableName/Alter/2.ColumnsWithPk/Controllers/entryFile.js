@@ -12,7 +12,7 @@ let postFilterDataFromBodyFunc = (req, res) => {
     });
 
     if (LocalFromRepo.KTF === false) {
-        res.status(404).send(LocalFromRepo.KReason);
+        res.status(409).send(LocalFromRepo.KReason);
         return;
     };
 
