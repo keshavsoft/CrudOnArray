@@ -9,8 +9,8 @@ write end points in nodejs
 
 1. Open an Empty Folder.
 2. Open the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`).
-3. Search for and run (`GenerateWMail FrontAndBackWithGulp`).
-4. Find the available options there ( like `GenerateWMail`).
+3. Search for and run (`GenerateWMail FrontAndBack NonSecured`).
+4. Find the available options there ( like `GenerateWMail FrontAndBack`, `GenerateWMail OnlyBackEnd`).
 5. All the Folders and Files are copied to your empty Folder.
 6. .env file the place where you define ( Data Path and Port Number ).
 7. app.js is entry file.
@@ -37,7 +37,9 @@ write end points in nodejs
 - Visual Studio Code version 1.50.0 or higher.
 - https://marketplace.visualstudio.com/items?itemName=humao.rest-client
 - https://www.npmjs.com/package/gulp-cli
-
+- https://git-scm.com/
+- https://nodejs.org/en/download (22 is tested)
+  
 ## Extension Settings
 
 .env
