@@ -350,6 +350,10 @@ write end points in nodejs
 
 - SubRoutes added
 
+### 1.20.1
+
+- single websocket started
+
 ## License
 
 MIT

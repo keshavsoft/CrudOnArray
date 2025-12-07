@@ -1,3 +1,0 @@
-read from schema.json 
-
-and table name as json also

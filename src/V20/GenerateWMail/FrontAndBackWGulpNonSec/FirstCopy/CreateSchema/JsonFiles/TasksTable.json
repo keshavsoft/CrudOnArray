@@ -1,0 +1,89 @@
+{
+    "tableName": "TasksTable",
+    "columns": [
+        {
+            "field": "title",
+            "title": "Title",
+            "unique": true,
+            "type": "text",
+            "isInput": true,
+            "isAutoFocus": true,
+            "defaultvalue": "2nd",
+            "required": true,
+            "errorMessage": "Please provide title."
+        },
+        {
+            "field": "start",
+            "title": "Start Date",
+            "unique": false,
+            "type": "date",
+            "isDate": true,
+            "WidthOptions": {
+                "inPx": 200
+            }
+        },
+        {
+            "field": "className",
+            "title": "Class Name",
+            "unique": false,
+            "type": "text",
+            "isInput": false,
+            "isSelect": true,
+            "isDataList": false,
+            "selectOptions": [
+                {
+                    "value": "bg-primary",
+                    "text": "bg-primary"
+                },
+                {
+                    "value": "bg-success",
+                    "text": "bg-success"
+                }
+            ],
+            "WidthOptions": {
+                "inPx": 250
+            }
+        }
+    ],
+    "data": [],
+    "Vertical": [
+        {
+            "field": "title",
+            "title": "Title",
+            "unique": true,
+            "type": "text",
+            "isInput": true
+        },
+        {
+            "field": "start",
+            "title": "Start Date",
+            "unique": false,
+            "type": "date",
+            "isInput": true
+        },
+        {
+            "field": "className",
+            "title": "Class Name",
+            "unique": false,
+            "type": "text",
+            "isInput": false,
+            "isSelect": false,
+            "isDataList": true,
+            "selectOptions": [
+                {
+                    "value": "bg-primary",
+                    "text": "bg-primary"
+                },
+                {
+                    "value": "bg-success",
+                    "text": "bg-success"
+                }
+            ]
+        }
+    ],
+    "DataTableOptions": {
+        "Header": {
+            "autoFocus": "title"
+        }
+    }
+}

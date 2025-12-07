@@ -1,6 +1,0 @@
-POST http://localhost:3000/Users/Generate
-Content-Type: application/json
-
-{
-	"UserName":"Keshav","Password":9848163021
-}

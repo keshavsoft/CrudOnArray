@@ -3,7 +3,7 @@
   "displayName": "CrudOnArray",
   "publisher": "KeshavSoft",
   "description": "KeshavSoft Extension to enhance the development of web applications",
-  "version": "1.19.10",
+  "version": "1.20.1",
   "engines": {
     "vscode": "^1.96.0"
   },
@@ -102,6 +102,10 @@
       {
         "command": "GenerateWMail.FrontAndBack.Secured",
         "title": "GenerateWMail FrontAndBack Secured"
+      },
+      {
+        "command": "GenWMailAndWs.OnlyBackEnd.NonSecured",
+        "title": "GenWMailAndWs OnlyBackEnd NonSecured"
       }
     ],
     "menus": {
