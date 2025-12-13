@@ -354,6 +354,10 @@ write end points in nodejs
 
 - single websocket started
 
+### 1.20.2
+
+- GenWMailAndWs.OnlyBackEnd.Secured, started not tested
+
 ## License
 
 MIT
