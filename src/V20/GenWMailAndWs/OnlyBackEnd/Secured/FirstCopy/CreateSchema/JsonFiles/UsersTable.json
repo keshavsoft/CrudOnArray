@@ -14,19 +14,12 @@
             "title": "Password",
             "type": "text",
             "isInput": true
-        },
-        {
-            "field": "DataPK",
-            "title": "DataPK",
-            "type": "text",
-            "isInput": true
         }
     ],
     "data": [
         {
             "UserName": "Keshav",
-            "Password": "9848163021",
-            "DataPK": "902"
+            "Password": 9848163021
         }
     ],
     "Vertical": [
@@ -40,12 +33,6 @@
         {
             "field": "Password",
             "title": "Password",
-            "type": "text",
-            "isInput": true
-        },
-        {
-            "field": "DataPK",
-            "title": "DataPK",
             "type": "text",
             "isInput": true
         }

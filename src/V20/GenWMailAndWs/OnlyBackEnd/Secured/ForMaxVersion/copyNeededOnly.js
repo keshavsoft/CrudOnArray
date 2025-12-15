@@ -75,7 +75,7 @@ const LocalFuncForSubRoutes = async ({ inTableName, inSubRoutes, inToPath, inVer
     const LocalVersion = inVersion;
     const LocalToPath = inToPath;
 
-    const LocalFromTablePath = path.join(__dirname, "..", "..", "..", "TableNameWithPK");
+    const LocalFromTablePath = path.join(__dirname, "..", "..", "..", "TableName");
 
     let LocalFileDataAsArray = [];
 

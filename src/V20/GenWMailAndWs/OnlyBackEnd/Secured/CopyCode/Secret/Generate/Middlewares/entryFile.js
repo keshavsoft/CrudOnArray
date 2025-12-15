@@ -1,4 +1,4 @@
-const CommonColumnsArray = ["UserName", "Password"];
+const CommonColumnsArray = ["Secret"];
 import { StartFunc as StartFuncFromForMissingFields } from "./forMissingFields.js";
 import { StartFunc as StartFuncFromForExtraFields } from "./forExtraFields.js";
 

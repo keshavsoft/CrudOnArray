@@ -21,7 +21,7 @@ let StartFunc = (req, res, next) => {
 
     req.locals = {};
     req.locals.KeshavSoft = {}
-    req.locals.KeshavSoft.DataPk = localResult.DataPk;;
+    req.locals.KeshavSoft.DataPk = localResult;
 
     next();
 };

@@ -1,28 +1,28 @@
 import { StartFunc as StartFuncFromCreateToken } from "../../../Token/jwt/CreateToken.js";
-import { postDefaultFunc as postDefaultFuncFromRepo } from "../Repos/entryFile.js";
+
+import {
+    postDefaultFunc as postDefaultFuncFromRepo
+} from '../Repos/entryFile.js';
+
+const CommonCookieName = "KSToken";
 
 let postFilterDataFromBodyFunc = (req, res) => {
-  let LocalRequestBody = req.body;
-  let LocalUserName = LocalRequestBody.UserName;
-  let LocalPassword = LocalRequestBody.Password;
+    let LocalRequestBody = req.body;
+    let LocalCoumnSecret = LocalRequestBody.Secret;
 
-  let LocalFromRepo = postDefaultFuncFromRepo({
-    inUserName: LocalUserName,
-    inPassword: LocalPassword,
-  });
+    let LocalFromRepo = postDefaultFuncFromRepo({ LocalCoumnSecret });
 
-  if (LocalFromRepo.KTF === false) {
-    res.status(409).send(LocalFromRepo.KReason);
-    return;
-  }
-  
-  // inObject.BranchName = LocalFromRepo?.BranchName;
-  const jVarLocalToken = StartFuncFromCreateToken({ inObject: "Keshav", inDataPK: LocalFromRepo.JsonData.DataPK });
+    if (LocalFromRepo.KTF === false) {
+        res.status(409).send(LocalFromRepo.KTF);
+        return;
+    };
 
-  res.set("Content-Type", "text/plain");
-  res
-    .cookie("KSToken", jVarLocalToken, { maxAge: 900000, httpOnly: false })
-    .send(LocalFromRepo.KTF)
+    const jVarLocalToken = StartFuncFromCreateToken({ inObject: "Keshav" });
+
+    res.set('Content-Type', 'text/plain');
+    res.cookie(CommonCookieName, jVarLocalToken, { maxAge: 900000, httpOnly: false }).end(jVarLocalToken);
 };
 
-export { postFilterDataFromBodyFunc };
+export {
+    postFilterDataFromBodyFunc
+};
