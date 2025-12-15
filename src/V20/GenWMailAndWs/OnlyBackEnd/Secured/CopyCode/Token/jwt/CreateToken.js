@@ -1,8 +1,10 @@
 import jwt from 'jsonwebtoken';
+import { setFunc } from '../../CommonExpose/forToken.js';
+// const CommonToken = process.env.PORT;
 
-let StartFunc = ({ inObject, inDataPK }) => {
-
-    var token = jwt.sign({ DataPk: inDataPK }, inObject);
+let StartFunc = ({ inObject }) => {
+    const LocalUuid = setFunc();
+    var token = jwt.sign(inObject, LocalUuid);
 
     return token;
 };
