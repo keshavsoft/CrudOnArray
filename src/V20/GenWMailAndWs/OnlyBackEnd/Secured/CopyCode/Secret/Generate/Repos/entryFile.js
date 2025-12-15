@@ -1,13 +1,9 @@
-import {
-    postDefaultFunc as postDefaultFuncFromDal
-} from '../Dals/entryFile.js';
+import { postDefaultFunc as postDefaultFuncFromDal } from "../Dals/entryFile.js";
 
-let postDefaultFunc = ({LocalCoumnSecret}) => {
-    let LocalFromDal = postDefaultFuncFromDal({LocalCoumnSecret});
+let postDefaultFunc = ({ inUserName, inPassword }) => {
+  let LocalFromDal = postDefaultFuncFromDal({ inUserName, inPassword });
 
-    return LocalFromDal;
+  return LocalFromDal;
 };
 
-export {
-    postDefaultFunc
-};
+export { postDefaultFunc };
