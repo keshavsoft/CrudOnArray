@@ -358,6 +358,10 @@ write end points in nodejs
 
 - GenWMailAndWs.OnlyBackEnd.Secured, started not tested
 
+### 1.20.3
+
+- GenWMailAndWs added to FrontAndBack
+
 ## License
 
 MIT
