@@ -5,9 +5,10 @@ import ParamsJson from '../../../CommonFuncs/params.json' with {type: 'json'};
 let StartFunc = ({ inDataPk }) => {
     const LocalFileName = ParamsJson.TableName;
     const LocalDataPath = ParamsJson.DataPath;
+    const LocalDataPk = inDataPk;
 
     let LocalReturnData = { KTF: false };
-    let filePath = `${LocalDataPath}/${inDataPk}/${LocalFileName}.json`;
+    let filePath = `${LocalDataPath}/${LocalFileName}.json`;
 
     try {
         if (!fs.existsSync(filePath)) {
@@ -16,7 +17,7 @@ let StartFunc = ({ inDataPk }) => {
             return LocalReturnData;
         };
 
-        const data = fs.readFileSync(filePath, 'utf8');
+        const data = fs.readFileSync(`${LocalDataPath}/${LocalDataPk}/${LocalFileName}.json`, 'utf8');
 
         LocalReturnData.KTF = true;
         LocalReturnData.JsonData = JSON.parse(data);

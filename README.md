@@ -362,6 +362,10 @@ write end points in nodejs
 
 - GenWMailAndWs added to FrontAndBack
 
+### 1.20.4
+
+- GenDataFromPk.FrontAndBack still working on
+
 ## License
 
 MIT

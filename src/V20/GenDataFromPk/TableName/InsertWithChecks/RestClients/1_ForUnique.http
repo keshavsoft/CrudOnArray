@@ -1,4 +1,0 @@
-POST http://localhost:{PortNumber}/{Version}/{TableName}/InsertWithChecks/ForUnique
-Content-Type: application/json
-
-{Columns}

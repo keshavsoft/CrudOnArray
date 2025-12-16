@@ -1,4 +1,0 @@
-POST http://localhost:{PortNumber}/{Version}/{TableName}/SubTableOnObj/Insert/AsIs/{RowPk}/{KeyName}
-Content-Type: application/json
-
-{Columns}

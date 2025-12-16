@@ -1,11 +1,7 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
 
-// import dotenv from 'dotenv';
-// dotenv.config();
-
 const app = express();
-// const port = 3000;
 
 var port = normalizePort(process.env.PORT || 3000);
 

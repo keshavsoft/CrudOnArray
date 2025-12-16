@@ -1,4 +1,0 @@
-POST http://localhost:{PortNumber}/{Version}/{TableName}/SubTableOnArray/Insert/WithUuIdAndDT/{RowIndex}/{KeyName}
-Content-Type: application/json
-
-{Columns}

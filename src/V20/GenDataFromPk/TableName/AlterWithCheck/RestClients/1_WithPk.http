@@ -1,4 +1,0 @@
-POST http://localhost:{PortNumber}/{Version}/{TableName}/AlterWithCheck/WithPk/{pk}
-Content-Type: application/json
-
-{Columns}

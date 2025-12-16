@@ -19,11 +19,10 @@ let postFilterDataFromBodyFunc = (req, res) => {
   }
 
   const LocalUuid = uuidv4();
-  const LocalToken = StartFuncFromCreateToken({ inObject: LocalUuid });
+  const LocalToken = StartFuncFromCreateToken({ inObject: LocalFromRepo?.DataPk });
 
   res.set("Content-Type", "text/plain");
-  res
-    .cookie("KSToken", LocalToken, { maxAge: 900000, httpOnly: false })
+  res.cookie("KSToken", LocalToken, { maxAge: 900000, httpOnly: false })
     .end(LocalToken);
 };
 

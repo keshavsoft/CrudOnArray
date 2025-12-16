@@ -3,7 +3,8 @@ import {
 } from '../Repos/entryFile.js';
 
 let GetFunc = (req, res) => {
-    let LocalDataPk = req.locals.KeshavSoft.DataPk;
+    const LocalDataPk = req.locals.KeshavSoft.DataPk;
+
     let LocalFromRepo = GetFuncRepo({ inDataPk: LocalDataPk });
 
     if (LocalFromRepo.KTF === false) {

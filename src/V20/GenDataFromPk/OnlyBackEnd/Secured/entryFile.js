@@ -1,6 +1,6 @@
 const vscode = require('vscode');
 
-const CommonRegisterCommand = "GenDataFromPk.OnlyBackEnd.Secured";
+const CommonRegisterCommand = "GenDataFromPk.OnlyBackEnd";
 
 const { StartFunc: StartFuncFromFuncToActivate } = require("./funcToActivate");
 const { StartFunc: StartFuncrunNodeApp } = require("./serverRun");

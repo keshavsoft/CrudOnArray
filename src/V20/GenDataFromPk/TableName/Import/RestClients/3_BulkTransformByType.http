@@ -1,6 +1,0 @@
-POST http://localhost:{PortNumber}/{Version}/{TableName}/Import/BulkTransformByType
-Content-Type: application/json
-
-[
-  {Columns}
-]
