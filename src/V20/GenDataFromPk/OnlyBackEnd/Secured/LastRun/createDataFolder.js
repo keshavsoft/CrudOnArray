@@ -1,9 +1,10 @@
 const fs = require('fs');
 const path = require('path');
+const CommonSchemaJsonName = "schema.json";
 
 const LocalFuncReadSchemaJson = ({ inRootPath }) => {
     try {
-        const fileContents = fs.readFileSync(`${inRootPath}/schema.json`, 'utf-8');
+        const fileContents = fs.readFileSync(`${inRootPath}/${CommonSchemaJsonName}`, 'utf-8');
 
         return JSON.parse(fileContents);
     } catch (error) {

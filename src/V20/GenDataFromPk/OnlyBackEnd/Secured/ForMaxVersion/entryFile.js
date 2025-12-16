@@ -1,13 +1,14 @@
 const vscode = require('vscode');
 const path = require('path');
 const fs = require("fs");
+const CommonApiJsonName = "api.json";
 
 const { StartFunc: StartFuncFromTableCreates } = require('./TableCreate');
 const { StartFunc: StartFuncFromCheckSchema } = require('../../CommonFuncs/checkSchema');
 
 const LocalFuncReadSchemaJson = ({ inRootPath }) => {
     try {
-        const fileContents = fs.readFileSync(`${inRootPath}/schema.json`, 'utf-8');
+        const fileContents = fs.readFileSync(`${inRootPath}/${CommonApiJsonName}`, 'utf-8');
 
         return JSON.parse(fileContents);
     } catch (error) {

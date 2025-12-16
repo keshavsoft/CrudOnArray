@@ -366,6 +366,10 @@ write end points in nodejs
 
 - GenDataFromPk.FrontAndBack still working on
 
+### 1.20.5
+
+- GenDataFromPk.FrontAndBack still working on Data folder common tables left
+
 ## License
 
 MIT
