@@ -374,6 +374,10 @@ write end points in nodejs
 
 - GenDataFromPk.OnlyBackEnd perfect with common json tables and data tables inside folders
 
+### 1.20.7
+
+- GenDataFromPk.OnlyBackEnd perfect with TokenTable
+
 ## License
 
 MIT
