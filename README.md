@@ -370,6 +370,10 @@ write end points in nodejs
 
 - GenDataFromPk.FrontAndBack still working on Data folder common tables left
 
+### 1.20.6
+
+- GenDataFromPk.OnlyBackEnd perfect with common json tables and data tables inside folders
+
 ## License
 
 MIT

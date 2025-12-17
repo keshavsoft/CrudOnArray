@@ -1,11 +1,11 @@
 const fs = require('fs');
 const path = require('path');
 const CommonJsonName = "UsersTable.json";
-const CommonSchemaJsonName = "schema.json";
+const CommonApiFileName = "api.json";
 
-const LocalFuncReadSchemaJson = ({ inRootPath }) => {
+const LocalFuncReadApiJson = ({ inRootPath }) => {
     try {
-        const fileContents = fs.readFileSync(`${inRootPath}/${CommonSchemaJsonName}`, 'utf-8');
+        const fileContents = fs.readFileSync(`${inRootPath}/${CommonApiFileName}`, 'utf-8');
 
         return JSON.parse(fileContents);
     } catch (error) {
@@ -38,7 +38,7 @@ function LocalFuncReadTableSchema({ inRootPath }) {
 
 const StartFunc = ({ inRootPath }) => {
     const LocalUsersTableRows = LocalFunUsersTable({ inRootPath });
-    const LocalJsonSchema = LocalFuncReadSchemaJson({ inRootPath });
+    const LocalJsonSchema = LocalFuncReadApiJson({ inRootPath });
     const LocalTablesArray = LocalJsonSchema.Tables;
 
     try {
