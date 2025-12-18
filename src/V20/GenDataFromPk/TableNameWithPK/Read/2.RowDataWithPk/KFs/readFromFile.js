@@ -1,15 +1,15 @@
 import fs from "fs";
 import ParamsJson from '../../../CommonFuncs/params.json' with {type: 'json'};
 
-let StartFunc = ({ inId }) => {
+let StartFunc = ({ inId, inDataPk }) => {
     const LocalId = inId;
-     const LocalFileName = ParamsJson.TableName;
+    const LocalFileName = ParamsJson.TableName;
     const LocalDataPath = ParamsJson.DataPath;
 
     let LocalReturnData = { KTF: false };
 
     try {
-        const data = fs.readFileSync(`${LocalDataPath}/${LocalFileName}.json`, 'utf8');
+        const data = fs.readFileSync(`${LocalDataPath}/${inDataPk}/${LocalFileName}.json`, 'utf8');
 
         let LocalFind = JSON.parse(data).find(el => el.pk == LocalId);
         if (!LocalFind) {

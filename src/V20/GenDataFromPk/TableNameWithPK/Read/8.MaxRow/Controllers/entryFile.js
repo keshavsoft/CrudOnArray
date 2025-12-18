@@ -3,7 +3,9 @@ import {
 } from '../Repos/entryFile.js';
 
 let GetFunc = (req, res) => {
-    let LocalFromRepo = GetFuncRepo();
+    const LocalDataPk = req.locals.KeshavSoft.DataPk;
+
+    let LocalFromRepo = GetFuncRepo({ inDataPk: LocalDataPk });
 
     if (LocalFromRepo.KTF === false) {
         res.status(404).send(LocalFromRepo.KReason);

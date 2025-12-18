@@ -4,9 +4,11 @@ import {
 
 let postFilterDataFromBodyFunc = (req, res) => {
     let LocalColumnName = req.params.ColumnName;
+    const LocalDataPk = req.locals.KeshavSoft.DataPk;
 
     let LocalFromRepo = postDefaultFuncFromRepo({
-        inColumnName: LocalColumnName
+        inColumnName: LocalColumnName,
+        inDataPk: LocalDataPk
     });
 
     if (LocalFromRepo.KTF === false) {
