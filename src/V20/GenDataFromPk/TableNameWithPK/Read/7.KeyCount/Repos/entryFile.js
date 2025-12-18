@@ -2,8 +2,8 @@ import {
     getDefaultFunc as getDefaultFuncFromDal
 } from '../Dals/entryFile.js';
 
-let getDefaultFunc = ({ inColumnName }) => {
-    return getDefaultFuncFromDal({ inColumnName });
+let getDefaultFunc = ({ inDataPk, inColumnName }) => {
+    return getDefaultFuncFromDal({ inDataPk, inColumnName });
 };
 
 export {

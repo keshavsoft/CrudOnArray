@@ -4,8 +4,9 @@ import {
 
 let GetFunc = (req, res) => {
     const LocalId = req.params.id;
+    const LocalDataPk = req.locals.KeshavSoft.DataPk;
 
-    let LocalFromRepo = GetFuncRepo({ inId: LocalId });
+    let LocalFromRepo = GetFuncRepo({ inId: LocalId, inDataPk: LocalDataPk  });
 
     if (LocalFromRepo.KTF === false) {
         res.status(404).send(LocalFromRepo.KReason);
