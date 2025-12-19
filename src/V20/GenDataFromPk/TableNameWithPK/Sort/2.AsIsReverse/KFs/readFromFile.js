@@ -2,12 +2,12 @@ import fs from "fs";
 
 import ParamsJson from '../../../CommonFuncs/params.json' with {type: 'json'};
 
-let StartFunc = () => {
+let StartFunc = ({ inDataPk }) => {
     const LocalFileName = ParamsJson.TableName;
     const LocalDataPath = ParamsJson.DataPath;
 
     let LocalReturnData = { KTF: false };
-    let filePath = `${LocalDataPath}/${LocalFileName}.json`;
+    let filePath = `${LocalDataPath}/${inDataPk}/${LocalFileName}.json`;
 
     try {
         if (!fs.existsSync(filePath)) {
@@ -16,7 +16,7 @@ let StartFunc = () => {
             return LocalReturnData;
         };
 
-        let data = fs.readFileSync(`${LocalDataPath}/${LocalFileName}.json`, 'utf8');
+        let data = fs.readFileSync(filePath, 'utf8');
         let DataAsJson = JSON.parse(data);
         DataAsJson.reverse();
 

@@ -1,7 +1,7 @@
 import fs from "fs";
 import ParamsJson from "../../../CommonFuncs/params.json" with { type: "json" };
 
-let StartFunc = ({ inFromDate, inToDate, inDateField }) => {
+let StartFunc = ({ inDataPk, inFromDate, inToDate, inDateField }) => {
     const LocalFileName = ParamsJson.TableName;
     const LocalDataPath = ParamsJson.DataPath;
 
@@ -25,7 +25,7 @@ let StartFunc = ({ inFromDate, inToDate, inDateField }) => {
     to.setHours(23, 59, 59, 999);
 
     try {
-        const data = fs.readFileSync(`${LocalDataPath}/${LocalFileName}.json`, "utf8");
+        const data = fs.readFileSync(`${LocalDataPath}/${inDataPk}/${LocalFileName}.json`, "utf8");
         const parsedData = JSON.parse(data);
 
         const filtered = parsedData.filter((item) => {

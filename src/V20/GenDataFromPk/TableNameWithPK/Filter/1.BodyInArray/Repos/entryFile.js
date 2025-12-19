@@ -2,8 +2,8 @@ import {
     PostFunc as PostFuncDal
 } from '../dals/entryFile.js';
 
-let PostFunc = ({ inKey, inValue }) => {
-    return PostFuncDal({ inKey, inValue });
+let PostFunc = ({ inDataPk, inKey, inValue }) => {
+    return PostFuncDal({ inDataPk, inKey, inValue });
 };
 
 export {
