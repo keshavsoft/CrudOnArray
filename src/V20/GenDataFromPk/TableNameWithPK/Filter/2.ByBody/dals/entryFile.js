@@ -1,7 +1,7 @@
 import { StartFunc as StartFuncFromReadFromFile } from '../KFs/readFromFile.js';
 
-let PostFunc = ({ inKey, inValue }) => {
-    let LocalFromLowDb = StartFuncFromReadFromFile({ inKey, inValue });
+let PostFunc = ({ inDataPk, inKey, inValue }) => {
+    let LocalFromLowDb = StartFuncFromReadFromFile({ inDataPk, inKey, inValue });
 
     return LocalFromLowDb;
 };

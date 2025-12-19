@@ -1,12 +1,12 @@
 import fs from "fs";
 import ParamsJson from '../../../CommonFuncs/params.json' with {type: 'json'};
 
-const StartFunc = ({ inPk, inBody }) => {
+const StartFunc = ({ inDataPk, inPk, inBody }) => {
   const LocalFileName = ParamsJson.TableName;
   const LocalDataPath = ParamsJson.DataPath;
 
   let LocalReturnObject = { KTF: false };
-  let filePath = `${LocalDataPath}/${LocalFileName}.json`;
+  let filePath = `${LocalDataPath}/${inDataPk}/${LocalFileName}.json`;
 
   try {
     if (!fs.existsSync(filePath)) {

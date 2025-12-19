@@ -2,8 +2,8 @@ import {
     GetFunc as GetFuncDal
 } from '../dals/entryFile.js';
 
-let GetFunc = ({ inFromDate, inToDate, inDateField }) => {
-    return GetFuncDal({ inFromDate, inToDate, inDateField });
+let GetFunc = ({ inDataPk, inFromDate, inToDate, inDateField }) => {
+    return GetFuncDal({ inDataPk, inFromDate, inToDate, inDateField });
 };
 
 export {

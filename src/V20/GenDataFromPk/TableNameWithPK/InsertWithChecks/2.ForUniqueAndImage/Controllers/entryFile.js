@@ -3,6 +3,7 @@ import {
 } from '../Repos/entryFile.js';
 
 let postFunc = async (req, res) => {
+    const LocalDataPk = req.locals.KeshavSoft.DataPk;
     if ("Uuid" in req.KeshavSoft === false) {
         res.status(500).send("Error from multer");
         return;
@@ -14,6 +15,7 @@ let postFunc = async (req, res) => {
     let LocalDomainName = `${protocol}://${host}`;
 
     const LocalFromRepo = await postFuncFromRepo({
+        inDataPk: LocalDataPk,
         inDomainName: LocalDomainName,
         inDataToInsert: LocalBody,
         inImageName: req.KeshavSoft.Uuid

@@ -1,7 +1,7 @@
 import { StartFunc as StartFuncFromInsertToFile } from '../KFs/insertToFile.js';
 
-let postDefaultFunc = ({ inRequestBody }) => {
-    let LocalFromLowDb = StartFuncFromInsertToFile({ inRequestBody });
+let postDefaultFunc = ({ inDataPk, inRequestBody }) => {
+    let LocalFromLowDb = StartFuncFromInsertToFile({ inDataPk, inRequestBody });
 
     if (LocalFromLowDb.KTF === false) {
         return LocalFromLowDb;
