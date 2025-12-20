@@ -378,6 +378,10 @@ write end points in nodejs
 
 - GenDataFromPk.OnlyBackEnd perfect with TokenTable
 
+### 1.20.8
+
+- GenWMailAndWs.OnlyBackEnd.Secured removed batch files, still working on...
+
 ## License
 
 MIT

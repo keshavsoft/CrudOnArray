@@ -3,7 +3,7 @@
   "displayName": "CrudOnArray",
   "publisher": "KeshavSoft",
   "description": "KeshavSoft Extension to enhance the development of web applications",
-  "version": "1.20.7",
+  "version": "1.20.8",
   "engines": {
     "vscode": "^1.96.0"
   },
@@ -122,6 +122,10 @@
       {
         "command": "GenDataFromPk.FrontAndBack",
         "title": "GenDataFromPk FrontAndBack"
+      },
+      {
+        "command": "GenWMailAndWs.OnlyFrontEnd.Secured",
+        "title": "GenWMailAndWs OnlyFrontEnd Secured"
       }
     ],
     "menus": {
