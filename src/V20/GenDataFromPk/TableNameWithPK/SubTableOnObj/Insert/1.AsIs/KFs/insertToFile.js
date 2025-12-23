@@ -2,7 +2,7 @@ import fs from "fs";
 
 import ParamsJson from '../../../../CommonFuncs/params.json' with {type: 'json'};
 
-const StartFunc = ({ inRowIndex, inKeyName, inRequestBody }) => {
+const StartFunc = ({ inDataPk, inRowIndex, inKeyName, inRequestBody }) => {
   const LocalFileName = ParamsJson.TableName;
   const LocalDataPath = ParamsJson.DataPath;
   let LocalRowIndex = inRowIndex;
@@ -10,7 +10,7 @@ const StartFunc = ({ inRowIndex, inKeyName, inRequestBody }) => {
 
   let LocalinDataToInsert = inRequestBody;
 
-  const filePath = `${LocalDataPath}/${LocalFileName}.json`;
+  const filePath = `${LocalDataPath}/${inDataPk}/${LocalFileName}.json`;
   let LocalReturnObject = {};
   LocalReturnObject.KTF = false;
 
