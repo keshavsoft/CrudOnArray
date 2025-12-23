@@ -1,8 +1,8 @@
 import { StartFunc as StartFuncFileRead } from "../../../../CommonFuncs/fileRead.js";
 
-let StartFunc = ({ inRowIndex, inKeyName }) => {
+let StartFunc = ({ inDataPk, inRowIndex, inKeyName }) => {
     let LocalReturnData = { KTF: false };
-    let LocalFileRead = StartFuncFileRead();
+    let LocalFileRead = StartFuncFileRead({ inDataPk });
 
     if (LocalFileRead.KTF === false) {
         LocalReturnData = { ...LocalFileRead };

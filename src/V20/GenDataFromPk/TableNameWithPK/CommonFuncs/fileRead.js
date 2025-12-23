@@ -1,9 +1,9 @@
 import fs from "fs";
 import { StartFunc as StartFuncFileCheck } from "./fileCheck.js";
 
-let StartFunc = () => {
+let StartFunc = ({ inDataPk }) => {
     let LocalReturnData = { KTF: false };
-    let LocalFileCheck = StartFuncFileCheck();
+    let LocalFileCheck = StartFuncFileCheck({ inDataPk });
 
     if (LocalFileCheck.KTF === false) {
         LocalReturnData = { ...LocalFileCheck };

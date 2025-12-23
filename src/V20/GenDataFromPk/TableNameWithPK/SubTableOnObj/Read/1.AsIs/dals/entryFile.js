@@ -1,7 +1,7 @@
 import { StartFunc as StartFuncFromReadFromFile } from '../KFs/readFromFile.js';
 
-let GetFunc = ({ inRowIndex, inKeyName }) => {
-    let LocalFromLowDb = StartFuncFromReadFromFile({ inRowIndex, inKeyName });
+let GetFunc = ({ inDataPk, inRowIndex, inKeyName }) => {
+    let LocalFromLowDb = StartFuncFromReadFromFile({ inDataPk, inRowIndex, inKeyName });
 
     return LocalFromLowDb;
 };
