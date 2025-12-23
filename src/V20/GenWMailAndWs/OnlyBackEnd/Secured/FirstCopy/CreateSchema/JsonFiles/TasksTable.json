@@ -53,5 +53,11 @@
     "SubRoutes": [
         "Read",
         "Insert"
-    ]
+    ],
+    "NonSecured": {
+        "SubRoutes": [
+            "Read",
+            "Insert"
+        ]
+    }
 }

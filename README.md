@@ -386,6 +386,10 @@ write end points in nodejs
 
 - GenWMailAndWs.OnlyBackEnd.Secured,still working on api.json...
 
-## License
+### 1.20.10
+
+- GenWMailAndWs.OnlyBackEnd.Secured perfect with check and NonSecured.SubRoutes in json
+
+### License
 
 MIT

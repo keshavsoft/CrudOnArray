@@ -44,12 +44,17 @@ const StartFunc = async ({ inDataPath, inPortNumber, inToPath, inVersion }) => {
             continue;
         };
 
-        if ("SubRoutes" in LocalFromTableJson === false) {
+        if ("NonSecured" in LocalFromTableJson === false) {
+            vscode.window.showInformationMessage(`NonSecured not found in Json Schema : ${tableName}`);
+            continue;
+        };
+
+        if ("SubRoutes" in LocalFromTableJson.NonSecured === false) {
             vscode.window.showInformationMessage(`SubRoutes not found in Json Schema : ${tableName}`);
             continue;
         };
 
-        const LocalSubRoutes = LocalFromTableJson.SubRoutes ? LocalFromTableJson.SubRoutes : [];
+        const LocalSubRoutes = LocalFromTableJson.NonSecured.SubRoutes ? LocalFromTableJson.NonSecured.SubRoutes : [];
 
         await StartFuncFromTableCreates({
             inFromTablePath: fromTablePath, inToTablePath: toTablePath,

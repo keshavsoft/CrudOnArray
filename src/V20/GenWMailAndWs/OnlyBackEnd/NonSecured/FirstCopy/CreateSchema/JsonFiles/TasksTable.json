@@ -55,5 +55,10 @@
         "Insert",
         "Delete",
         "Alter"
-    ]
+    ],
+    "NonSecured": {
+        "SubRoutes": [
+            "Insert"
+        ]
+    }
 }
