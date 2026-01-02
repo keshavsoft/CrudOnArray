@@ -390,6 +390,10 @@ write end points in nodejs
 
 - GenWMailAndWs.OnlyBackEnd.Secured perfect with check and NonSecured.SubRoutes in json
 
+### 1.20.11
+
+- Table check, stop execution.
+
 ### License
 
 MIT

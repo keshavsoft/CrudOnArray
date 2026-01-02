@@ -53,12 +53,18 @@ const LocalFuncForNonSecureEndPoints = async ({ inToPath }) => {
     const LocalDataPath = LocalEnvFileAsJson.DataPath ? LocalEnvFileAsJson.DataPath : "";
     const LocalPortNumber = LocalEnvFileAsJson.PORT ? LocalEnvFileAsJson.PORT : "";
 
-    await StartFuncFromForMaxVersion({
+    const LocalSuccess = await StartFuncFromForMaxVersion({
         inDataPath: LocalDataPath,
         inPortNumber: LocalPortNumber,
         inToPath: LocalToPath,
         inVersion: LocalVersion
     });
+
+    if (LocalSuccess == false) {
+        vscode.window.showInformationMessage(`no table schema found...`);
+
+        return await false;
+    };
 
     return await LocalVersion;
 };

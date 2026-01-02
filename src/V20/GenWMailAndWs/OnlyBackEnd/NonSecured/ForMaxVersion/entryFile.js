@@ -16,12 +16,46 @@ const LocalFuncReadSchemaJson = ({ inRootPath }) => {
     }
 };
 
+const LocalFuncForCheck = ({ inColumnsWithSchema, inTableName, inFromTableJson }) => {
+    const LocalColumnsWithSchema = inColumnsWithSchema;
+    const LocalTableName = inTableName;
+    const LocalFromTableJson = inFromTableJson;
+
+    const LocalFromCheckSchema = StartFuncFromCommonFuncs({
+        inColumnsAsArray: LocalColumnsWithSchema,
+        inTableName: LocalTableName
+    });
+
+    if (LocalFromCheckSchema === false) {
+        // vscode.window.showInformationMessage(`field contains invalid char : ${tableName}`);
+        return false;
+    };
+
+    if ("NonSecured" in LocalFromTableJson === false) {
+        vscode.window.showInformationMessage(`NonSecured not found in Json Schema : ${LocalTableName}`);
+        return false;
+    };
+
+    if ("SubRoutes" in LocalFromTableJson.NonSecured === false) {
+        vscode.window.showInformationMessage(`SubRoutes not found in Json Schema : ${LocalTableName}`);
+        return false;
+    };
+
+    return true;
+    //dummy function
+};
+
 const StartFunc = async ({ inDataPath, inPortNumber, inToPath, inVersion }) => {
     const localVersion = inVersion;
     const LocalToPath = inToPath;
 
     const LocalJsonSchema = LocalFuncReadSchemaJson({ inRootPath: LocalToPath });
     const LocalTablesArray = LocalJsonSchema.Tables;
+    const LocalFromTableCheck = LocalFuncForTableCheck({ inToPath: LocalToPath })
+
+    if (LocalFromTableCheck === false) {
+        return await false;
+    };
 
     for (const tableName of LocalTablesArray) {
         const fromTablePath = path.join(__dirname, '..', tableName);
@@ -34,23 +68,13 @@ const StartFunc = async ({ inDataPath, inPortNumber, inToPath, inVersion }) => {
         const LocalData = LocalFromTableJson.Data ? LocalFromTableJson.Data : [];
         const LocalColumnsWithSchema = LocalFromTableJson.columns;
 
-        const LocalFromCheckSchema = StartFuncFromCommonFuncs({
-            inColumnsAsArray: LocalColumnsWithSchema,
-            inTableName: tableName
+        const LocalFromCheck = LocalFuncForCheck({
+            inColumnsWithSchema: LocalColumnsWithSchema,
+            inTableName: tableName,
+            inFromTableJson: LocalFromTableJson
         });
 
-        if (LocalFromCheckSchema === false) {
-            // vscode.window.showInformationMessage(`field contains invalid char : ${tableName}`);
-            continue;
-        };
-
-        if ("NonSecured" in LocalFromTableJson === false) {
-            vscode.window.showInformationMessage(`NonSecured not found in Json Schema : ${tableName}`);
-            continue;
-        };
-
-        if ("SubRoutes" in LocalFromTableJson.NonSecured === false) {
-            vscode.window.showInformationMessage(`SubRoutes not found in Json Schema : ${tableName}`);
+        if (LocalFromCheck === false) {
             continue;
         };
 
@@ -67,6 +91,42 @@ const StartFunc = async ({ inDataPath, inPortNumber, inToPath, inVersion }) => {
             inSubRoutes: LocalSubRoutes,
             inPortNumber
         });
+    };
+};
+
+const LocalFuncForTableCheck = ({ inToPath }) => {
+    const LocalToPath = inToPath;
+
+    const LocalJsonSchema = LocalFuncReadSchemaJson({ inRootPath: LocalToPath });
+    const LocalTablesArray = LocalJsonSchema.Tables;
+    let LocalSuccess = false;
+
+    for (const tableName of LocalTablesArray) {
+        const LoopInsideTablePath = path.join(LocalToPath, "Schemas", `${tableName}.json`);
+
+        const LocalFromTableJson = LocalFuncReadTableSchema({ inRootPath: LoopInsideTablePath });
+
+        if (LocalFromTableJson === null) {
+            continue;
+        };
+
+        const LocalColumnsWithSchema = LocalFromTableJson.columns;
+
+        const LocalFromCheck = LocalFuncForCheck({
+            inColumnsWithSchema: LocalColumnsWithSchema,
+            inTableName: tableName,
+            inFromTableJson: LocalFromTableJson
+        });
+
+        if (LocalFromCheck === false) {
+            continue;
+        };
+
+        LocalSuccess = true;
+    };
+
+    if (LocalSuccess === false) {
+        return false;
     };
 };
 

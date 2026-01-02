@@ -1,6 +1,6 @@
 const vscode = require('vscode');
 
-const CommonRegisterCommand = "GenerateWMail.FrontAndBack.NonSecured";
+const CommonRegisterCommand = "GenWMailAndWs.FrontAndBack.NonSecured";
 
 const { StartFunc: StartFuncFromOnlyBackEnd } = require("../../OnlyBackEnd/NonSecured/funcToActivate");
 const { StartFunc: StartFuncFromServerRun } = require("./serverRun");
