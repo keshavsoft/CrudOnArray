@@ -394,6 +394,10 @@ write end points in nodejs
 
 - Table check, stop execution.
 
+### 1.20.12
+
+- GenWMailAndWs.OnlyBackEnd.Secured perfect with secured alse
+
 ### License
 
 MIT

@@ -51,6 +51,7 @@ const StartFunc = async ({ inDataPath, inPortNumber, inToPath, inVersion }) => {
 
     const LocalJsonSchema = LocalFuncReadSchemaJson({ inRootPath: LocalToPath });
     const LocalTablesArray = LocalJsonSchema.Tables;
+    
     const LocalFromTableCheck = LocalFuncForTableCheck({ inToPath: LocalToPath })
 
     if (LocalFromTableCheck === false) {
