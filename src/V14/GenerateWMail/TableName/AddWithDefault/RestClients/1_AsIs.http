@@ -1,2 +1,0 @@
-POST http://localhost:{PortNumber}/{Version}/{TableName}/AddWithDefault/AsIs
-Content-Type: application/json
