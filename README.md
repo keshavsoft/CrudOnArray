@@ -402,6 +402,10 @@ write end points in nodejs
 
 - started for gendata with pk
 
+### 1.21.2
+
+- gendata with pk is perfect
+
 ### License
 
 MIT
