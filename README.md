@@ -406,6 +406,9 @@ write end points in nodejs
 
 - gendata with pk is perfect
 
+### 1.21.3
+
+- GenWMailAndWs.OnlyBackEnd.NonSecured TasksTable Schema changed
 ### License
 
 MIT
