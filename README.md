@@ -409,6 +409,11 @@ write end points in nodejs
 ### 1.21.3
 
 - GenWMailAndWs.OnlyBackEnd.NonSecured TasksTable Schema changed
+
+### 1.21.4
+
+- GenDataFromPk.OnlyBackEnd common check working good
+
 ### License
 
 MIT

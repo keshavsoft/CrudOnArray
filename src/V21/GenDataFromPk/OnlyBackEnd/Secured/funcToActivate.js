@@ -3,10 +3,12 @@ const fs = require('fs');
 
 const { StartFunc: StartFuncFromForMaxVersion } = require("./ForMaxVersion/entryFile");
 const { StartFunc: StartFuncFromOpenApp } = require("./openApp");
-const { StartFunc: StartFuncFromReadEnvFile } = require("./readEnvFile");
 const { StartFunc: StartFuncFromFirstCopy } = require("./FirstCopy/entryFile");
 const { StartFunc: StartFuncFromGetMaxVersion } = require("./getMaxVersion");
 const { StartFunc: StartFuncFromLastRun } = require("./LastRun/entryFile");
+
+const { StartFunc: StartFuncFromCheckBeforeRun } = require("./CheckBeforeRun/entryFile");
+
 // const { StartFunc: StartFuncrunNodeApp } = require("./serverRun");
 
 const StartFunc = async ({ inToPath }) => {
@@ -40,16 +42,17 @@ const LocalFuncForSecureEndPoints = async ({ inToPath }) => {
         return false;
     };
 
-    const LocalEnvFileAsJson = StartFuncFromReadEnvFile({ inRootPath: LocalToPath });
+    let LocalFromUserCheck = await StartFuncFromCheckBeforeRun({
+        inRootPath: inToPath
+    });
 
-    if (LocalEnvFileAsJson == null) {
-        vscode.window.showInformationMessage(`.env file not present...`);
+    if (LocalFromUserCheck.KTF === false) {
+        vscode.window.showInformationMessage(`UsesTable has rows with out DataPk...`);
 
-        return false;
-    };
+        return false;};
 
-    const LocalDataPath = LocalEnvFileAsJson.DataPath ? LocalEnvFileAsJson.DataPath : "";
-    const LocalPortNumber = LocalEnvFileAsJson.PORT ? LocalEnvFileAsJson.PORT : "";
+    const LocalDataPath = LocalFromUserCheck.DataPath;
+    const LocalPortNumber = LocalFromUserCheck.PortNumber;
 
     await StartFuncFromForMaxVersion({
         inDataPath: LocalDataPath,
