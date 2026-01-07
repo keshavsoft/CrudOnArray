@@ -412,7 +412,7 @@ write end points in nodejs
 
 ### 1.21.4
 
-- GenDataFromPk.OnlyBackEnd common check working good
+- GenFromPkWithMeta 2 started
 
 ### License
 

@@ -4,6 +4,7 @@ const { StartFunc: StartFuncFromMongoDB } = require("./MongoDB/entryFile");
 const { StartFunc: StartFuncFromGenerateWMail } = require("./GenerateWMail/entryFile");
 const { StartFunc: StartFuncFromGenWMailAndWs } = require("./GenWMailAndWs/entryFile");
 const { StartFunc: StartFuncFromGenDataFromPk } = require("./GenDataFromPk/entryFile");
+const { StartFunc: StartFuncFromGenFromPkWithMeta } = require("./GenFromPkWithMeta/entryFile");
 
 const StartFunc = () => {
     StartFuncFromGenerate();
@@ -12,6 +13,7 @@ const StartFunc = () => {
     StartFuncFromGenerateWMail();
     StartFuncFromGenWMailAndWs();
     StartFuncFromGenDataFromPk();
+    StartFuncFromGenFromPkWithMeta();
 };
 
 module.exports = { StartFunc };

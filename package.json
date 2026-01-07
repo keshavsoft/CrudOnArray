@@ -130,6 +130,14 @@
       {
         "command": "GenWMailAndWs.FrontAndBack.NonSecured",
         "title": "GenWMailAndWs FrontAndBack NonSecured"
+      },
+      {
+        "command": "GenFromPkWithMeta.FrontAndBack",
+        "title": "GenFromPkWithMeta FrontAndBack"
+      },
+      {
+        "command": "GenFromPkWithMeta.OnlyBackEnd",
+        "title": "GenFromPkWithMeta OnlyBackEnd"
       }
     ],
     "menus": {
