@@ -1,10 +1,10 @@
 const { StartFunc: StartFuncFromCreateDataFolder } = require("./createDataFolder");
 const { StartFunc: StartFuncFromCreateFoldersInside } = require("./createFoldersInside");
-const { StartFunc: StartFuncFromCreateCommonFiles } = require("./createCommonFiles");
+const { StartFunc: StartFuncFromCreateCommon } = require("./CreateCommon/entryFile");
 
 const StartFunc = ({ inRootPath }) => {
     StartFuncFromCreateDataFolder({ inRootPath });
-    StartFuncFromCreateCommonFiles({ inRootPath });
+    StartFuncFromCreateCommon({ inRootPath });
     StartFuncFromCreateFoldersInside({ inRootPath });
 };
 
