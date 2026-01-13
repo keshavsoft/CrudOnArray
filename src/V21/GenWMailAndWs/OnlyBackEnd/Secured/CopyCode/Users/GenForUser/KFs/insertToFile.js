@@ -2,7 +2,7 @@ import fs from "fs";
 
 import ParamsJson from './params.json' with {type: 'json'};
 
-const StartFunc = ({inUserName, inPassword}) => {
+const StartFunc = ({ inUserName, inPassword }) => {
   const LocalFileName = "UsersTable";
   const LocalDataPath = ParamsJson.DataPath;
 
@@ -17,15 +17,17 @@ const StartFunc = ({inUserName, inPassword}) => {
     if (fs.existsSync(filePath)) {
       const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
-      let LocalRemoveUndefined = data.find(element => {
+      let LocalFindRow = data.find(element => {
         return element.UserName === LocalUserName && element.Password === LocalPassword
       });
 
-      if (!LocalRemoveUndefined) {
+      if (!LocalFindRow) {
         return LocalReturnObject
       };
 
       LocalReturnObject.KTF = true;
+      LocalReturnObject.UserName = LocalFindRow.UserName;
+
       return LocalReturnObject;
     } else {
       LocalReturnObject.KReason = `File ${LocalFileName}.json does not exist in ${LocalDataPath} folder.`;
