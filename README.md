@@ -426,6 +426,10 @@ write end points in nodejs
 
 - GenWMailAndWs.OnlyBackEnd.Secured perfect with front and back also with ui.json
 
+### 1.22.2
+
+- GenFromPkWithMeta.OnlyBackEnd perfect with data pk different
+
 ### License
 
 MIT
