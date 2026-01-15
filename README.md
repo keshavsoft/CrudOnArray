@@ -434,6 +434,10 @@ write end points in nodejs
 
 - GenFromPkWithMeta ui also perfect
 
+### 1.22.4
+
+- GenFromPkWithMeta ui dist Api fixed
+
 ### License
 
 MIT

@@ -1,11 +1,10 @@
 import fs from "fs";
-import path from "path";
 
 const PREFIX = "SV";
 const ENV_FILE = ".env";
 
 /* -------- STEP 1: GET NEXT VERSION -------- */
-const dirs = fs.readdirSync(".", { withFileTypes: true })
+const dirs = fs.readdirSync("./Api", { withFileTypes: true })
     .filter(d => d.isDirectory() && d.name.startsWith(PREFIX));
 
 let max = 0;
