@@ -21,7 +21,6 @@ const StartFunc = async ({ inTableName, inColumnsAsArray, inSubRoutes, inDataPat
         StartFuncFromRouteUse({
             inEditorPath: `${LocalToPath}/${LocalVersion}/routes.js`,
             inNewRoute: LocalTableName,
-            inVersion: LocalVersion,
             inSubRoutes
         });
 

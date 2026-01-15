@@ -438,6 +438,10 @@ write end points in nodejs
 
 - GenFromPkWithMeta ui dist Api fixed
 
+### 1.22.5
+
+- GenFromPkWithMeta , gitignore, package.json
+
 ### License
 
 MIT

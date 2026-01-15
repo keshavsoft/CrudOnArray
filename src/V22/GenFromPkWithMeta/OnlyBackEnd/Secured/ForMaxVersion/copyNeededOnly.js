@@ -3,7 +3,6 @@ const fse = require('fs-extra');
 const path = require('path');
 const { StartFunc: StartFuncFromRestFiles } = require('../../../CommonCode/RestFiles/enteryFile');
 const CommonRoutesPath = "TableNameWithPK";
-const CommonApiPath = "Api";
 
 const StartFunc = ({ inTableName, inSubRoutes, inToPath, inVersion, inPortNumber, inColumnsAsArray }) => {
     const LocalTableName = inTableName;

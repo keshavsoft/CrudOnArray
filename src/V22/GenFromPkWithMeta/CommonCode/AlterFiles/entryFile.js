@@ -1,5 +1,4 @@
 const { StartFunc: StartFuncFromReadParams } = require("./readParams");
-const { StartFunc: StartFuncFromAlterRestFiles } = require("./AlterRestFiles/entryFile");
 const { StartFunc: StartFuncFromForGetColumnsAsArray } = require("./ForGetColumnsAsArray/entryFile");
 const { StartFunc: StartFuncFromForAlterWithColumns } = require("./ForAlterWithColumns/entryFile");
 const { StartFunc: StartFuncFromForInsert } = require("./ForInsert/entryFile");
