@@ -1,6 +1,0 @@
-POST http://localhost:{PortNumber}/{Version}/{TableName}/GroupBy/SingleColLength
-Content-Type: application/json
-
-[
-	{ColumnsName}
-]

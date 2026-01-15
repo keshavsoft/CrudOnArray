@@ -1,0 +1,4 @@
+POST http://localhost:{PortNumber}/{Version}/{TableName}/Insert/AsIsNoPk
+Content-Type: application/json
+
+{Columns}
