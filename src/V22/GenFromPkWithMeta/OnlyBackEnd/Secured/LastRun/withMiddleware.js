@@ -24,14 +24,15 @@ const LocalFuncForImport = ({ inLines, inNewVersion }) => {
 const LocalFuncForUse = ({ inLines, inNewVersion }) => {
     const LocalnewVersion = inNewVersion;
     const LocalLines = inLines;
+    const LocalStartChar = "router";
 
-    const useLine = `app.use("/${LocalnewVersion}", StartFuncFromMiddleware, routerFrom${LocalnewVersion});`;
+    const useLine = `${LocalStartChar}.use("/${LocalnewVersion}", StartFuncFromMiddleware, routerFrom${LocalnewVersion});`;
 
     const alreadyUsed = LocalLines.some(line => line.trim() === useLine);
 
     if (!alreadyUsed) {
         const lastUseIndex = LocalLines.reduce((acc, line, i) =>
-            line.trim().startsWith('app.use(') ? i : acc, -1);
+            line.trim().startsWith(`${LocalStartChar}.use(`) ? i : acc, -1);
         LocalLines.splice(lastUseIndex + 1, 0, useLine);
     };
 };
@@ -39,7 +40,7 @@ const LocalFuncForUse = ({ inLines, inNewVersion }) => {
 const LocalFuncForImportMiddleware = ({ inLines }) => {
     const LocalLines = inLines;
 
-    const useLine = `import { StartFunc as StartFuncFromMiddleware } from "./Token/MiddleWares/entryFile.js";`;
+    const useLine = `import { StartFunc as StartFuncFromMiddleware } from "./MiddleWares/entryFile.js"; `;
 
     const alreadyUsed = LocalLines.some(line => line.trim() === useLine);
 

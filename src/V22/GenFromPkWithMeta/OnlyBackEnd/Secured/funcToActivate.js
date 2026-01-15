@@ -19,7 +19,7 @@ const StartFunc = async ({ inToPath }) => {
     if (LocalVersionSecured === false) return false;
 
     StartFuncFromLastRun({
-        filePath: `${LocalToPath}/app.js`,
+        filePath: `${LocalToPath}/Api/routes.js`,
         inNewVersionProtected: LocalVersionSecured,
         inToPath: LocalToPath
     });
@@ -49,7 +49,8 @@ const LocalFuncForSecureEndPoints = async ({ inToPath }) => {
     if (LocalFromUserCheck.KTF === false) {
         vscode.window.showInformationMessage(`UsesTable has rows with out DataPk...`);
 
-        return false;};
+        return false;
+    };
 
     const LocalDataPath = LocalFromUserCheck.DataPath;
     const LocalPortNumber = LocalFromUserCheck.PortNumber;

@@ -7,16 +7,14 @@ var port = normalizePort(process.env.PORT || 3000);
 
 import { router as routerFromMetaData } from "./MetaData/routes.js";
 
-import { router as routerFromUtility } from "./Utility/routes.js";
-import { router as routerFromUsers } from "./Users/routes.js";
+import { router as routerFromApi } from "./Api/routes.js";
 
 app.use(express.static('Public'));
 app.use(cookieParser());
 
 app.use("/MetaData", routerFromMetaData);
 
-app.use("/Utility", routerFromUtility);
-app.use("/Users", routerFromUsers);
+app.use("/Api", routerFromApi);
 
 function normalizePort(val) {
     var port = parseInt(val, 10);

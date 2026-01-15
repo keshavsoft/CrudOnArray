@@ -10,9 +10,12 @@ const StartFunc = async ({ inTableName, inColumnsAsArray, inSubRoutes, inDataPat
     const LocalDataPath = inDataPath;
     const LocalPortNumber = inPortNumber;
     const LocalVersion = inVersion;
-    const LocalToPath = inToPath;
+    const LocalToPath = `${inToPath}/Api`;
 
-    StartFuncFromCopyNeededOnly({ inTableName, inSubRoutes, inToPath, inVersion, inPortNumber, inColumnsAsArray });
+    StartFuncFromCopyNeededOnly({
+        inTableName, inSubRoutes, inToPath: LocalToPath,
+        inVersion, inPortNumber, inColumnsAsArray
+    });
 
     try {
         StartFuncFromRouteUse({

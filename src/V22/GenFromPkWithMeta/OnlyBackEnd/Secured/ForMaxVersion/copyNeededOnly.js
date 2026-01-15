@@ -3,8 +3,9 @@ const fse = require('fs-extra');
 const path = require('path');
 const { StartFunc: StartFuncFromRestFiles } = require('../../../CommonCode/RestFiles/enteryFile');
 const CommonRoutesPath = "TableNameWithPK";
+const CommonApiPath = "Api";
 
-const StartFunc = async ({ inTableName, inSubRoutes, inToPath, inVersion, inPortNumber, inColumnsAsArray }) => {
+const StartFunc = ({ inTableName, inSubRoutes, inToPath, inVersion, inPortNumber, inColumnsAsArray }) => {
     const LocalTableName = inTableName;
     const LocalVersion = inVersion;
     const LocalToPath = inToPath;
@@ -14,8 +15,12 @@ const StartFunc = async ({ inTableName, inSubRoutes, inToPath, inVersion, inPort
     LocalFileDataAsArray.push("");
     LocalFileDataAsArray.push("const router = express.Router();");
     LocalFileDataAsArray.push("");
+    const LocalToPathWithTableName = `${LocalToPath}/${LocalVersion}/${LocalTableName}`;
 
-    const LocalLinesFromSubArray = await LocalFuncForSubRoutes({ inTableName, inSubRoutes, inToPath, inVersion });
+    const LocalLinesFromSubArray = LocalFuncForSubRoutes({
+        inSubRoutes,
+        inToPathWithTableName: LocalToPathWithTableName
+    });
 
     LocalFileDataAsArray = [...LocalFileDataAsArray, ...LocalLinesFromSubArray];
 
@@ -28,26 +33,24 @@ const StartFunc = async ({ inTableName, inSubRoutes, inToPath, inVersion, inPort
     LocalFileDataAsArray.push("");
     LocalFileDataAsArray.push("export { router };");
 
-    fse.writeFileSync(`${LocalToPath}/${LocalVersion}/${LocalTableName}/routes.js`, LocalFileDataAsArray.join("\n"));
+    fse.writeFileSync(`${LocalToPathWithTableName}/routes.js`, LocalFileDataAsArray.join("\n"));
 };
 
-const LocalFuncForSubRoutes = async ({ inTableName, inSubRoutes, inToPath, inVersion }) => {
-    const LocalTableName = inTableName;
-    const LocalVersion = inVersion;
-    const LocalToPath = inToPath;
+const LocalFuncForSubRoutes = ({ inSubRoutes, inToPathWithTableName }) => {
+    const LocalToPathWithTableName = inToPathWithTableName;
 
     const LocalFromTablePath = path.join(__dirname, "..", "..", "..", CommonRoutesPath);
 
     let LocalFileDataAsArray = [];
 
-    fse.copySync(`${LocalFromTablePath}/CommonFuncs`, `${LocalToPath}/${LocalVersion}/${LocalTableName}/CommonFuncs`);
+    fse.copySync(`${LocalFromTablePath}/CommonFuncs`, `${LocalToPathWithTableName}/CommonFuncs`);
 
     for (const LoopSubRoute of inSubRoutes) {
         const LoopInsideSourcePath = `${LocalFromTablePath}/${LoopSubRoute}`;
 
         if (fse.existsSync(LoopInsideSourcePath)) {
             try {
-                fse.copySync(LoopInsideSourcePath, `${LocalToPath}/${LocalVersion}/${LocalTableName}/${LoopSubRoute}`);
+                fse.copySync(LoopInsideSourcePath, `${LocalToPathWithTableName}/${LoopSubRoute}`);
                 console.log('Successfully copied file.');
             } catch (err) {
                 console.error('Error during copy:', err);
