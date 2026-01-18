@@ -446,6 +446,10 @@ write end points in nodejs
 
 - GenFromPkWithMeta.OnlyBackEnd Backup complete is perfect
 
+### 1.22.7
+
+- GenFromPkWithMeta, GenWMailAndWs env added and GenWMailAndWs Secured fixed
+
 ### License
 
 MIT

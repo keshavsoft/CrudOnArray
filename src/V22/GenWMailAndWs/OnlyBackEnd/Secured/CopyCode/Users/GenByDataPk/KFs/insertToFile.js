@@ -26,7 +26,7 @@ const StartFunc = ({ inUserName, inPassword }) => {
       };
 
       LocalReturnObject.KTF = true;
-      LocalReturnObject.UserName = LocalFindRow.UserName;
+      LocalReturnObject.DataPk = LocalFindRow.DataPk;
 
       return LocalReturnObject;
     } else {

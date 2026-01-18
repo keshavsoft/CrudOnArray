@@ -7,7 +7,7 @@ import { execSync } from "child_process";
 const PUBLIC_DIR = "Public";
 const VERSION_PREFIX = "V";
 const SCHEMA_DIR = "ui.json";
-const COMMON_REPO = "FrontEndGulpHbsOnArray";
+const COMMON_REPO = "CrudFrontByGulp";
 const COMMON_REPO_GIT = `https://github.com/keshavsoft/${COMMON_REPO}`;
 const COMMON_REPO_PATH = path.join("..", COMMON_REPO);
 /* ========================================== */
