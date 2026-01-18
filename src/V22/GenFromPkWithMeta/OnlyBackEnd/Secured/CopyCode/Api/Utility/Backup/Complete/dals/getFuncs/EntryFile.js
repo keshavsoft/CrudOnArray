@@ -5,7 +5,7 @@ import fs from 'fs';
 import * as url from 'url';
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
-const LocalDataPath = `../../../../../${process.env.DataPath}`;
+const LocalDataPath = `../../../../../../${process.env.DataPath}`;
 // console.log("LocalDataPath : ", LocalDataPath);
 
 let GetFunc = ({ inResponse, callback }) => {

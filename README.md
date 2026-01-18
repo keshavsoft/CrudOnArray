@@ -442,6 +442,10 @@ write end points in nodejs
 
 - GenFromPkWithMeta , gitignore, package.json
 
+### 1.22.6
+
+- GenFromPkWithMeta.OnlyBackEnd Backup complete is perfect
+
 ### License
 
 MIT
