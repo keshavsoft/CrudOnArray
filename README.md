@@ -450,6 +450,10 @@ write end points in nodejs
 
 - GenFromPkWithMeta, GenWMailAndWs env added and GenWMailAndWs Secured fixed
 
+### 1.22.8
+
+- GenFromPkWithMeta perfect
+
 ### License
 
 MIT
