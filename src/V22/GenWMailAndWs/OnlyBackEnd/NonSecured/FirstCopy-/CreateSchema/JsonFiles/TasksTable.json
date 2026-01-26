@@ -52,12 +52,16 @@
     },
     "SubRoutes": [
         "Read",
-        "Insert"
+        "Insert",
+        "Delete",
+        "Alter"
     ],
     "NonSecured": {
         "SubRoutes": [
             "Read",
-            "Insert"
+            "Insert",
+            "Delete",
+            "Alter"
         ]
     }
 }

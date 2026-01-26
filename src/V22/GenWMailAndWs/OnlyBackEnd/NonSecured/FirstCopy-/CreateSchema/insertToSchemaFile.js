@@ -4,7 +4,7 @@ const { getJsonFiles } = require("./pullJsonFiles");
 const StartFunc = ({ inToPath }) => {
     const LocalToPath = inToPath;
     const LocalFileNamesAsArray = getJsonFiles();
-    // console.log("LocalFileNamesAsArray : ", LocalFileNamesAsArray);
+    console.log("LocalFileNamesAsArray : ", LocalFileNamesAsArray);
     const LocalJsonToInsert = {};
     LocalJsonToInsert.Tables = LocalFileNamesAsArray;
 

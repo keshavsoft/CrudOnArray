@@ -458,6 +458,10 @@ write end points in nodejs
 
 - GenFromPkWithMeta file deleted
 
+### 1.22.10
+
+- GenWMailAndWs NonSec Ui Repo perfect
+
 ### License
 
 MIT

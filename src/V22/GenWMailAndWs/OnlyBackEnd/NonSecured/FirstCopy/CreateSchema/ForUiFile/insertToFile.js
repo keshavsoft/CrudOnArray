@@ -1,5 +1,6 @@
 const fs = require("fs");
-const { getJsonFiles } = require("./pullJsonFiles");
+const { getJsonFiles } = require("./pullApiFiles");
+const CommonFileName = "ui.json";
 
 const StartFunc = ({ inToPath }) => {
     const LocalToPath = inToPath;
@@ -9,7 +10,7 @@ const StartFunc = ({ inToPath }) => {
     LocalJsonToInsert.Tables = LocalFileNamesAsArray;
 
     fs.writeFileSync(
-        `${LocalToPath}/schema.json`,
+        `${LocalToPath}/${CommonFileName}`,
         JSON.stringify(LocalJsonToInsert)
     );
 };
