@@ -14,8 +14,8 @@ const StartFunc = (dirPath) => {
     // terminal.sendText(`.\\BatchFiles\\generateApiVersion.bat`);
     // terminal.sendText(`.\\GulPHBSFrontEndNonSec.bat`);
 
-    terminal.sendText(`node .\\ForFrontEnd\\UnSecured\\latestVersion.js`);
-    terminal.sendText(`node .\\ForFrontEnd\\UnSecured\\Build\\entryFile.js`);
+    terminal.sendText(`node ./ForFrontEnd/UnSecured/latestVersion.js`);
+    terminal.sendText(`node ./ForFrontEnd/UnSecured/Build/entryFile.js`);
 
     terminal.sendText(CommonTermName);
 };

@@ -74,7 +74,8 @@ uiJsonParsed.Tables.forEach(schemaFile => {
     
     StartFuncFromTargetDirs({
         inSchemaName: schemaName,
-        inVersionPath: versionPath
+        inVersionPath: versionPath,
+        inRepoPath: COMMON_REPO_PATH
     });
 
     /* Copy menu */
