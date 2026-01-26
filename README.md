@@ -470,6 +470,10 @@ write end points in nodejs
 
 - GenFromPkWithMeta.OnlyBackEnd more perfect
 
+### 1.22.13
+
+- GenFromPkWithMeta.OnlyBackEnd.NonSecured rest need to be altered and in commonfuncs add datapk
+  
 ### License
 
 MIT

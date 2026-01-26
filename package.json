@@ -3,7 +3,7 @@
   "displayName": "CrudOnArray",
   "publisher": "KeshavSoft",
   "description": "KeshavSoft Extension to enhance the development of web applications",
-  "version": "1.22.12",
+  "version": "1.22.13",
   "engines": {
     "vscode": "^1.96.0"
   },
@@ -138,6 +138,10 @@
       {
         "command": "GenFromPkWithMeta.OnlyBackEnd",
         "title": "GenFromPkWithMeta OnlyBackEnd"
+      },
+      {
+        "command": "GenFromPkWithMeta.OnlyBackEnd.NonSecured",
+        "title": "GenFromPkWithMeta OnlyBackEnd NonSecured"
       }
     ],
     "menus": {

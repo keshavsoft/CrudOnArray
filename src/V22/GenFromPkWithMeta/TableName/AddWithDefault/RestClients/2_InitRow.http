@@ -1,0 +1,4 @@
+POST http://localhost:{PortNumber}/{Version}/{TableName}/AddWithDefault/InitRow/{Key}
+Content-Type: application/json
+
+{ "ColumnName": "Value" }
