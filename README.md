@@ -462,6 +462,10 @@ write end points in nodejs
 
 - GenWMailAndWs NonSec Ui Repo perfect
 
+### 1.22.11
+
+- GenWMailAndWs.OnlyBackEnd.NonSecured tested for ui .js 
+
 ### License
 
 MIT

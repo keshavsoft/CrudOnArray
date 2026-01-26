@@ -15,7 +15,7 @@ const StartFunc = (dirPath) => {
     // terminal.sendText(`.\\GulPHBSFrontEndNonSec.bat`);
 
     terminal.sendText(`node .\\ForFrontEnd\\UnSecured\\latestVersion.js`);
-    terminal.sendText(`node .\\ForFrontEnd\\UnSecured\\buildProtected.js`);
+    terminal.sendText(`node .\\ForFrontEnd\\UnSecured\\Build\\entryFile.js`);
 
     terminal.sendText(CommonTermName);
 };
