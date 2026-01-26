@@ -466,6 +466,10 @@ write end points in nodejs
 
 - GenWMailAndWs.OnlyBackEnd.NonSecured tested for ui .js 
 
+### 1.22.12
+
+- GenFromPkWithMeta.OnlyBackEnd more perfect
+
 ### License
 
 MIT

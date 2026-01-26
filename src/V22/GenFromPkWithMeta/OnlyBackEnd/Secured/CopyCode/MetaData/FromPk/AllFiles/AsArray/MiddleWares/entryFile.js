@@ -1,4 +1,4 @@
-import { StartFunc as StartFuncValidateToken } from "../KeshavSoftToken/ValidateToken.js";
+import { StartFunc as StartFuncValidateToken } from "../../../../../Api/Token/ValidateToken.js";
 
 let StartFunc = (req, res, next) => {
     if ("cookies" in req === false) {
