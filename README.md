@@ -477,7 +477,11 @@ write end points in nodejs
 ### 1.22.14
 
 - GenFromPkWithMeta.OnlyBackEnd and FrontAndBack ready with both Secured and NonSecured
-  
+
+### 1.22.15
+
+- GenFromPkWithMeta.OnlyBackEnd.Secured CopyCode Ui also perfect for TableNames show
+
 ### License
 
 MIT
