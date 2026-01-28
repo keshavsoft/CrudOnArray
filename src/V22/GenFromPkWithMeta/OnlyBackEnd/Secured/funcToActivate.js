@@ -74,7 +74,7 @@ const LocalFuncForMaxVersion = async ({ inVersionStart, inToPath }) => {
     let LocalVersion = `${inVersionStart}1`;
 
     const LocalFromMaxVersion = await StartFuncFromGetMaxVersion({
-        inToPath: LocalToPath,
+        inToPath: `${LocalToPath}/Api`,
         inVersionStart
     });
 

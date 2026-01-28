@@ -474,6 +474,10 @@ write end points in nodejs
 
 - GenFromPkWithMeta.OnlyBackEnd.NonSecured rest need to be altered and in commonfuncs add datapk
   
+### 1.22.14
+
+- GenFromPkWithMeta.OnlyBackEnd and FrontAndBack ready with both Secured and NonSecured
+  
 ### License
 
 MIT

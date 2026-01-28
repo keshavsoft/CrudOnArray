@@ -1,6 +1,6 @@
 const vscode = require('vscode');
 
-const CommonRegisterCommand = "GenFromPkWithMeta.FrontAndBack";
+const CommonRegisterCommand = "GenFromPkWithMeta.FrontAndBack.Secured";
 
 const { StartFunc: StartFuncFromOnlyBackEnd } = require("../../OnlyBackEnd/Secured/funcToActivate");
 const { StartFunc: StartFuncFromServerRun } = require("./serverRun");

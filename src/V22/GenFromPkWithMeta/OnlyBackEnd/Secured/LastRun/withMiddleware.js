@@ -40,7 +40,7 @@ const LocalFuncForUse = ({ inLines, inNewVersion }) => {
 const LocalFuncForImportMiddleware = ({ inLines }) => {
     const LocalLines = inLines;
 
-    const useLine = `import { StartFunc as StartFuncFromMiddleware } from "./MiddleWares/entryFile.js"; `;
+    const useLine = `import { StartFunc as StartFuncFromMiddleware } from "./MiddleWares/entryFile.js";`;
 
     const alreadyUsed = LocalLines.some(line => line.trim() === useLine);
 
@@ -55,7 +55,10 @@ const LocalFuncForImportMiddleware = ({ inLines }) => {
             if (line.trim().startsWith('var port = ')) {
                 return true;
             };
-
+            if (line.trim().startsWith('const router = ')) {
+                return true;
+            };
+            
             return false;
         });
         // line.trim().startsWith('const port = ') || line.trim().startsWith("let port = ") ? i : acc, -1);
