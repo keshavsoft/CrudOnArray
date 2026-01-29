@@ -62,6 +62,7 @@ const uiJsonParsed = JSON.parse(uiJson);
 uiJsonParsed.Tables.forEach(schemaFile => {
     const schemaName = path.parse(schemaFile).name;
     console.log(`\nProcessing ${schemaFile}`);
+    const targetDir = path.join(versionPath, schemaName);
 
     /* Copy schema */
     fs.copyFileSync(
@@ -71,7 +72,7 @@ uiJsonParsed.Tables.forEach(schemaFile => {
 
     /* Build */
     StartFuncFromNpmRun({ inRepoPath: COMMON_REPO_PATH });
-    
+
     StartFuncFromTargetDirs({
         inSchemaName: schemaName,
         inVersionPath: versionPath,
@@ -88,18 +89,3 @@ uiJsonParsed.Tables.forEach(schemaFile => {
 });
 
 console.log("\n✔ All schemas processed successfully");
-
-/* ---------- UTIL ---------- */
-function copyRecursive(src, dest) {
-    fs.readdirSync(src, { withFileTypes: true }).forEach(entry => {
-        const srcPath = path.join(src, entry.name);
-        const destPath = path.join(dest, entry.name);
-
-        if (entry.isDirectory()) {
-            fs.mkdirSync(destPath, { recursive: true });
-            copyRecursive(srcPath, destPath);
-        } else {
-            fs.copyFileSync(srcPath, destPath);
-        }
-    });
-};

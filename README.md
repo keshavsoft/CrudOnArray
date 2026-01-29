@@ -482,6 +482,10 @@ write end points in nodejs
 
 - GenFromPkWithMeta.OnlyBackEnd.Secured CopyCode Ui also perfect for TableNames show
 
+### 1.22.16
+
+- GenWMailAndWs.OnlyBackEnd.NonSecured frontend js fixed for path
+
 ### License
 
 MIT
