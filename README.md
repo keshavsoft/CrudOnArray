@@ -486,6 +486,10 @@ write end points in nodejs
 
 - GenWMailAndWs.OnlyBackEnd.NonSecured frontend js fixed for path
 
+### 1.22.17
+
+- GenWMailAndWs.OnlyBackEnd.Secured Alter and delete added
+
 ### License
 
 MIT

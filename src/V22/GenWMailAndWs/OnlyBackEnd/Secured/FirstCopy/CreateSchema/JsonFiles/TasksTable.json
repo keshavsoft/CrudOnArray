@@ -57,7 +57,9 @@
     "Secured": {
         "SubRoutes": [
             "Read",
-            "Insert"
+            "Insert",
+            "Alter",
+            "Delete"
         ]
     }
 }
