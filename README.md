@@ -490,6 +490,10 @@ write end points in nodejs
 
 - GenWMailAndWs.OnlyBackEnd.Secured Alter and delete added
 
+### 1.22.18
+
+- GenWMailAndWs.OnlyBackEnd.Secured Js case changed
+
 ### License
 
 MIT
