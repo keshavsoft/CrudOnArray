@@ -4,10 +4,12 @@ import {
 
 let GetFunc = (req, res) => {
     const LocalId = req.params.id;
+    const LocalDataPk = req.locals.KeshavSoft.DataPk;
 
     GetFuncRepo({
         inId: LocalId,
-        inResponse: res
+        inResponse: res,
+        inDataPk: LocalDataPk
     });
 };
 

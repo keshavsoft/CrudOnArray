@@ -498,6 +498,10 @@ write end points in nodejs
 
 - TableName variable added
 
+### 1.22.20
+
+- GenFromPkWithMeta.OnlyBackEnd.Secured : TableNameWithPK : 2 changes for pk, and image
+
 ### License
 
 MIT

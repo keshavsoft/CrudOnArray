@@ -16,7 +16,7 @@ var storage = multer.diskStorage({
         let LocalUrl = req.originalUrl;
         let LocalUrlArray = LocalUrl.split("/");
 
-        cb(null, `${ConfigJson.DataPath}/${LocalUrlArray[2]}`);
+        cb(null, `${ConfigJson.DataPath}/${LocalUrlArray[3]}`);
     },
     filename: function (req, file, cb) {
         let LocalFile = file;
