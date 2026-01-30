@@ -1,6 +1,8 @@
 const vscode = require('vscode');
 const fse = require('fs-extra');
 const path = require('path');
+const CommonRoutesPath = "TableName";
+
 const { StartFunc: StartFuncFromRestFiles } = require('../../../CommonCode/RestFiles/enteryFile');
 
 const StartFunc = async ({ inTableName, inSubRoutes, inToPath, inVersion, inPortNumber, inColumnsAsArray }) => {
@@ -35,7 +37,7 @@ const LocalFuncForSubRoutes = async ({ inTableName, inSubRoutes, inToPath, inVer
     const LocalVersion = inVersion;
     const LocalToPath = inToPath;
 
-    const LocalFromTablePath = path.join(__dirname, "..", "..", "..", "TableName");
+    const LocalFromTablePath = path.join(__dirname, "..", "..", "..", CommonRoutesPath);
 
     let LocalFileDataAsArray = [];
 

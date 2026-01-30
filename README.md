@@ -494,6 +494,10 @@ write end points in nodejs
 
 - GenWMailAndWs.OnlyBackEnd.Secured Js case changed
 
+### 1.22.19
+
+- TableName variable added
+
 ### License
 
 MIT
