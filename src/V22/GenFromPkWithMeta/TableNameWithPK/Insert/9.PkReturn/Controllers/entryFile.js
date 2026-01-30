@@ -3,9 +3,11 @@ import {
 } from '../Repos/entryFile.js';
 
 let postFilterDataFromBodyFunc = (req, res) => {
+    let LocalDataPk = req.locals.KeshavSoft.DataPk;
     let LocalRequestBody = req.body;
 
     let LocalFromRepo = postDefaultFuncFromRepo({
+        inDataPk: LocalDataPk,
         inRequestBody: LocalRequestBody
     });
 
