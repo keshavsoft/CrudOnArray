@@ -3,6 +3,7 @@ const vscode = require('vscode');
 const { StartFunc: StartFuncFromRouteUse } = require("../RouteUse/entryFile");
 const { StartFunc: StartFuncFromAlterFiles } = require('../../../CommonCode/AlterFiles/entryFile');
 const { StartFunc: StartFuncFromCopyNeededOnly } = require("./copyNeededOnly");
+const ComomonApiFolderName = "Api";
 
 const StartFunc = async ({ inTableName, inColumnsAsArray, inSubRoutes, inDataPath, inPortNumber, inToPath, inColumnsWithSchema, inData, inVersion }) => {
     const LocalTableName = inTableName;
@@ -10,7 +11,7 @@ const StartFunc = async ({ inTableName, inColumnsAsArray, inSubRoutes, inDataPat
     const LocalDataPath = inDataPath;
     const LocalPortNumber = inPortNumber;
     const LocalVersion = inVersion;
-    const LocalToPath = `${inToPath}/Api`;
+    const LocalToPath = `${inToPath}/${ComomonApiFolderName}`;
 
     StartFuncFromCopyNeededOnly({
         inTableName, inSubRoutes, inToPath: LocalToPath,
