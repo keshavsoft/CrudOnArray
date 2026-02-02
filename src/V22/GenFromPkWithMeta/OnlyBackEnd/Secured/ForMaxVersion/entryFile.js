@@ -57,7 +57,7 @@ const StartFunc = async ({ inDataPath, inPortNumber, inToPath, inVersion }) => {
         });
     };
 
-    StartFuncFromForRestClients(`${inToPath}/${ComomonApiFolderName}/${inVersion}`, inVersion);
+    StartFuncFromForRestClients(`${inToPath}/${ComomonApiFolderName}/${inVersion}`, inVersion,inPortNumber);
 };
 
 function LocalFuncReadTableSchema({ inRootPath }) {

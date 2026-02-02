@@ -4,7 +4,7 @@ const path = require("path");
 // 👉 Configure these
 const TARGET_FOLDER_NAME = "RestClients";
 
-const StartFunc = (currentPath, inVersion) => {
+const StartFunc = (currentPath, inVersion, inPortNumber) => {
     let entries;
 
     try {
@@ -24,15 +24,15 @@ const StartFunc = (currentPath, inVersion) => {
             console.log("🎯 Match found:", fullPath);
 
             // 👉 Do your logic ONLY here
-            doSomethingWithMatchedFolder(fullPath, inVersion);
+            doSomethingWithMatchedFolder(fullPath, inVersion, inPortNumber);
         }
 
         // 🔁 Recurse into subfolder
-        StartFunc(fullPath, inVersion);
+        StartFunc(fullPath, inVersion, inPortNumber);
     };
 }
 
-const doSomethingWithMatchedFolder = (folderPath, inVersion) => {
+const doSomethingWithMatchedFolder = (folderPath, inVersion, inPortNumber) => {
     console.log("Running logic inside:", folderPath);
 
     // Example: list files inside the matched folder
@@ -51,12 +51,13 @@ const doSomethingWithMatchedFolder = (folderPath, inVersion) => {
         // console.log("111111 : ", LocalAlteredFileData);
         // fs.writeFileSync(fullPath, LocalAlteredFileData, 'utf8');
 
-        replacePortInFile(fullPath, 9328, inVersion);
+        replacePortInFile(fullPath, inPortNumber, inVersion);
     };
 }
 
 const replacePortInFile = (filePath, newPort, inVersion) => {
     const placeholder = '{PortNumber}';
+    const LocalVersion = `Api/${inVersion}`
 
     try {
         // 1. Read the file content
@@ -71,7 +72,7 @@ const replacePortInFile = (filePath, newPort, inVersion) => {
         let updatedContents = contents.split('{PortNumber}').join(newPort);
         console.log("aaaaa ", LocalPathAsArray[1]);
 
-        updatedContents = updatedContents.split('{Version}').join(inVersion);
+        updatedContents = updatedContents.split('{Version}').join(LocalVersion);
         updatedContents = updatedContents.split('{TableName}').join(LocalPathAsArray[LocalPathAsArray.length - 4]);
 
         // 3. Write the updated content back to the file
