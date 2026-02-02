@@ -518,6 +518,14 @@ write end points in nodejs
 
 - GenFromPkWithMeta.OnlyBackEnd.Secured : RestClients fixed
 
+### 1.22.25
+
+- GenFromPkWithMeta.OnlyBackEnd.Secured : Api/Middleware fixed for 401 cookie
+
+### 1.22.26
+
+- GenFromPkWithMeta.OnlyBackEnd.Secured : Api/Middleware fixed for 401 cookie
+
 ### License
 
 MIT

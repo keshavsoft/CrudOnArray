@@ -14,7 +14,7 @@ let StartFunc = (req, res, next) => {
     let localClientToken = req.cookies?.KSToken;
     let localResult = StartFuncValidateToken({ inToken: localClientToken });
 
-    if (localResult === false) {
+    if (localResult === false || localResult === undefined) {
         res.status(401).send({ message: 'Unauthorized' });
         return;
     };
