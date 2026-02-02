@@ -514,6 +514,10 @@ write end points in nodejs
 
 - GenFromPkWithMeta.OnlyBackEnd.Secured : Sort/Top10 pefect
 
+### 1.22.24
+
+- GenFromPkWithMeta.OnlyBackEnd.Secured : RestClients fixed
+
 ### License
 
 MIT

@@ -72,7 +72,7 @@ const replacePortInFile = (filePath, newPort, inVersion) => {
         console.log("aaaaa ", LocalPathAsArray[1]);
 
         updatedContents = updatedContents.split('{Version}').join(inVersion);
-        updatedContents = updatedContents.split('{TableName}').join(LocalPathAsArray[1]);
+        updatedContents = updatedContents.split('{TableName}').join(LocalPathAsArray[LocalPathAsArray.length - 4]);
 
         // 3. Write the updated content back to the file
         fs.writeFileSync(filePath, updatedContents, 'utf-8');
