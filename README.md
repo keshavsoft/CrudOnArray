@@ -526,6 +526,10 @@ write end points in nodejs
 
 - GenFromPkWithMeta.OnlyBackEnd.Secured : Api/Middleware fixed for 401 cookie
 
+### 1.22.27
+
+- GenWMailAndWs.OnlyBackEnd.NonSecured : for api json
+
 ### License
 
 MIT
