@@ -530,6 +530,10 @@ write end points in nodejs
 
 - GenWMailAndWs.OnlyBackEnd.NonSecured : for api json
 
+### 1.22.28
+
+- GenWMailAndWs.OnlyBackEnd.NonSecured : for Insert/10 with ts
+
 ### License
 
 MIT
