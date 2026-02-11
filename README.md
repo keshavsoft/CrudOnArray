@@ -534,6 +534,10 @@ write end points in nodejs
 
 - GenWMailAndWs.OnlyBackEnd.NonSecured : for Insert/10 with ts
 
+### 1.22.29
+
+- GenFromPkWithMeta:TableNameWithPK:InsertWithChecks added GenFromPkWithMeta
+
 ### License
 
 MIT
