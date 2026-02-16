@@ -538,6 +538,10 @@ write end points in nodejs
 
 - GenFromPkWithMeta:TableNameWithPK:InsertWithChecks added GenFromPkWithMeta
 
+### 1.22.30
+
+- GenFromPkWithMeta:TableNameWithPK:InsertWithChecks added from TableNameWithPK
+
 ### License
 
 MIT

@@ -2,7 +2,7 @@ const vscode = require('vscode');
 const fse = require('fs-extra');
 const path = require('path');
 const { StartFunc: StartFuncFromRestFiles } = require('../../../CommonCode/RestFiles/enteryFile');
-const CommonRoutesPath = "TableName";
+const CommonRoutesPath = "TableNameWithPK";
 
 const StartFunc = ({ inTableName, inSubRoutes, inToPath, inVersion, inPortNumber, inColumnsAsArray }) => {
     const LocalTableName = inTableName;
