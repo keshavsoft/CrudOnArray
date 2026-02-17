@@ -3,7 +3,7 @@
   "displayName": "CrudOnArray",
   "publisher": "KeshavSoft",
   "description": "KeshavSoft Extension to enhance the development of web applications",
-  "version": "1.22.30",
+  "version": "1.22.31",
   "engines": {
     "vscode": "^1.96.0"
   },
