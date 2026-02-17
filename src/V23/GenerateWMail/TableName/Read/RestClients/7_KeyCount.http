@@ -1,0 +1,1 @@
+GET http://localhost:{PortNumber}/{Version}/{TableName}/Read/KeyCount/{Column name}

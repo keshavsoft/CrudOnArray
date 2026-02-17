@@ -546,6 +546,10 @@ write end points in nodejs
 
 - GenFromPkWithMeta:TableNameWithPK:InsertWithChecks:UniqImageDefault added
 
+### 1.23.1
+
+- InApiNonSec.OnlyBackEnd.NonSecured perfect with TableName copied from GenWMailAndWs 
+
 ### License
 
 MIT

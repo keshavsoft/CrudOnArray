@@ -1,0 +1,4 @@
+POST http://localhost:{PortNumber}/{Version}/{TableName}/SubTableOnArray/Insert/AsIs/{RowIndex}/{KeyName}
+Content-Type: application/json
+
+{Columns}

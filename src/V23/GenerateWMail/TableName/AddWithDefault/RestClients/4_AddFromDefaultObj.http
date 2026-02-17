@@ -1,0 +1,4 @@
+POST http://localhost:{PortNumber}/{Version}/{TableName}/AddWithDefault/AddFromDefaultObj
+Content-Type: application/json
+
+{Columns}

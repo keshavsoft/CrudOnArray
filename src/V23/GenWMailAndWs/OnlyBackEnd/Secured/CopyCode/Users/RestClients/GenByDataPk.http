@@ -1,0 +1,6 @@
+POST http://localhost:9328/Users/GenByDataPk
+Content-Type: application/json
+
+{
+	"UserName":"Keshav","Password":"9848163021"
+}
