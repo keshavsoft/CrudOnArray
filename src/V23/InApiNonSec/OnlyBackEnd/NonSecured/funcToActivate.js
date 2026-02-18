@@ -8,7 +8,9 @@ const { StartFunc: StartFuncFromGetMaxVersion } = require("./getMaxVersion");
 const { StartFunc: StartFuncFromLastRun } = require("./LastRun/entryFile");
 
 const { StartFunc: StartFuncFromCheckBeforeRun } = require("./CheckBeforeRun/entryFile");
+// const { StartFunc: StartFuncFromRecur } = require("./recur");
 
+const { StartFunc: StartFuncFromRecur } = require("./ForRestClients/entryFile");
 // const { StartFunc: StartFuncrunNodeApp } = require("./serverRun");
 
 const StartFunc = async ({ inToPath }) => {
@@ -17,6 +19,8 @@ const StartFunc = async ({ inToPath }) => {
     const LocalVersionSecured = await LocalFuncForSecureEndPoints({ inToPath });
 
     if (LocalVersionSecured === false) return false;
+
+    // StartFuncFromRecur(inToPath.replaceAll("\\","/"), `${inToPath}/Api/${LocalVersionSecured}`);
 
     StartFuncFromLastRun({
         filePath: `${LocalToPath}/Api/routes.js`,
@@ -61,6 +65,8 @@ const LocalFuncForSecureEndPoints = async ({ inToPath }) => {
         inToPath: LocalToPath,
         inVersion: LocalVersionSecured
     });
+
+    StartFuncFromRecur(inToPath.replaceAll("\\", "/"), `${inToPath}/Api/${LocalVersionSecured}`, LocalVersionSecured, LocalPortNumber);
 
     return await LocalVersionSecured;
 };

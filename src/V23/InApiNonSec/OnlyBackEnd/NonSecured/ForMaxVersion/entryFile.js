@@ -1,9 +1,11 @@
 const path = require('path');
 const fs = require("fs");
 const CommonApiJsonName = "api.json";
+const ComomonApiFolderName = "Api";
 
 const { StartFunc: StartFuncFromTableCreates } = require('./TableCreate');
 const { StartFunc: StartFuncFromForTableCheck } = require('./forTableCheck');
+const { StartFunc: StartFuncFromForRestClients } = require('./forRestClients');
 
 const LocalFuncReadSchemaJson = ({ inRootPath }) => {
     try {
@@ -54,6 +56,8 @@ const StartFunc = async ({ inDataPath, inPortNumber, inToPath, inVersion }) => {
             inPortNumber
         });
     };
+
+    StartFuncFromForRestClients(`${inToPath}/${ComomonApiFolderName}/${inVersion}`, inVersion,inPortNumber);
 };
 
 function LocalFuncReadTableSchema({ inRootPath }) {

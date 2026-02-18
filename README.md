@@ -550,6 +550,10 @@ write end points in nodejs
 
 - InApiNonSec.OnlyBackEnd.NonSecured perfect with TableName copied from GenWMailAndWs 
 
+### 1.23.2
+
+- InApiNonSec.OnlyBackEnd.NonSecured rest for each sub route seperate
+
 ### License
 
 MIT
